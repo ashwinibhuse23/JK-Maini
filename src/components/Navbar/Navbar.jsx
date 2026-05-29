@@ -25,24 +25,23 @@ const navItems = [
     {
         label: 'Beyond Business',
         href: '#',
-        children: [
-            { label: 'Service Details', href: 'service-single.html' },
-            { label: 'Blog Details', href: 'blog-single.html' },
-            { label: 'Projects', href: 'projects.html' },
-            { label: 'Project Details', href: 'project-single.html' },
-            { label: 'Our Team', href: 'team.html' },
-            { label: 'Team Details', href: 'team-single.html' },
-            { label: 'Pricing Plan', href: 'pricing.html' },
-            { label: 'Testimonials', href: 'testimonials.html' },
-            { label: 'Image Gallery', href: 'image-gallery.html' },
-            { label: 'Video Gallery', href: 'video-gallery.html' },
-            { label: 'FAQs', href: 'faqs.html' },
+        isMega: true,
+        megaColumns: [
+            [
+                { label: 'CSR Initiatives', href: '#' },
+                { label: 'JK Maini Group', href: '#' },
+                { label: 'Sustainability', href: '#' },
+                { label: 'Innovation & R&D', href: '#' },
+                { label: 'Awards & Recognition', href: '#' },
+            ],
+            [
+                { label: 'Our Team', href: '#' },
+                { label: 'Life at JK Maini', href: '#' },
+                { label: 'Community Outreach', href: '#' },
+                { label: 'Media & Press', href: '#' },
+                { label: 'FAQs', href: '#' },
+            ],
         ],
-        children2: [
-            { label: 'csr', href: '#' },
-            { label: 'JK Maini Group', href: '#' },
-            
-        ]
     },
     { label: 'Contact Us', href: 'contact.html' },
 ];
@@ -75,7 +74,7 @@ const Navbar = () => {
                                 <div className="nav-menu-wrapper">
                                     <ul className="navbar-nav mr-auto" id="menu">
                                         {navItems.map((item, i) => (
-                                            <li key={i} className={`nav-item${item.children ? ' submenu' : ''}`}>
+                                            <li key={i} className={`nav-item${item.children ? ' submenu' : ''}${item.isMega ? ' submenu mega-parent' : ''}`}>
                                                 <a className="nav-link" href={item.href}>
                                                     {item.label}
                                                 </a>
@@ -90,7 +89,19 @@ const Navbar = () => {
                                                         ))}
                                                     </ul>
                                                 )}
-                                                
+                                                {item.isMega && (
+                                                    <div className="mega-menu">
+                                                        {item.megaColumns.map((col, ci) => (
+                                                            <ul key={ci} className="mega-col">
+                                                                {col.map((link, li) => (
+                                                                    <li key={li}>
+                                                                        <a href={link.href}>{link.label}</a>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        ))}
+                                                    </div>
+                                                )}
                                             </li>
                                         ))}
                                     </ul>
@@ -124,10 +135,10 @@ const Navbar = () => {
                             {navItems.map((item, i) => (
                                 <li key={i} className={`mobile-nav-item${item.children ? ' has-submenu' : ''}`}>
                                     <div className="mobile-nav-row">
-                                        <Link className="mobile-nav-link" to={item.href} onClick={item.children ? (e) => { e.preventDefault(); toggleSubmenu(i); } : closeMenu}>
+                                        <Link className="mobile-nav-link" to={item.href} onClick={(item.children || item.isMega) ? (e) => { e.preventDefault(); toggleSubmenu(i); } : closeMenu}>
                                             {item.label}
                                         </Link>
-                                        {item.children && (
+                                        {(item.children || item.isMega) && (
                                             <button
                                                 className={`submenu-arrow${openSubmenu === i ? ' rotated' : ''}`}
                                                 onClick={() => toggleSubmenu(i)}
@@ -143,6 +154,17 @@ const Navbar = () => {
                                                 <li key={j} className="mobile-submenu-item">
                                                     <a className="mobile-submenu-link" href={child.href} onClick={closeMenu}>
                                                         {child.label}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                    {item.isMega && openSubmenu === i && (
+                                        <ul className="mobile-submenu">
+                                            {item.megaColumns.flat().map((link, j) => (
+                                                <li key={j} className="mobile-submenu-item">
+                                                    <a className="mobile-submenu-link" href={link.href} onClick={closeMenu}>
+                                                        {link.label}
                                                     </a>
                                                 </li>
                                             ))}
