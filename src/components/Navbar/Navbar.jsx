@@ -28,18 +28,20 @@ const navItems = [
         isMega: true,
         megaColumns: [
             [
-                { label: 'CSR Initiatives', href: '#' },
-                { label: 'JK Maini Group', href: '#' },
-                { label: 'Sustainability', href: '#' },
-                { label: 'Innovation & R&D', href: '#' },
-                { label: 'Awards & Recognition', href: '#' },
+                { header: 'JKMPTL' },
+                { label: 'Sustainability, Certifications & Governance', href: '/jkmptl-sustainability' },
+                { label: 'Awards', href: '/jkmptl-awards' },
+                { label: 'CSR', href: '/jkmptl-csr' },
+                { label: 'News & Events', href: '/jkmptl-news-events' },
+
             ],
             [
-                { label: 'Our Team', href: '#' },
-                { label: 'Life at JK Maini', href: '#' },
-                { label: 'Community Outreach', href: '#' },
-                { label: 'Media & Press', href: '#' },
-                { label: 'FAQs', href: '#' },
+                { header: 'JKMGAL' },
+                { label: 'Sustainability & ESG', href: '/jkmgal-sustainability' },
+                { label: 'CSR & Impact', href: '/jkmgal-csr' },
+                { label: 'News & Events', href: '#' },
+                { label: 'Awards', href: '#' },
+
             ],
         ],
     },
@@ -92,13 +94,14 @@ const Navbar = () => {
                                                 {item.isMega && (
                                                     <div className="mega-menu">
                                                         {item.megaColumns.map((col, ci) => (
-                                                            <ul key={ci} className="mega-col">
+                                                            <div key={ci} className="mega-col">
                                                                 {col.map((link, li) => (
-                                                                    <li key={li}>
-                                                                        <a href={link.href}>{link.label}</a>
-                                                                    </li>
+                                                                    <>
+                                                                        <h4 className='text-start' key={li}>{link.header}</h4>
+                                                                        <a key={li} href={link.href} className="mega-link">{link.label}</a>
+                                                                    </>
                                                                 ))}
-                                                            </ul>
+                                                            </div>
                                                         ))}
                                                     </div>
                                                 )}
@@ -109,7 +112,7 @@ const Navbar = () => {
                                 {/* Header Btn Start */}
                                 <div className="header-btn">
                                     <ButtonOne text="Get Started" icon={<FaRegArrowAltCircleRight />} link="#" />
-                                    
+
                                 </div>
                                 {/* Header Btn End */}
                             </div>

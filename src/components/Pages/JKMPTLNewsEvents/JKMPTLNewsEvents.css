@@ -1,0 +1,608 @@
+/* ── Gradient token ────────────────────────────────────────────────────── */
+:root {
+    --ue-red: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    --ue-red-mid: #E81C3D;   /* solid fallback for borders */
+}
+
+/* ── Animation keyframes ───────────────────────────────────────────────── */
+@keyframes ueSlideUp {
+    from { opacity: 0; transform: translateY(44px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ueSlideLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ueSlideRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ueFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes ueScaleX {
+    from { transform: scaleX(0); opacity: 0; }
+    to   { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes ueImgFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes ueContentFade {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Base animation class — hidden until ue-visible on parent ──────────── */
+.ue-anim {
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-play-state: paused;
+    will-change: opacity, transform;
+    /* prevent invisible-forever if observer never fires */
+    transition: none;
+}
+
+/* When .ue-visible is added to .ue-section, all children animate in */
+.ue-visible .ue-anim {
+    animation-play-state: running;
+    animation-delay: var(--delay, 0s);
+}
+
+/* Once animation finishes, release will-change to save memory */
+.ue-visible .ue-anim[style] {
+    will-change: auto;
+}
+
+.ue-anim--slide-up    { animation-name: ueSlideUp; }
+.ue-anim--slide-left  { animation-name: ueSlideLeft; }
+.ue-anim--slide-right { animation-name: ueSlideRight; }
+.ue-anim--fade        { animation-name: ueFadeIn; }
+.ue-anim--scale-x     {
+    animation-name: ueScaleX;
+    transform-origin: left center;
+}
+
+/* ── Image fade on slide change ────────────────────────────────────────── */
+/* Use CSS transition so no remount glitch */
+.ue-panel-img {
+    transition: opacity 0.5s ease;
+}
+.ue-img-fade {
+    animation: ueImgFade 0.5s ease both;
+}
+
+/* ── Panel content fade when switching events ──────────────────────────── */
+.ue-content-fade {
+    animation: ueContentFade 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Upcoming Events Section ──────────────────────────────────────────── */
+.ue-wrapper {
+    background: #f4f5f7;
+    padding: 50px 32px 60px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ue-section {
+    display: flex;
+    gap: 0;
+    max-width: 1120px;
+    margin: 0 auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+/* ── Left Sidebar ─────────────────────────────────────────────────────── */
+.ue-sidebar {
+    width: 360px;
+    min-width: 320px;
+    background: #0f1014;
+    color: #fff;
+    padding: 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.ue-sidebar-heading {
+    margin-bottom: 6px;
+}
+
+/* "Upcoming" — gradient text */
+.ue-sidebar-heading .ue-heading-upcoming {
+    display: block;
+    font-size: 2.1rem;
+    font-weight: 900;
+    background: var(--ue-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    font-family: var(--secondary-font);   /* Gilroy */
+    letter-spacing: -0.01em;
+}
+
+/* "Events" — same display treatment */
+.ue-sidebar-heading .ue-heading-events {
+    display: block;
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    font-family: var(--secondary-font);   /* Gilroy */
+    letter-spacing: -0.01em;
+}
+
+/* Sub-text uses Poppins (primary body font) */
+.ue-sidebar-sub {
+    color: #8c8c8c;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 8px 0 0 0;
+    font-family: var(--primary-font);     /* Poppins */
+}
+
+/* Divider — gradient background */
+.ue-sidebar-divider {
+    width: 36px;
+    height: 3px;
+    background: var(--ue-red);
+    border-radius: 2px;
+    margin: 16px 0 22px;
+}
+
+/* ── Event List ───────────────────────────────────────────────────────── */
+.ue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+/* Scrollable variant — always shows vertical scrollbar */
+.ue-list-scroll {
+    margin-top: 12px;
+    max-height: 460px;
+    overflow-y: scroll;
+    padding-right: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: #E81C3D #1a1c22;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ue-list-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.ue-list-scroll::-webkit-scrollbar-track {
+    background: #1a1c22;
+    border-radius: 4px;
+}
+
+/* Scrollbar thumb — gradient */
+.ue-list-scroll::-webkit-scrollbar-thumb {
+    background: var(--ue-red);
+    border-radius: 4px;
+}
+
+.ue-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 14px 14px 12px;
+    border-radius: 10px;
+    background: #181a1f;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.25s, background 0.25s;
+}
+
+/* Active border — gradient via border-image (no radius on left edge) */
+.ue-item.active {
+    background: #1f2128;
+    border-left-color: var(--ue-red-mid);
+    position: relative;
+}
+
+/* Gradient left bar using pseudo-element (preserves border-radius) */
+.ue-item.active::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 10px 0 0 10px;
+    background: var(--ue-red);
+}
+
+.ue-item:hover:not(.active) {
+    background: #1c1e24;
+    border-left-color: #444;
+}
+
+.ue-item-date {
+    text-align: center;
+    min-width: 58px;
+    flex-shrink: 0;
+    background: #111318;
+    border: 1px solid #2a2b31;
+    border-radius: 8px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Day range — small label, Poppins */
+.ue-item-date .day-range {
+    font-size: 0.65rem;
+    color: #888;
+    display: block;
+    line-height: 1;
+    margin-bottom: 1px;
+    font-family: var(--primary-font);     /* Poppins */
+    white-space: nowrap;
+}
+
+/* Month — gradient text, Gilroy */
+.ue-item-date .month {
+    font-size: 1.2rem;
+    font-weight: 900;
+    background: var(--ue-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.05;
+    display: block;
+    letter-spacing: 0.02em;
+    font-family: var(--secondary-font);   /* Gilroy */
+}
+
+/* Year — small label, Poppins */
+.ue-item-date .year {
+    font-size: 0.65rem;
+    color: #666;
+    display: block;
+    line-height: 1.6;
+    font-family: var(--primary-font);     /* Poppins */
+}
+
+.ue-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Type badge — gradient text, Poppins */
+.ue-item-type {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    background: var(--ue-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-family: var(--primary-font);     /* Poppins */
+}
+
+/* Event title — Gilroy for display feel */
+.ue-item-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.35;
+    margin: 0 0 6px;
+    font-family: var(--secondary-font);   /* Gilroy */
+}
+
+/* Location — body text, Poppins */
+.ue-item-loc {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    color: #777;
+    font-family: var(--primary-font);     /* Poppins */
+}
+
+
+.ue-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Image area – 16:9 aspect ratio, landscape banners fill perfectly */
+.ue-panel-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0d0e13;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: block;
+}
+
+/* ── Slider prev / next buttons ───────────────────────────────────────── */
+.ue-slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    opacity: 0;
+}
+
+.ue-panel-img-wrap:hover .ue-slide-btn {
+    opacity: 1;
+}
+
+.ue-slide-btn--prev { left: 12px; }
+.ue-slide-btn--next { right: 12px; }
+
+.ue-slide-btn:hover {
+    background: rgba(232, 28, 61, 0.75);
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* ── Dot indicators ───────────────────────────────────────────────────── */
+.ue-slide-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    z-index: 10;
+}
+
+.ue-slide-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s, width 0.25s;
+    flex-shrink: 0;
+}
+
+.ue-slide-dot.active {
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    width: 22px;
+    border-radius: 4px;
+    transform: none;
+}
+
+.ue-panel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* Subtle bottom gradient for readability */
+.ue-panel-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+    pointer-events: none;
+}
+
+/* Badge sits at bottom-left over the image */
+.ue-panel-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    background: #FF9F0A;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-family: var(--primary-font);     /* Poppins */
+}
+
+/* Content below image */
+.ue-panel-content {
+    padding: 36px 26px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+/* Panel title — Gilroy for display/heading feel */
+.ue-panel-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0d0d0d;
+    margin: 0 0 12px;
+    line-height: 1.2;
+    font-family: var(--secondary-font);   /* Gilroy */
+}
+
+.ue-panel-meta {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+/* Meta items (date, location) — Poppins */
+.ue-panel-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #555;
+    font-family: var(--primary-font);     /* Poppins */
+}
+
+.ue-panel-meta-sep {
+    color: #ccc;
+    margin: 0 14px;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Description — Poppins body text */
+.ue-panel-desc {
+    font-size: 0.86rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0 0 20px;
+    flex: 1;
+    font-family: var(--primary-font);     /* Poppins */
+}
+
+.ue-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Primary CTA button — pill style matching site's csrcta-btn-primary */
+.ue-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ue-red);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 7px 10px 7px 20px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 6px 24px rgba(232, 28, 61, 0.38);
+    font-family: var(--primary-font);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+}
+
+/* White circle with red arrow — slides right on hover */
+.ue-btn-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fff;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.ue-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(232, 28, 61, 0.48);
+}
+
+.ue-btn-primary:hover .ue-btn-circle {
+    transform: translateX(3px);
+}
+
+/* Secondary button — Poppins */
+.ue-btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: #111;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 11px 18px;
+    border-radius: 8px;
+    border: 1.5px solid #ddd;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    font-family: var(--primary-font);     /* Poppins */
+    text-decoration: none;
+}
+
+.ue-btn-secondary:hover {
+    border-color: var(--ue-red-mid);
+    color: var(--ue-red-mid);
+}
+
+.ue-btn-secondary-arrow {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s;
+}
+
+.ue-btn-secondary:hover .ue-btn-secondary-arrow {
+    border-color: var(--ue-red-mid);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+    .ue-section {
+        flex-direction: column;
+    }
+    .ue-sidebar {
+        width: 100%;
+        min-width: unset;
+    }
+    /* aspect-ratio already handles height on mobile */
+    .ue-panel-img-wrap {
+        aspect-ratio: 16 / 9;
+    }
+    .ue-wrapper {
+        padding: 30px 16px 40px;
+    }
+}
+
+@media (max-width: 520px) {
+    .ue-panel-title { font-size: 1.2rem; }
+    .ue-panel-content { padding: 16px 18px 20px; }
+    .ue-panel-img-wrap { height: 180px; }
+}

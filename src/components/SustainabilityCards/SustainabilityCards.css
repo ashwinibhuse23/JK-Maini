@@ -1,0 +1,121 @@
+.sustainability-cards{
+    background-color: #F6F5ED;
+    padding-block: 5rem;
+}
+
+
+.cards-parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+}
+.sus-card {
+    /* height: 130px; */
+    padding-block: 1.2rem;
+    /* background-color: #Fff; */
+    border-radius: 15px;
+    
+    border-left: 3px solid #E81C3D;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: all .3s ease-in-out;
+}
+
+.sus-card:hover{
+    
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    transform: translateY(-5px);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.sus-card-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* background-color: #F6F5ED; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sus-card h3{
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: var(--primary-font);
+}
+
+.sus-card-icon img{
+    width: 60%;
+}
+
+.impact{
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.impact-card{
+   padding-block: 1.2rem;
+   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+   transition: all .3s ease-in-out;
+   /* border-radius: 10px; */
+   background: linear-gradient(90deg, rgba(255, 203, 4, 1) 0%, rgba(249, 166, 18, 1) 25%, rgba(237, 25, 58, 1) 75%, rgba(95, 15, 64, 1) 100%);
+   clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
+}
+
+.impact-card-icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* background-color: #F6F5ED; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.impact-card-icon img{
+    width: 60%;
+    filter: brightness(100);
+}
+
+.impact-card-title h3{
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: var(--primary-font);
+    color: #fff;
+}
+
+.impacts-card{
+    padding-block: 1.2rem;
+    border-radius: 5px;
+    border-left: 3px solid #E81C3D;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    
+}
+
+.impacts-card-icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* background-color: #F6F5ED; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.impacts-card-icon img{
+    width: 70%;
+}
+
+.impacts-card-title h3{
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--primary-font);
+    color: #000;
+}

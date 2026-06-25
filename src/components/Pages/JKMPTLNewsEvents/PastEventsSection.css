@@ -1,0 +1,473 @@
+/* ═══════════════════════════════════════════════════════════════
+   Past Events Section
+   ═══════════════════════════════════════════════════════════════ */
+
+.pe-section {
+    position: relative;
+    background: #ffffff;
+    padding: 64px 32px 56px;
+    overflow: hidden;
+}
+
+/* Decorative dot grid — top-right */
+.pe-dots-grid {
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 10px);
+    gap: 8px;
+    pointer-events: none;
+    z-index: 0;
+}
+.pe-dot-el {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #e2e4ea;
+}
+
+.pe-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.pe-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.pe-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pe-eyebrow {
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+}
+
+.pe-heading {
+    font-family: var(--secondary-font, 'Gilroy', sans-serif);
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: #0d0d0d;
+    line-height: 1.15;
+    margin: 0 0 10px;
+}
+
+.pe-heading-line {
+    width: 36px;
+    height: 3px;
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    border-radius: 2px;
+}
+
+/* ── Tabs ────────────────────────────────────────────────────────── */
+.pe-tabs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pe-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 11px 22px;
+    border-radius: 10px;
+    border: 1.5px solid #e0e0e0;
+    background: transparent;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.pe-tab:hover {
+    border-color: #E81C3D;
+    color: #E81C3D;
+}
+
+.pe-tab.active {
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(232, 28, 61, 0.35);
+}
+
+.pe-tab.active svg {
+    stroke: #fff;
+}
+
+/* ── Cards grid ─────────────────────────────────────────────────── */
+@keyframes peCardsFadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.pe-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    animation: peCardsFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Single card ─────────────────────────────────────────────────── */
+.pe-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.pe-card:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.13);
+    transform: translateY(-4px);
+}
+
+/* ── Hero image area ─────────────────────────────────────────────── */
+.pe-card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    overflow: hidden;
+    background: #111;
+}
+
+.pe-card-hero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.pe-card:hover .pe-card-hero {
+    transform: scale(1.04);
+}
+
+/* Hero image swap fade */
+@keyframes peHeroFade {
+    from { opacity: 0; transform: scale(1.03); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.pe-hero-fade {
+    animation: peHeroFade 0.4s ease both;
+}
+
+/* ── Blob + Number overlay ───────────────────────────────────────── */
+.pe-blob {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(179,18,47,0.88) 0%, rgba(232,28,61,0.82) 60%, rgba(255,92,119,0.75) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 22px;
+    padding-right: 18px;
+    z-index: 2;
+}
+
+.pe-number {
+    font-family: var(--secondary-font, 'Gilroy', sans-serif);
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* ── Date badge ──────────────────────────────────────────────────── */
+.pe-date-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    min-width: 52px;
+    box-shadow: 0 4px 14px rgba(232, 28, 61, 0.4);
+}
+
+.pe-date-badge svg {
+    margin-bottom: 3px;
+    stroke: rgba(255,255,255,0.8);
+}
+
+.pe-date-day {
+    font-family: var(--secondary-font, 'Gilroy', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.pe-date-month {
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.pe-date-year {
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+/* ── Card body ───────────────────────────────────────────────────── */
+.pe-card-body {
+    padding: 20px 18px 18px;
+    background: #fff;
+}
+
+.pe-card-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+/* Square icon box */
+.pe-card-icon-wrap {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(232, 28, 61, 0.08);
+    border: 1px solid rgba(232, 28, 61, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #E81C3D;
+    margin-top: 2px;
+}
+
+.pe-card-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.pe-card-title {
+    font-family: var(--secondary-font, 'Gilroy', sans-serif);
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: #0d0d0d;
+    line-height: 1.3;
+    margin: 0 0 5px;
+}
+
+.pe-card-desc {
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+    font-size: 0.78rem;
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Circle arrow button */
+.pe-arrow-btn {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(232, 28, 61, 0.38);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 4px;
+    align-self: center;
+}
+
+.pe-arrow-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(232, 28, 61, 0.5);
+}
+
+/* ── Thumbnail strip ──────────────────────────────────── */
+.pe-thumbs {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    /* hide native scrollbar visually */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.pe-thumbs::-webkit-scrollbar {
+    display: none;
+}
+
+.pe-thumb {
+    flex-shrink: 0;
+    width: 110px;
+    height: 76px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
+.pe-thumb:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
+
+/* Active / selected thumbnail */
+.pe-thumb--active {
+    outline: 2.5px solid #E81C3D;
+    outline-offset: 2px;
+    opacity: 1 !important;
+    transform: scale(1.05);
+    border-radius: 8px;
+}
+
+.pe-more-badge {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    color: #fff;
+    border-radius: 8px;
+    width: calc(25% - 6px);
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.pe-more-badge:hover {
+    opacity: 0.9;
+}
+
+.pe-more-num {
+    font-family: var(--secondary-font, 'Gilroy', sans-serif);
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.pe-more-label {
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+/* ── Bottom navigation ───────────────────────────────────────────── */
+.pe-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.pe-nav-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid #ddd;
+    background: #fff;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.pe-nav-arrow:hover {
+    border-color: #E81C3D;
+    color: #E81C3D;
+    background: rgba(232,28,61,0.05);
+}
+
+.pe-nav-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pe-nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd;
+    transition: background 0.2s, width 0.25s;
+}
+
+.pe-nav-dot.active {
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+    .pe-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .pe-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+    .pe-section {
+        padding: 40px 16px 40px;
+    }
+
+    .pe-tabs {
+        flex-wrap: wrap;
+    }
+
+    .pe-heading {
+        font-size: 1.5rem;
+    }
+}

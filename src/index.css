@@ -1,54 +1,123 @@
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ── Poppins — Self-hosted from /fonts ─────────────────── */
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ── Gilroy — Self-hosted from /fonts ──────────────────── */
+@font-face {
+	font-family: 'Gilroy';
+	src: url('/fonts/Gilroy-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url('/fonts/Gilroy-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url('/fonts/Gilroy-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url('/fonts/Gilroy-Heavy.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 html.lenis,
 html.lenis body {
-  height: auto;
+	height: auto;
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+	scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+	overscroll-behavior: contain;
 }
 
 .lenis.lenis-stopped {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .lenis.lenis-scrolling iframe {
-  pointer-events: none;
+	pointer-events: none;
 }
 
-html,body{
-  width: 100%;
+html,
+body {
+	width: 100%;
 	overflow-x: clip;
 
 }
 
 
 
-:root{
-	--primary-color				: #18191A;
-	--secondary-color			: #FFFFFF;
-	--bg-color					: #F6F5ED;
-	--text-color				: #727272;
-	--accent-color				: #763235;
-    --accent-secondary-color	: #C19A5B;
-	--white-color				: #FFFFFF;
-	--divider-color				: #18191A1A;
-	--dark-divider-color		: #FFFFFF1A;
-	--error-color				: rgb(230, 87, 87);
-	--primary-font				: "Poppins", sans-serif;
-    --secondary-font			: "Gilroy", sans-serif;
+:root {
+	--primary-color: #18191A;
+	--secondary-color: #FFFFFF;
+	--bg-color: #F6F5ED;
+	--text-color: #727272;
+	--accent-color: #763235;
+	--accent-secondary-color: #C19A5B;
+	--white-color: #FFFFFF;
+	--divider-color: #18191A1A;
+	--dark-divider-color: #FFFFFF1A;
+	--error-color: rgb(230, 87, 87);
+	--primary-font: 'Poppins', sans-serif;
+	--secondary-font: 'Gilroy', sans-serif;
 }
 
-body{
+
+
+body {
 	font-family: var(--primary-font);
 	font-size: 16px;
 	font-weight: 400;
@@ -58,27 +127,27 @@ body{
 }
 
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
 	background-color: var(--primary-color);
 	border-left: 1px solid var(--primary-color);
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
 	width: 7px;
 	background-color: var(--primary-color);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
 	background: var(--accent-secondary-color);
 }
 
-::selection{
+::selection {
 	color: var(--white-color);
 	background-color: var(--accent-color);
 	filter: invert(1);
 }
 
-p{
+p {
 	line-height: 1.6em;
 	margin-bottom: 1.5em;
 }
@@ -88,7 +157,7 @@ h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
 	font-family: var(--secondary-font);
 	font-weight: 400;
 	line-height: 1.2em;
@@ -97,101 +166,101 @@ h6{
 }
 
 
-figure{
+figure {
 	margin: 0;
 }
 
-img{
+img {
 	max-width: 100%;
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
-a:hover{
-	text-decoration: none;
-	outline: 0;
-}
-
-a:focus{
+a:hover {
 	text-decoration: none;
 	outline: 0;
 }
 
+a:focus {
+	text-decoration: none;
+	outline: 0;
+}
 
-.section-row{
+
+.section-row {
 	margin-bottom: 80px;
 }
 
-.section-row .section-title{
-	margin-bottom: 0; 
+.section-row .section-title {
+	margin-bottom: 0;
 }
 
-.section-row .section-title.section-title-center{
+.section-row .section-title.section-title-center {
 	width: 100%;
 	max-width: 700px;
 	margin: 0 auto;
 	text-align: center;
 }
 
-.section-btn{
+.section-btn {
 	text-align: right;
 }
 
-.section-content-btn .section-btn{
+.section-content-btn .section-btn {
 	margin-top: 30px;
 	text-align: left;
 }
 
-.section-title-content p{
+.section-title-content p {
 	margin-bottom: 20px;
 }
 
-.section-title-content p:last-child{
-	margin-bottom: 0;	
+.section-title-content p:last-child {
+	margin-bottom: 0;
 }
 
-.section-title{
+.section-title {
 	margin-bottom: 40px;
 }
 
-.section-title .section-sub-title{
+.section-title .section-sub-title {
 	position: relative;
 	display: inline-block;
 	font-size: 14px;
 	font-weight: 400;
 	text-transform: capitalize;
 	line-height: 1em;
-    color: var(--primary-color);
+	color: var(--primary-color);
 	border: 1px solid var(--divider-color);
 	border-radius: 100px;
 	padding: 9px 20px 9px 36px;
 	margin-bottom: 15px;
 }
 
-.dark-section .section-title .section-sub-title{
+.dark-section .section-title .section-sub-title {
 	border-color: var(--dark-divider-color);
 }
 
-.section-title .section-sub-title::before{
+.section-title .section-sub-title::before {
 	content: '';
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #E81C3D;
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: #E81C3D;
 	border-radius: 50%;
-    width: 6px;
-    height: 6px;
+	width: 6px;
+	height: 6px;
 }
 
 .section-title.section-sub-heading,
-.section-title.section-sub-heading .section-sub-title{
+.section-title.section-sub-heading .section-sub-title {
 	margin-bottom: 0;
 }
 
-.section-title h1{
+.section-title h1 {
 	font-size: 60px;
 	margin-bottom: 0;
 	cursor: none;
@@ -200,7 +269,7 @@ a:focus{
 	text-transform: capitalize;
 }
 
-.section-title h2{
+.section-title h2 {
 	font-size: 48px;
 	margin-bottom: 0;
 	cursor: none;
@@ -209,10 +278,8 @@ a:focus{
 	text-transform: capitalize;
 }
 
-.section-title p{
+.section-title p {
 	margin-top: 20px;
 	margin-bottom: 0;
 	font-family: var(--secondary-font);
 }
-
-

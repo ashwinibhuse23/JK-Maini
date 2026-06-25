@@ -1,0 +1,1215 @@
+/* ===================================================
+   JKMGAL Sustainability & ESG — Site Theme Matched
+   Fonts : Poppins (headings) + Gilroy (body)
+   Colors: var(--primary-color) / var(--accent-color) / var(--text-color)
+   =================================================== */
+
+.jkmgal-sustain-section {
+    position: relative;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+/* =====================================================
+   HERO BLOCK
+   Left 48%: white panel with all text
+   Right 52%: background image (reduced height, shifted down)
+   ===================================================== */
+.jkmgal-hero-block {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    min-height: 500px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* ── LEFT white text column ── */
+.jkmgal-hero-left {
+    background: #ffffff;
+    padding: 68px 44px 52px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 2;
+}
+
+/* ESG badge — matches site's .section-sub-title pill style */
+.jkmgal-esg-tag {
+    position: relative;
+    display: inline-block;
+    font-family: var(--primary-font);
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 1em;
+    color: var(--primary-color);
+    border: 1px solid var(--divider-color);
+    border-radius: 100px;
+    padding: 9px 20px 9px 36px;
+    margin-bottom: 20px;
+    width: fit-content;
+    background: transparent;
+}
+
+/* Red dot on the left — same as site's section-sub-title::before */
+.jkmgal-esg-tag::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #E81C3D;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+}
+
+/* Main heading — site font, sized to fit in 2 lines at 100% zoom */
+.jkmgal-main-heading {
+    font-family: var(--primary-font);
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 700;
+    line-height: 1.18;
+    color: var(--primary-color);
+    margin: 0;
+    text-transform: none;
+}
+
+.jkmgal-main-heading .red-word {
+    color: #E81C3D;
+}
+
+/* Accent red underline rule */
+.jkmgal-heading-rule {
+    width: 42px;
+    height: 3px;
+    background: #E81C3D;
+    border: none;
+    border-radius: 2px;
+    margin: 18px 0 20px 0;
+    flex-shrink: 0;
+}
+
+/* Hero description — Gilroy body style */
+/* Hero desc — layout only; about-raymond handles color + size */
+.jkmgal-hero-desc {
+    margin: 0 0 36px 0 !important;
+    max-width: 430px;
+    font-size: 15px !important;
+    line-height: 1.65;
+}
+
+/* Framework title — same design as main heading, smaller size */
+.jkmgal-framework-title {
+    font-family: var(--primary-font);
+    font-size: clamp(16px, 1.6vw, 22px);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.18;
+    text-transform: none;
+    cursor: none;
+}
+
+.jkmgal-framework-rule {
+    width: 36px;
+    height: 3px;
+    background: #E81C3D;
+    border: none;
+    border-radius: 2px;
+    margin: 10px 0 14px 0;
+    flex-shrink: 0;
+}
+
+/* Framework desc — layout only; about-raymond handles color + size */
+.jkmgal-framework-desc {
+    max-width: 430px;
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.65;
+}
+
+/* ── RIGHT image column ── */
+.jkmgal-hero-right {
+    position: relative;
+    overflow: hidden;
+}
+
+.jkmgal-hero-right img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Soft left-side fade — narrower so no dead-zone gap */
+.jkmgal-hero-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(to right, #ffffff, transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* =====================================================
+   PILLAR CARDS
+   ===================================================== */
+.jkmgal-pillars {
+    padding: 8px 80px 52px 80px;
+    /* match hero left padding */
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.jkmgal-pillar-card {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid rgba(24, 25, 26, 0.07);
+    box-shadow: 0 4px 24px rgba(24, 25, 26, 0.07);
+    overflow: hidden;
+    min-height: 174px;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease;
+}
+
+.jkmgal-pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(24, 25, 26, 0.12);
+}
+
+/* Image outer — full card height, flush left */
+.jkmgal-img-outer {
+    position: relative;
+    flex-shrink: 0;
+    align-self: stretch;
+    /* fill full card height */
+    width: 280px;
+}
+
+/* Decorative swoosh arc — bottom-right of image */
+.jkmgal-img-outer::after {
+    content: '';
+    position: absolute;
+    right: -18px;
+    bottom: -10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    border-top-color: transparent;
+    border-left-color: transparent;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.jkmgal-img-outer.social-outer::after {
+    border-color: #E81C3D;
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+.jkmgal-img-outer.gov-outer::after {
+    border-color: #f48120;
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+/* Image — fills outer, rounded only on left to match card */
+.jkmgal-pillar-img-wrap {
+    width: 100%;
+    height: 100%;
+    border-radius: 13px 0 0 13px;
+    overflow: hidden;
+    border: none;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+}
+
+
+.jkmgal-pillar-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Icon + Title + Desc */
+.jkmgal-pillar-info {
+    flex: 0 0 320px;
+    padding: 22px 22px 22px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(24, 25, 26, 0.08);
+}
+
+/* Icon circle container — pillar-specific colored bg */
+.jkmgal-pillar-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.jkmgal-pillar-icon-wrap.env-icon-bg {
+    background: rgba(26, 107, 48, 0.10);
+}
+
+.jkmgal-pillar-icon-wrap.social-icon-bg {
+    background: rgba(232, 28, 61, 0.10);
+}
+
+.jkmgal-pillar-icon-wrap.gov-icon-bg {
+    background: rgba(21, 101, 192, 0.10);
+}
+
+.jkmgal-pillar-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.jkmgal-pillar-name {
+    font-family: var(--primary-font);
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-weight: 700;
+    color: #1a6b30;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    cursor: none;
+}
+
+.jkmgal-pillar-name.social-color {
+    color: #E81C3D;
+}
+
+.jkmgal-pillar-name.gov-color {
+    color: #f48120;
+}
+
+.jkmgal-pillar-name-rule {
+    width: 28px;
+    height: 2px;
+    background: #E81C3D;
+    border: none;
+    border-radius: 2px;
+    margin: 9px 0 11px 0;
+}
+
+.jkmgal-pillar-subdesc {
+    font-family: var(--secondary-font);
+    font-size: 13px !important;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 230px;
+}
+
+/* Bullet list */
+.jkmgal-pillar-bullets {
+    flex: 1;
+    padding: 20px 16px 20px 28px;
+    display: flex;
+    align-items: center;
+}
+
+/* Reduce font-size of the about-raymond paragraph inside bullets */
+.jkmgal-pillar-bullets p.about-raymond {
+    font-size: 13px !important;
+    line-height: 1.6;
+    margin-top: 6px;
+}
+
+.jkmgal-pillar-bullets ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.jkmgal-pillar-bullets ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: var(--secondary-font);
+    font-size: 14px;
+    color: #111111;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Bullet icon — per pillar color */
+.jkmgal-pillar-bullets ul li::before {
+    content: '';
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background-color: #1a6b30;
+    /* default: green (env) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Social: red */
+.jkmgal-pillar-bullets.social-bullets ul li::before {
+    background-color: #E81C3D;
+}
+
+/* Governance: orange */
+.jkmgal-pillar-bullets.gov-bullets ul li::before {
+    background-color: #f48120;
+}
+
+/* Watermark number — per pillar color */
+.jkmgal-pillar-number {
+    font-family: var(--primary-font);
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(26, 107, 48, 0.08);
+    /* default: green (env) */
+    line-height: 1;
+    padding: 0 24px;
+    user-select: none;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.jkmgal-pillar-number.social-num {
+    color: rgba(232, 28, 61, 0.08);
+}
+
+.jkmgal-pillar-number.gov-num {
+    color: rgba(244, 129, 32, 0.08);
+}
+
+/* =====================================================
+   FOOTER STRIP
+   ===================================================== */
+.jkmgal-footer-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 14px 80px 20px;
+    /* match hero left padding */
+    border-top: 1px solid rgba(24, 25, 26, 0.1);
+    background: #ffffff;
+}
+
+.jkmgal-footer-strip .strip-line {
+    flex: 1;
+    max-width: 130px;
+    height: 2px;
+    background: #E81C3D;
+    border-radius: 1px;
+}
+
+.jkmgal-footer-text {
+    font-family: var(--primary-font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    white-space: nowrap;
+    margin: 0;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 1100px) {
+    .jkmgal-hero-left {
+        padding: 40px 36px 40px 44px;
+    }
+
+    .jkmgal-main-heading {
+        font-size: 36px;
+    }
+
+    .jkmgal-pillars {
+        padding: 28px 44px 44px;
+    }
+
+    .jkmgal-pillar-info {
+        flex: 0 0 230px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jkmgal-hero-block {
+        grid-template-columns: 1fr;
+    }
+
+    .jkmgal-hero-right {
+        height: 240px;
+    }
+
+    .jkmgal-hero-right img {
+        max-height: 240px;
+    }
+
+    .jkmgal-hero-right::before {
+        display: none;
+    }
+
+    .jkmgal-hero-left {
+        padding: 32px 28px;
+    }
+
+    .jkmgal-main-heading {
+        font-size: 28px;
+    }
+
+    .jkmgal-pillars,
+    .jkmgal-footer-strip {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .jkmgal-pillar-info {
+        flex: 1 1 auto;
+        border-right: none;
+    }
+
+    .jkmgal-pillar-number {
+        display: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .jkmgal-main-heading {
+        font-size: 24px;
+    }
+
+    .jkmgal-pillar-card {
+        flex-wrap: wrap;
+    }
+
+    .jkmgal-pillar-img-wrap {
+        margin: 12px auto;
+    }
+
+    .jkmgal-pillar-bullets {
+        padding-left: 16px;
+    }
+}
+
+/* =====================================================
+   GOVERNANCE HIGHLIGHTS SECTION
+   ===================================================== */
+.jkmgal-gov-section {
+    display: flex;
+    align-items: stretch;
+    height: 180px;
+    width: 100%;
+    background: #F6F5ED;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* ── LEFT dark panel ── */
+.jkmgal-gov-left {
+    flex: 0 0 300px;
+    background: #0d1b2a;
+    padding: 0 28px 0 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.jkmgal-gov-left::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -30px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(232, 28, 61, 0.08);
+    pointer-events: none;
+}
+
+.jkmgal-gov-left .jkmgal-esg-tag {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+    font-size: 11px;
+    padding: 5px 14px 5px 28px;
+    margin-bottom: 10px;
+}
+
+.jkmgal-gov-left .jkmgal-esg-tag::before {
+    background: #E81C3D;
+    left: 14px;
+    width: 5px;
+    height: 5px;
+}
+
+.jkmgal-gov-title {
+    font-family: var(--primary-font);
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+.jkmgal-gov-rule {
+    width: 28px;
+    height: 2px;
+    background: #E81C3D;
+    border: none;
+    border-radius: 2px;
+    margin: 7px 0 8px 0;
+    flex-shrink: 0;
+}
+
+.jkmgal-gov-desc {
+    font-family: var(--secondary-font);
+    font-size: 12px !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    line-height: 1.8;
+    margin: 0 !important;
+    text-align: left;
+}
+
+/* Override about-raymond color inside dark gov panel */
+.jkmgal-gov-left .about-raymond {
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-size: 12px !important;
+    line-height: 1.8;
+    text-align: left !important;
+}
+
+/* ── RIGHT chevron cards ── */
+.jkmgal-gov-cards {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    background: transparent;
+}
+
+/* Individual chevron card */
+.jkmgal-gov-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px 10px 22px;
+    position: relative;
+    background: #ffffff;
+    clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%, 12% 50%);
+    margin-left: -20px;
+    transition: background 0.25s ease;
+    text-align: center;
+    cursor: default;
+    gap: 6px;
+}
+
+.jkmgal-gov-card:first-child {
+    clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%);
+    margin-left: 0;
+    padding-left: 10px;
+}
+
+.jkmgal-gov-card:hover {
+    background: #eeecd5;
+}
+
+/* Number badge */
+.jkmgal-gov-badge {
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    font-family: var(--primary-font);
+    font-size: 9px;
+    font-weight: 700;
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-green {
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+}
+
+.badge-blue {
+    background: #f9a612;
+}
+
+.badge-teal {
+    background: #5f0f40;
+}
+
+.badge-purple {
+    background: #ed193a;
+}
+
+/* Icon circle */
+.jkmgal-gov-icon-wrap {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1.5px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.jkmgal-gov-card:hover .jkmgal-gov-icon-wrap {
+    transform: scale(1.07);
+}
+
+.icon-green {
+    border-color: #E81C3D;
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
+}
+
+.icon-blue {
+    border-color: #f9a612;
+    background: #f9a612;
+}
+
+.icon-teal {
+    border-color: #5f0f40;
+    background: #5f0f40;
+}
+
+.icon-purple {
+    border-color: #ed193a;
+    background: #ed193a;
+}
+
+/* Label */
+.jkmgal-gov-label {
+    font-family: var(--primary-font);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-color);
+    line-height: 1.4;
+    text-align: center;
+    max-width: 115px;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+    .jkmgal-gov-section {
+        height: auto;
+    }
+
+    .jkmgal-gov-left {
+        flex: 0 0 190px;
+        padding: 20px 20px 20px 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jkmgal-gov-section {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .jkmgal-gov-left {
+        flex: none;
+        padding: 24px 20px;
+    }
+
+    .jkmgal-gov-cards {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 16px;
+    }
+
+    .jkmgal-gov-card {
+        flex: 1 1 calc(50% - 10px);
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 10px;
+        border: 1px solid rgba(24, 25, 26, 0.08);
+        padding: 20px 12px;
+        gap: 8px;
+    }
+
+    .jkmgal-gov-badge {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    .jkmgal-gov-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* =====================================================
+   CTA SECTION
+   ===================================================== */
+.jkmgal-cta-section {
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+    padding: 14px 0 14px 0;
+    border-top: 1px solid rgba(24, 25, 26, 0.07);
+}
+
+/* Decorative blobs */
+.jkmgal-cta-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+    opacity: 0.18;
+}
+
+.jkmgal-cta-blob--red {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #E81C3D 0%, transparent 70%);
+    top: -160px;
+    right: -120px;
+    opacity: 0.07;
+}
+
+.jkmgal-cta-blob--white {
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, #f48120 0%, transparent 70%);
+    bottom: -100px;
+    left: 5%;
+    opacity: 0.06;
+}
+
+/* Inner layout: centered single column */
+.jkmgal-cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* ── Centered text column ── */
+.jkmgal-cta-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Override ESG tag for light bg */
+.jkmgal-cta-tag {
+    color: var(--primary-color) !important;
+    border-color: rgba(24, 25, 26, 0.15) !important;
+    background: #ffffff !important;
+    backdrop-filter: none;
+    box-shadow: 0 2px 8px rgba(24,25,26,0.06);
+}
+
+.jkmgal-cta-tag::before {
+    background: #E81C3D !important;
+}
+
+/* Scoped small tag for CTA only */
+.jkmgal-cta-tag.jkmgal-esg-tag {
+    font-size: 11px !important;
+    padding: 5px 14px 5px 26px !important;
+    margin-bottom: 8px !important;
+}
+
+.jkmgal-cta-tag.jkmgal-esg-tag::before {
+    left: 12px !important;
+    width: 5px !important;
+    height: 5px !important;
+}
+
+.jkmgal-cta-heading {
+    font-family: var(--primary-font);
+    font-size: clamp(14px, 1.4vw, 20px);
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.jkmgal-cta-accent {
+    background: linear-gradient(90deg, #E81C3D, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.jkmgal-cta-rule {
+    width: 24px;
+    height: 2px;
+    background: #E81C3D;
+    border: none;
+    border-radius: 2px;
+    margin: 4px auto 6px auto;
+    flex-shrink: 0;
+}
+
+.jkmgal-cta-desc {
+    font-family: var(--secondary-font);
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(24, 25, 26, 0.60);
+    margin: 0 0 10px 0;
+    max-width: 460px;
+    text-align: center;
+}
+
+/* Scale down the ButtonOne inside CTA */
+.jkmgal-cta-actions .custom-button {
+    padding: 8px 20px !important;
+    font-size: 12px !important;
+}
+
+.jkmgal-cta-actions .button-content {
+    font-size: 13px !important;
+    gap: 6px !important;
+}
+
+.jkmgal-cta-actions .button-icon {
+    font-size: 16px !important;
+}
+
+/* Stat pills */
+.jkmgal-cta-stats {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(24, 25, 26, 0.09);
+    border-radius: 12px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 16px rgba(24, 25, 26, 0.06);
+}
+
+.jkmgal-cta-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.jkmgal-cta-stat-num {
+    font-family: var(--primary-font);
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.jkmgal-cta-stat-num span {
+    font-size: 0.65em;
+    color: #E81C3D;
+    font-weight: 700;
+}
+
+.jkmgal-cta-stat-label {
+    font-family: var(--secondary-font);
+    font-size: 10px;
+    color: rgba(24, 25, 26, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    white-space: nowrap;
+}
+
+.jkmgal-cta-stat-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(24, 25, 26, 0.10);
+    flex-shrink: 0;
+    margin: 0 8px;
+}
+
+/* Buttons */
+.jkmgal-cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.jkmgal-cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--primary-font);
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #b3122f 0%, #E81C3D 60%, #ff5c77 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 11px 24px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.28s ease,
+                opacity 0.2s ease;
+    box-shadow: 0 6px 20px rgba(232, 28, 61, 0.32);
+    white-space: nowrap;
+}
+
+.jkmgal-cta-btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 36px rgba(232, 28, 61, 0.52);
+    opacity: 0.95;
+    color: #ffffff;
+}
+
+.jkmgal-cta-btn-primary svg {
+    transition: transform 0.25s ease;
+}
+
+.jkmgal-cta-btn-primary:hover svg {
+    transform: translateX(4px);
+}
+
+.jkmgal-cta-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--primary-font);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: transparent;
+    border: 1.5px solid rgba(24, 25, 26, 0.20);
+    border-radius: 50px;
+    padding: 10px 22px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.25s ease,
+                color 0.25s ease,
+                background 0.25s ease,
+                transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    white-space: nowrap;
+}
+
+.jkmgal-cta-btn-ghost:hover {
+    border-color: #E81C3D;
+    color: #E81C3D;
+    background: rgba(232, 28, 61, 0.05);
+    transform: translateY(-2px);
+}
+
+/* ── RIGHT visual column ── */
+.jkmgal-cta-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jkmgal-cta-card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Individual ESG pillar cards */
+.jkmgal-cta-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid rgba(24, 25, 26, 0.08);
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: 0 3px 14px rgba(24, 25, 26, 0.06);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.jkmgal-cta-card:hover {
+    transform: translateX(6px);
+    box-shadow: 0 8px 32px rgba(24, 25, 26, 0.12);
+    border-color: rgba(232, 28, 61, 0.18);
+}
+
+/* Stagger offset for depth effect */
+.jkmgal-cta-card--top  { margin-left: 0; }
+.jkmgal-cta-card--mid  { margin-left: 14px; }
+.jkmgal-cta-card--bot  { margin-left: 28px; }
+
+.jkmgal-cta-card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    transition: transform 0.28s ease;
+}
+
+.jkmgal-cta-card:hover .jkmgal-cta-card-icon {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.jkmgal-cta-card-title {
+    font-family: var(--primary-font);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 2px 0;
+    line-height: 1.2;
+}
+
+.jkmgal-cta-card-sub {
+    font-family: var(--secondary-font);
+    font-size: 11px;
+    color: rgba(24, 25, 26, 0.50);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+    .jkmgal-cta-inner {
+        grid-template-columns: 1fr;
+        padding: 0 44px;
+        gap: 48px;
+    }
+
+    .jkmgal-cta-card--mid { margin-left: 0; }
+    .jkmgal-cta-card--bot { margin-left: 0; }
+
+    .jkmgal-cta-card-stack {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .jkmgal-cta-card {
+        flex: 1 1 calc(33% - 12px);
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jkmgal-cta-section {
+        padding: 60px 0;
+    }
+
+    .jkmgal-cta-inner {
+        padding: 0 28px;
+        gap: 40px;
+    }
+
+    .jkmgal-cta-stats {
+        padding: 14px 16px;
+        gap: 0;
+    }
+
+    .jkmgal-cta-card-stack {
+        flex-direction: column;
+    }
+
+    .jkmgal-cta-card {
+        flex: 1 1 auto;
+    }
+
+    .jkmgal-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .jkmgal-cta-btn-primary,
+    .jkmgal-cta-btn-ghost {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .jkmgal-cta-inner {
+        padding: 0 20px;
+    }
+
+    .jkmgal-cta-stats {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .jkmgal-cta-stat-divider {
+        width: 80%;
+        height: 1px;
+        margin: 0;
+    }
+}
+
+/* ── Fix: text-anime-style-3 letter spans must stay inline in CTA heading ── */
+.jkmgal-cta-heading .char,
+.jkmgal-cta-heading > span > .char,
+.jkmgal-cta-heading .word,
+.jkmgal-cta-heading > span > .word {
+    display: inline !important;
+}
+
+.jkmgal-cta-heading {
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+.jkmgal-cta-accent {
+    display: inline !important;
+    white-space: normal !important;
+}

@@ -1,0 +1,464 @@
+/* =========================================================
+   JKMPTL Awards & Certifications — Light Theme + Animations
+   ========================================================= */
+
+/* ── Section ─────────────────────────────────────────────── */
+.awards-section {
+    position: relative;
+    padding-block: 3rem;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.awards-section-overlay { display: none; }
+
+/* =========================================================
+   Certifications Grid
+   ========================================================= */
+
+.cert-awards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 2rem;
+}
+
+/* ── Keyframes ──────────────────────────────────────────── */
+@keyframes certFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-7px); }
+}
+
+@keyframes shimmerSweep {
+    0%   { left: -100%; }
+    100% { left: 150%; }
+}
+
+@keyframes logoPulse {
+    0%, 100% { filter: drop-shadow(0 0 0px rgba(237,25,58,0)); }
+    50%       { filter: drop-shadow(0 0 10px rgba(237,25,58,0.25)); }
+}
+
+/* Reliable CSS-only fade-in (replaces WOW.js) */
+@keyframes certFadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.cert-appear {
+    opacity: 0;
+    animation: certFadeUp 0.55s ease forwards;
+}
+
+.fa-appear {
+    opacity: 0;
+    animation: certFadeUp 0.6s ease forwards;
+}
+
+/* Scroll-triggered card reveal (replaces fa-appear for AwardCards) */
+.fa-card--hidden {
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+.fa-card--visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ── Card ───────────────────────────────────────────────── */
+.cert-award-card {
+    background: #ffffff;
+    border: 1px solid rgba(24, 25, 26, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.1rem 0.85rem 0.95rem;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 3px 14px rgba(24, 25, 26, 0.07);
+    position: relative;
+    transition: box-shadow 0.38s ease, border-color 0.3s ease;
+}
+
+/* Once appeared, run the float loop */
+.cert-award-card.cert-appear {
+    animation: certFadeUp 0.55s ease forwards,
+               certFloat 4s ease-in-out 0.6s infinite;
+}
+
+.cert-award-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(237, 25, 58, 0.22);
+    box-shadow: 0 20px 50px rgba(118, 50, 53, 0.16);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+
+
+
+/* Gradient top bar */
+.cert-award-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FFCB04, #F9A612, #ED193A, #5F0F40);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 2;
+}
+.cert-award-card:hover::before { transform: scaleX(1); }
+
+/* Shimmer sweep */
+.cert-award-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 55%; height: 100%;
+    background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.55) 50%, transparent 80%);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 1;
+}
+.cert-award-card:hover::after { animation: shimmerSweep 0.6s ease forwards; }
+
+/* Logo panel */
+.cert-award-img-panel {
+    width: 140px;
+    height: 140px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.65rem;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cert-award-card:hover .cert-award-img-panel { transform: scale(1.1) rotate(-2deg); }
+
+.cert-award-img {
+    width: 95%; height: 95%;
+    object-fit: contain;
+    display: block;
+    filter: none;
+}
+.cert-award-card:hover .cert-award-img { animation: logoPulse 1.2s ease infinite; }
+
+/* Footer text */
+.cert-award-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cert-award-card:hover .cert-award-footer { transform: translateY(-3px); }
+
+.cert-award-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    margin: 0; line-height: 1.2;
+    transition: color 0.25s ease;
+}
+.cert-award-card:hover .cert-award-title { color: #ED193A; }
+
+.cert-award-sub {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #C19A5B;
+    font-family: var(--primary-font);
+    transition: color 0.25s ease;
+}
+.cert-award-card:hover .cert-award-sub { color: #F9A612; }
+
+.cert-award-bar { display: none; }
+
+/* ── Certifications Responsive ──────────────────────────── */
+@media (max-width: 1200px) { .cert-awards-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 991px)  { .cert-awards-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 680px)  {
+    .cert-awards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .awards-section   { padding-block: 3.5rem; }
+    .cert-award-card  { animation: none; }
+}
+@media (max-width: 400px)  { .cert-awards-grid { grid-template-columns: 1fr; } }
+
+
+/* =========================================================
+   Featured Awards Section
+   ========================================================= */
+
+.featured-awards-section {
+    padding-block: 5rem;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-awards-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(255,203,4,0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(237,25,58,0.07) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.fa-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+/* Card shell */
+.fa-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(24, 25, 26, 0.08);
+    border: 1px solid rgba(24, 25, 26, 0.06);
+    transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.38s ease;
+}
+
+.fa-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 55px rgba(24, 25, 26, 0.13);
+}
+
+.fa-card--reverse { direction: rtl; }
+.fa-card--reverse > * { direction: ltr; }
+
+/* Text side */
+.fa-card-text {
+    padding: 2.4rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    justify-content: center;
+}
+
+.fa-card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-family: var(--primary-font);
+    border: 1px solid;
+    border-radius: 100px;
+    padding: 0.25rem 0.8rem;
+    width: fit-content;
+}
+
+.fa-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.fa-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.22rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--bg-color);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent-secondary-color);
+}
+
+.fa-meta-item {
+    display: grid;
+    grid-template-columns: 110px 14px 1fr;
+    align-items: baseline;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    font-family: var(--secondary-font);
+    line-height: 1.5;
+}
+
+.fa-meta-label {
+    font-weight: 700;
+    color: var(--primary-color);
+    white-space: nowrap;
+}
+
+.fa-meta-colon {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.fa-meta-value {
+    color: var(--text-color);
+}
+
+.fa-card-desc {
+    font-size: 0.87rem;
+    color: var(--text-color);
+    line-height: 1.78;
+    font-family: var(--secondary-font);
+    margin: 0;
+}
+
+.fa-card-bar {
+    height: 3px;
+    border-radius: 4px;
+    width: 55px;
+    transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    margin-top: 0.2rem;
+}
+.fa-card:hover .fa-card-bar { width: 100%; }
+
+/* Image side */
+.fa-card-img-side {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 1.5rem;
+    background: var(--bg-color);
+    justify-content: center;
+}
+
+.fa-img-main-wrap {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 380px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 1rem;
+}
+
+.fa-img-main {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+}
+
+/* Auto-slider fade */
+.fa-img--fading {
+    opacity: 0 !important;
+}
+
+/* ── Dot indicators ─────────────────────────────────────── */
+.fa-img-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+}
+
+.fa-img-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s ease, transform 0.25s ease, width 0.3s ease;
+    flex-shrink: 0;
+}
+
+.fa-img-dot--active {
+    background: #E81C3D;
+    width: 20px;
+    border-radius: 4px;
+    transform: none;
+}
+
+.fa-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.7rem;
+    pointer-events: none;
+}
+
+.fa-img-year {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    padding: 0.22rem 0.65rem;
+    border-radius: 100px;
+    letter-spacing: 0.4px;
+}
+
+/* Thumbnail strip */
+.fa-img-thumbs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.fa-thumb {
+    width: 62px; height: 46px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--divider-color);
+    cursor: pointer;
+    background: none;
+    padding: 0;
+    flex-shrink: 0;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.fa-thumb:hover { transform: scale(1.06); }
+.fa-thumb--active { border-color: var(--accent-color) !important; }
+.fa-thumb img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #f8f8f8; padding: 2px; }
+
+
+/* Featured Awards Responsive */
+@media (max-width: 991px) {
+    .fa-card, .fa-card--reverse { grid-template-columns: 1fr; direction: ltr; }
+    .fa-card--reverse > * { direction: ltr; }
+    .fa-card-text { padding: 2rem 1.5rem 1.2rem; }
+    .fa-card-img-side { padding: 0 1.5rem 1.5rem; }
+}
+
+@media (max-width: 680px) {
+    .featured-awards-section { padding-block: 3rem; }
+    .fa-card-title { font-size: 1.05rem; }
+    .fa-cards-list { gap: 1.5rem; }
+}
