@@ -5,19 +5,19 @@ import { FaArrowCircleRight } from "react-icons/fa";
 
 
 const boxData = [{
-    id: 1,
+   
     title: "Sustainability",
     description: "At JK Maini, sustainability isn't an initiative, it's engineered into everything we do. From optimizing resources to minimizing environmental impact, we are committed to responsible innovation",
     image: "./images/sustainability.jpg",
     link: "/sustainability"
 }, {
-    id: 2,
+   
     title: "Career",
     description: "Precision is built by people, those who challenge limits, innovate with purpose, and deliver with excellence. Across engineering, design, operations, and beyond, we offer opportunities.",
     image: "./images/career.jpg",
     link: "/career"
 }, {
-    id: 3,
+    
     title: "Innovation",
     description: "Precision is built by people, those who challenge limits, innovate with purpose, and deliver with excellence. Across engineering, design, operations, and beyond, we offer opportunities.",
     image: "./images/innovation.jpg",
@@ -59,9 +59,7 @@ const ExploreMore = () => {
                                             </div>
                                             {/* How Work Item Image End */}
                                             {/* How Work Item Number Start */}
-                                            <div className="how-work-item-no-gold">
-                                                <h2>{dataBox.id}</h2>
-                                            </div>
+                                           
                                             {/* How Work Item Number End */}
                                         </div>
                                         {/* How Work Item Header End */}

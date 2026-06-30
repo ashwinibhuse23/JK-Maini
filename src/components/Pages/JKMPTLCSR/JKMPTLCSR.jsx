@@ -3,6 +3,7 @@ import PageHeader from '../../AboutHeader/PageHeader'
 import banner from "/images/csrback2.jpg"
 import './JKMPTLCSR.css'
 import { FaUsers, FaHandshake, FaGlobeAsia, FaCog, FaSeedling, FaTree } from 'react-icons/fa'
+import GetInTouchModal from '../../GetInTouchModal/GetInTouchModal'
 
 /* ── Foundation data ─────────────────────────────────────── */
 const foundations = [
@@ -63,83 +64,11 @@ const JKMPTLCSR = () => {
             <>
 
                 {/* ── Get in Touch Modal ───────────────────────── */}
-                {modalOpen && (
-                    <div className="csrmodal-overlay" onClick={() => setModalOpen(false)}>
-                        <div className="csrmodal-box" onClick={e => e.stopPropagation()}>
-
-                            {/* close */}
-                            <button className="csrmodal-close" onClick={() => setModalOpen(false)} aria-label="Close">×</button>
-
-                            {/* header */}
-                            <h2 className="csrmodal-title">Get in Touch</h2>
-                            <p className="csrmodal-sub">Tell us what you're building — we'll show you how to get there, faster and smarter. Response guaranteed within 24 hours.</p>
-
-                            <form className="csrmodal-form" onSubmit={e => e.preventDefault()}>
-
-                                {/* row 1 */}
-                                <div className="csrmodal-row">
-                                    <div className="csrmodal-field">
-                                        <input type="text" placeholder="First Name" required />
-                                    </div>
-                                    <div className="csrmodal-field">
-                                        <input type="text" placeholder="Last Name" required />
-                                    </div>
-                                </div>
-
-                                {/* row 2 */}
-                                <div className="csrmodal-row">
-                                    <div className="csrmodal-field">
-                                        <input type="text" placeholder="Company" />
-                                    </div>
-                                    <div className="csrmodal-field">
-                                        <input type="email" placeholder="Email Address" required />
-                                    </div>
-                                </div>
-
-                                {/* row 3 */}
-                                <div className="csrmodal-row">
-                                    <div className="csrmodal-field">
-                                        <input type="tel" placeholder="Phone No." />
-                                    </div>
-                                    <div className="csrmodal-field">
-                                        <select defaultValue="">
-                                            <option value="" disabled>Select Industry</option>
-                                            <option>Agriculture</option>
-                                            <option>Education</option>
-                                            <option>Healthcare</option>
-                                            <option>Environment</option>
-                                            <option>Infrastructure</option>
-                                            <option>Technology</option>
-                                            <option>Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                {/* message */}
-                                <div className="csrmodal-field csrmodal-full">
-                                    <textarea rows="2" placeholder="I want to know more about"></textarea>
-                                </div>
-
-                                {/* consent */}
-                                <label className="csrmodal-consent">
-                                    <input type="checkbox" required />
-                                    <span>By checking this box, I consent to the processing of my personal data in accordance with Section 4 (1)(a) of the Digital Personal Data Protection Act 2023, for the purposes outlined in the Privacy Policy. I have also read and agreed to the <a href="#">Privacy Policy.</a> *</span>
-                                </label>
-
-                                {/* submit */}
-                                <button type="submit" className="csrmodal-submit">
-                                    <span className="csrmodal-submit-circle">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M5 12h14M12 5l7 7-7 7" />
-                                        </svg>
-                                    </span>
-                                    Submit
-                                </button>
-
-                            </form>
-                        </div>
-                    </div>
-                )}
+                <GetInTouchModal
+                    isOpen={modalOpen}
+                    onClose={() => setModalOpen(false)}
+                    title="Get in Touch"
+                />
                 <PageHeader
                     title="Corporate Social Responsibility"
                     desc="Corporate Social Responsibility is about integrating ethical, social, and environmental considerations into business operations going beyond profit-making to positively impact employees, communities, and the environment."

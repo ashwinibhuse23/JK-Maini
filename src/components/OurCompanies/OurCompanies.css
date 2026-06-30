@@ -1,11 +1,22 @@
+/* ============================================================
+   OUR COMPANIES SECTION — Fully Responsive
+   ============================================================ */
+
 .intro-video-box-gold {
     background-image: url("/images/bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding-block: 50px;
+    padding-block: 60px;
     background-attachment: fixed;
+}
 
+/* Disable fixed bg on mobile (performance + iOS fix) */
+@media (max-width: 991px) {
+    .intro-video-box-gold {
+        background-attachment: scroll;
+        padding-block: 40px;
+    }
 }
 
 .intro-video-box-contant-gold {
@@ -19,7 +30,6 @@
     overflow: hidden;
     z-index: 2;
 }
-
 
 .intro-video-image-gold figure {
     display: block;
@@ -68,26 +78,45 @@
     animation-play-state: paused;
 }
 
+/* Intro left column — same height as cards */
+.company-intro-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem 2.5rem 2rem 0;
+    width: 100%;
+}
+
+.company-intro-col .section-title h2 {
+    margin-top: 20px;
+    font-size: 38px;
+    line-height: 1.25;
+}
+
+.company-intro-desc {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.80);
+    line-height: 1.75;
+    font-family: var(--secondary-font);
+    margin-top: -30px !important;
+    margin-bottom: 32px;
+}
+
+/* Card style for each company */
 .intro-video-content-gold {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 40px;
+    gap: 28px;
     border: 1px solid var(--dark-divider-color);
     background: var(--divider-color);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 3rem;
+    padding: 2.5rem;
     z-index: 1;
-}
-
-@media (max-width: 991px) {
-    .intro-video-content-gold {
-        padding: 1.5rem;
-        gap: 20px;
-    }
+    width: 100%;
 }
 
 .intro-video-list-gold ul {
@@ -119,6 +148,7 @@
     left: 0;
 }
 
+/* Counter list */
 .intro-counter-list-box-gold {
     border-top: 1px solid var(--dark-divider-color);
     padding-top: 40px;
@@ -150,10 +180,7 @@
 .intro-counter-item-gold .icon-box::before {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    inset: 0;
     background: var(--accent-color);
     border-radius: 50%;
     width: 100%;
@@ -188,43 +215,177 @@
     margin: 5px 0 0;
 }
 
+/* Company specifics */
 .company-name {
-    font-size: 25px !important;
+    font-size: 22px !important;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     border-left: 3px solid #fff;
     padding-left: 15px;
+    line-height: 1.3;
+     margin-top: 10px !important;
 }
 
 .company-desc {
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: 400;
-    color: #fff;
-    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.85);
     font-family: var(--secondary-font) !important;
+    line-height: 1.75;
+    margin-bottom: 0;
+    margin-top: 50px !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: pointer;
+    transition: max-height 0.4s ease;
+}
+
+.company-desc.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    cursor: default;
 }
 
 .company-logo img {
-    /* background-color: #fff; */
     padding: 5px 10px;
     border-radius: 10px;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    margin-left: -30px;
 }
 
-@media (max-width: 767px) {
-    .company-logo img {
-        max-width: 200px;
+/* Main section heading size override ("Powering How the World...") */
+.intro-video-box-gold .section-title h2.text-effect {
+    font-size: 36px;
+}
+
+/* Button wrapper — pushes to bottom of flex card */
+.company-btn-wrap {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* ======================================================
+   OUR COMPANIES RESPONSIVE
+   ====================================================== */
+
+/* 1200–1399px */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .intro-video-content-gold {
+        padding: 2.5rem;
+        gap: 28px;
     }
-    
+
     .company-name {
         font-size: 20px !important;
     }
+
+    .company-desc {
+        font-size: 14px !important;
+    }
 }
 
+/* 992–1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .intro-video-content-gold {
+        padding: 2rem;
+        gap: 20px;
+    }
 
-@media(max-width : 1024px) {
+    .company-name {
+        font-size: 18px !important;
+    }
+
+    .company-desc {
+        font-size: 13.5px !important;
+    }
+
+    .intro-video-box-gold {
+        padding-block: 50px;
+    }
+}
+
+/* ≤ 991px */
+@media (max-width: 991px) {
+    .intro-video-content-gold {
+        padding: 1.75rem;
+        gap: 20px;
+    }
+
+    .intro-video-box-gold {
+        padding-block: 36px;
+    }
+}
+
+/* ≤ 767px */
+@media (max-width: 767px) {
+    .intro-video-box-gold {
+        padding-block: 30px;
+    }
+
+    .intro-video-content-gold {
+        padding: 1.5rem;
+        gap: 16px;
+    }
+
+    .company-name {
+        font-size: 18px !important;
+    }
+
+    .company-logo img {
+        max-width: 200px;
+    }
+
+    .company-desc {
+        font-size: 14px !important;
+    }
+}
+
+/* ≤ 575px */
+@media (max-width: 575px) {
+    .intro-video-box-gold {
+        padding-block: 24px;
+    }
+
+    .intro-video-content-gold {
+        padding: 1.25rem;
+        border-radius: 16px;
+    }
+
+    .company-name {
+        font-size: 17px !important;
+    }
+
+    .company-desc {
+        font-size: 13.5px !important;
+    }
+
+    .company-logo img {
+        max-width: 170px;
+    }
+}
+
+/* ≤ 400px */
+@media (max-width: 400px) {
+    .intro-video-content-gold {
+        padding: 1rem;
+    }
+
+    .company-name {
+        font-size: 16px !important;
+    }
+
+    .company-desc {
+        font-size: 13px !important;
+    }
+}
+
+/* Large desktop reset (was broken) */
+@media (max-width: 1024px) {
     .intro-video-box-contant-gold {
         padding: 0;
     }
@@ -246,7 +407,4 @@
     .intro-video-image-gold figure img {
         aspect-ratio: 1 / 0.6;
     }
-
-
-
 }

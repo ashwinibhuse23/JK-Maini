@@ -39,11 +39,21 @@ const navItems = [
                 { header: 'JKMGAL' },
                 { label: 'Sustainability & ESG', href: '/jkmgal-sustainability' },
                 { label: 'CSR & Impact', href: '/jkmgal-csr' },
-                { label: 'News & Events', href: '#' },
-                { label: 'Awards', href: '#' },
+                { label: 'News & Events', href: '/jkmgal-news' },
+                { label: 'Awards', href: '/jkmgal-awards' },
 
             ],
         ],
+    },
+
+    { label: 'Investor Relation', href: '/investor-relation' },
+    {
+        label: 'Careers',
+        href: '#',
+        children: [
+            { label: 'Automobile', href: 'https://auto.jkmaini.com/careers.html', target: '_blank', rel: 'noopener noreferrer' },
+            { label: 'Aerospace', href: 'https://aero.jkmaini.com/careers.html', target: '_blank', rel: 'noopener noreferrer' },
+        ]
     },
     { label: 'Contact Us', href: 'contact.html' },
 ];
@@ -84,7 +94,7 @@ const Navbar = () => {
                                                     <ul>
                                                         {item.children.map((child, j) => (
                                                             <li key={j} className="nav-item">
-                                                                <a className="nav-link" href={child.href}>
+                                                                <a className="nav-link" href={child.href} target={child.target || '_self'} rel={child.rel || ''}>
                                                                     {child.label}
                                                                 </a>
                                                             </li>
@@ -96,10 +106,14 @@ const Navbar = () => {
                                                         {item.megaColumns.map((col, ci) => (
                                                             <div key={ci} className="mega-col">
                                                                 {col.map((link, li) => (
-                                                                    <>
-                                                                        <h4 className='text-start' key={li}>{link.header}</h4>
-                                                                        <a key={li} href={link.href} className="mega-link">{link.label}</a>
-                                                                    </>
+                                                                    <React.Fragment key={li}>
+                                                                        {link.header && (
+                                                                            <div className="mega-col-header">{link.header}</div>
+                                                                        )}
+                                                                        {link.label && (
+                                                                            <a href={link.href} className="mega-link">{link.label}</a>
+                                                                        )}
+                                                                    </React.Fragment>
                                                                 ))}
                                                             </div>
                                                         ))}
@@ -155,7 +169,7 @@ const Navbar = () => {
                                         <ul className="mobile-submenu">
                                             {item.children.map((child, j) => (
                                                 <li key={j} className="mobile-submenu-item">
-                                                    <a className="mobile-submenu-link" href={child.href} onClick={closeMenu}>
+                                                    <a className="mobile-submenu-link" href={child.href} target={child.target || '_self'} rel={child.rel || ''} onClick={closeMenu}>
                                                         {child.label}
                                                     </a>
                                                 </li>

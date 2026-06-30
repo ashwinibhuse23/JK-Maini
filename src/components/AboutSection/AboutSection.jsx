@@ -74,12 +74,8 @@ const AboutSection = () => {
                             </div>
                             <div className="leadership-divider">
                                 <span className="divider-line"></span>
-                                <svg className="divider-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="20" cy="20" r="18" stroke="#ed193a" strokeWidth="1.5" />
-                                    <path d="M13 20c0-3.866 3.134-7 7-7s7 3.134 7 7-3.134 7-7 7" stroke="#ed193a" strokeWidth="1.5" strokeLinecap="round" />
-                                    <circle cx="20" cy="20" r="3" fill="#ed193a" />
-                                </svg>
-                                <span className="divider-line"></span>
+                               
+                               
                             </div>
                             <p className="wow fadeInUp text-dark" data-wow-delay="0.2s">
                                 We don't just shape metal. We shape industries, partnerships, and futures.
@@ -114,7 +110,7 @@ const AboutSection = () => {
                         </div>
                         <div className="leader-info-col">
                             <h3 className="leader-name">Gautam Singhania</h3>
-                            <span className="leader-role">CHAIRMAN &amp; MANAGING DIRECTOR,Raymond Group</span>
+                            <span className="leader-role">CHAIRMAN &amp; MANAGING DIRECTOR, Raymond Group</span>
                             <div className="leader-name-underline"></div>
                             <a
                                 href="https://www.linkedin.com/in/gautam-singhania-2a1962244/"

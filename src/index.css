@@ -227,32 +227,40 @@ a:focus {
 
 .section-title .section-sub-title {
 	position: relative;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 500;
 	text-transform: capitalize;
-	line-height: 1em;
+	line-height: 1.2em;
+	letter-spacing: 0.02em;
+	white-space: nowrap;
 	color: var(--primary-color);
 	border: 1px solid var(--divider-color);
 	border-radius: 100px;
-	padding: 9px 20px 9px 36px;
-	margin-bottom: 15px;
+	padding: 9px 22px 9px 38px;
+	margin-bottom: 16px;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .dark-section .section-title .section-sub-title {
 	border-color: var(--dark-divider-color);
+	color: var(--white-color);
 }
 
 .section-title .section-sub-title::before {
 	content: '';
 	position: absolute;
-	left: 20px;
+	left: 18px;
 	top: 50%;
 	transform: translateY(-50%);
 	background: #E81C3D;
 	border-radius: 50%;
-	width: 6px;
-	height: 6px;
+	width: 7px;
+	height: 7px;
+	flex-shrink: 0;
 }
 
 .section-title.section-sub-heading,
@@ -270,7 +278,7 @@ a:focus {
 }
 
 .section-title h2 {
-	font-size: 48px;
+	font-size: 30px;
 	margin-bottom: 0;
 	cursor: none;
 	font-family: var(--primary-font);
@@ -282,4 +290,161 @@ a:focus {
 	margin-top: 20px;
 	margin-bottom: 0;
 	font-family: var(--secondary-font);
+}
+
+/* ======================================================
+   GLOBAL RESPONSIVE TYPOGRAPHY SYSTEM
+   ====================================================== */
+
+/* ── Large Desktop: ≥ 1400px ─────────────────────────────── */
+@media (min-width: 1400px) {
+	body { font-size: 16px; }
+
+	.section-title h1 { font-size: 56px; }
+	.section-title h2 { font-size: 42px; }
+
+	p { font-size: 16px; line-height: 1.65em; }
+}
+
+/* ── Standard Desktop: 1200–1399px ───────────────────────── */
+@media (min-width: 1200px) and (max-width: 1399px) {
+	body { font-size: 16px; }
+
+	.section-title h1 { font-size: 52px; }
+	.section-title h2 { font-size: 40px; }
+
+	p { font-size: 16px; line-height: 1.65em; }
+}
+
+/* ── Medium Desktop: 992–1199px ──────────────────────────── */
+@media (min-width: 992px) and (max-width: 1199px) {
+	body { font-size: 15.5px; }
+
+	.section-title h1 { font-size: 44px; }
+	.section-title h2 { font-size: 34px; }
+	h3 { font-size: 1.3rem; }
+	h4 { font-size: 1.1rem; }
+
+	p { font-size: 15.5px; line-height: 1.65em; }
+
+	.section-title { margin-bottom: 32px; }
+	.section-title .section-sub-title {
+		font-size: 13.5px;
+		padding: 8px 20px 8px 36px;
+	}
+	.section-title .section-sub-title::before { left: 16px; width: 6px; height: 6px; }
+}
+
+/* ── Tablet: 768–991px ───────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+	body { font-size: 15.5px; }
+
+	.section-title h1 { font-size: 36px; }
+	.section-title h2 { font-size: 28px; }
+	h3 { font-size: 1.25rem; }
+	h4 { font-size: 1.05rem; }
+
+	/* Paragraphs — bigger on tablet for readability */
+	p { font-size: 15.5px; line-height: 1.7em; }
+	.section-title p { font-size: 15.5px; margin-top: 16px; }
+
+	.section-title { margin-bottom: 28px; }
+	.section-title .section-sub-title {
+		font-size: 13.5px;
+		padding: 9px 20px 9px 34px;
+		margin-bottom: 14px;
+	}
+	.section-title .section-sub-title::before { left: 16px; width: 7px; height: 7px; }
+
+	.section-row { margin-bottom: 60px; }
+}
+
+/* ── Large Mobile: 576–767px ─────────────────────────────── */
+@media (min-width: 576px) and (max-width: 767px) {
+	body { font-size: 15px; }
+
+	.section-title h1 { font-size: 28px; }
+	.section-title h2 { font-size: 24px; }
+	h3 { font-size: 1.2rem; }
+	h4 { font-size: 1rem; }
+
+	/* Paragraphs — clear and readable */
+	p { font-size: 15px; line-height: 1.75em; }
+	.section-title p { font-size: 15px; margin-top: 14px; }
+
+	.section-title { margin-bottom: 22px; }
+	.section-title .section-sub-title {
+		font-size: 13px;
+		padding: 8px 18px 8px 32px;
+		margin-bottom: 12px;
+	}
+	.section-title .section-sub-title::before { left: 15px; width: 6px; height: 6px; }
+
+	.section-row { margin-bottom: 48px; }
+}
+
+/* ── Small Mobile: ≤ 575px ───────────────────────────────── */
+@media (max-width: 575px) {
+	body { font-size: 15px; }
+
+	.section-title h1 { font-size: 28px; }
+	.section-title h2 { font-size: 24px; }
+	h3 { font-size: 1.15rem; }
+	h4 { font-size: 0.95rem; }
+
+	/* Paragraphs — maximise readability on small screens */
+	p { font-size: 15px; line-height: 1.78em; }
+	.section-title p { font-size: 15px; margin-top: 12px; }
+
+	.section-title { margin-bottom: 20px; }
+	.section-title .section-sub-title {
+		font-size: 13px;
+		font-weight: 500;
+		padding: 8px 18px 8px 32px;
+		margin-bottom: 12px;
+		white-space: nowrap;
+	}
+	.section-title .section-sub-title::before {
+		left: 14px;
+		width: 7px;
+		height: 7px;
+	}
+
+	.section-row { margin-bottom: 40px; }
+}
+
+/* ── Extra Small Mobile: ≤ 400px ─────────────────────────── */
+@media (max-width: 400px) {
+	body { font-size: 14.5px; }
+
+	.section-title h1 { font-size: 25px; }
+	.section-title h2 { font-size: 22px; }
+	h3 { font-size: 1.1rem; }
+	h4 { font-size: 0.9rem; }
+
+	p { font-size: 14.5px; line-height: 1.78em; }
+	.section-title p { font-size: 14.5px; }
+
+	.section-title .section-sub-title {
+		font-size: 12.5px;
+		font-weight: 500;
+		padding: 7px 16px 7px 28px;
+		margin-bottom: 10px;
+	}
+	.section-title .section-sub-title::before {
+		left: 13px;
+		width: 6px;
+		height: 6px;
+	}
+}
+
+/* ── Very Small: ≤ 360px ─────────────────────────────────── */
+@media (max-width: 360px) {
+	body { font-size: 14px; }
+
+	.section-title h1 { font-size: 23px; }
+	.section-title h2 { font-size: 20px; }
+
+	p { font-size: 14px; line-height: 1.75em; }
+	.section-title p { font-size: 14px; }
 }

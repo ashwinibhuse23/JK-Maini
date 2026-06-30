@@ -37,7 +37,7 @@ const HeroSection = () => {
                                     {/* Satisfy Client Images End */}
                                     {/* Satisfy Client Content Start */}
                                     <div className="satisfy-client-content">
-                                        <p>Crafted Textiles. Trusted Quality.</p>
+                                        <p>Built On Legacy. Driven By Innovation.</p>
                                     </div>
                                     {/* Satisfy Client Content End */}
                                 </div>
@@ -45,11 +45,10 @@ const HeroSection = () => {
                                 {/* Section Title Start */}
                                 <div className="section-title">
                                     <h1 className="text-anime-style-3" data-cursor="-opaque">
-                                        Engineering Tommorrow one component at a time
+                                        WHERE ENGINEERING MEETS GLOBAL IMPACT
                                     </h1>
                                     <p className="wow fadeInUp" data-wow-delay="0.2s">
-                                        A trusted OEM supplier of precision automotive components, delivering high-performance parts built
-                                        to precise engineering standards
+                                        With decades of manufacturing expertise and a growing global footprint, JK Maini Group powers industries through precision engineering, advanced manufacturing, and trusted partnerships.
                                     </p>
                                 </div>
                                 {/* Section Title End */}
@@ -81,10 +80,10 @@ const HeroSection = () => {
                             {/* Hero Info List Start */}
                             <div className="hero-info-list wow fadeInUp" data-wow-delay="0.2s">
                                 <ul>
-                                    <li> <FaCircleCheck className='me-1' /> Eco-Friendly Dyeing Processes</li>
-                                    <li> <FaCircleCheck className='me-1' /> Reduced Water Consumption</li>
-                                    <li> <FaCircleCheck className='me-1' /> Ethical Production Standards</li>
-                                    <li> <FaCircleCheck className='me-1' /> Responsible Supply Chain</li>
+                                    <li> <FaCircleCheck className='me-1' /> Multi-Sector Engineering Expertise</li>
+                                    <li> <FaCircleCheck className='me-1' /> Advanced Manufacturing Capabilities</li>
+                                    <li> <FaCircleCheck className='me-1' /> World-Class Quality Standards</li>
+                                    <li> <FaCircleCheck className='me-1' /> Global Presence Across Markets</li>
                                 </ul>
                             </div>
                             {/* Hero Info List End */}

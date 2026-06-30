@@ -1,0 +1,176 @@
+/* ============================================================
+   JKMPTL SUSTAINABILITY PAGE — Partner With Us CTA
+   ============================================================ */
+
+.sus-partner-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle red glow accents */
+.sus-partner-cta::before,
+.sus-partner-cta::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sus-partner-cta::before {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232, 28, 61, 0.14) 0%, transparent 70%);
+    top: -100px;
+    left: -80px;
+}
+
+.sus-partner-cta::after {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(193, 154, 91, 0.10) 0%, transparent 70%);
+    bottom: -80px;
+    right: -60px;
+}
+
+/* ── Inner layout ─────────────────────────────────────────── */
+.sus-partner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Text side ────────────────────────────────────────────── */
+.sus-partner-text {
+    flex: 1;
+    max-width: 640px;
+}
+
+.sus-partner-text .section-sub-title {
+    color: rgba(255, 255, 255, 0.75) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    margin-bottom: 18px;
+}
+
+.sus-partner-text h2 {
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+}
+
+.sus-partner-text p {
+    font-size: 15.5px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.75;
+    margin: 0;
+    max-width: 520px;
+}
+
+/* ── Button side ──────────────────────────────────────────── */
+.sus-partner-btn {
+    flex-shrink: 0;
+}
+
+.sus-partner-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #b3122f 0%, #e81c3d 60%, #ff5c77 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 32px;
+    font-family: var(--primary-font, 'Poppins', sans-serif);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    box-shadow: 0 6px 28px rgba(232, 28, 61, 0.35);
+    letter-spacing: 0.01em;
+}
+
+.sus-partner-trigger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(232, 28, 61, 0.45);
+    filter: brightness(1.06);
+}
+
+.sus-partner-trigger:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+}
+
+.sus-btn-circle {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.sus-partner-trigger:hover .sus-btn-circle {
+    transform: translateX(4px);
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+/* 992–1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .sus-partner-cta { padding: 64px 0; }
+    .sus-partner-text h2 { font-size: 32px; }
+    .sus-partner-text p  { font-size: 15px; }
+    .sus-partner-trigger { padding: 14px 26px; font-size: 15px; }
+}
+
+/* ≤ 991px — stack vertically */
+@media (max-width: 991px) {
+    .sus-partner-cta { padding: 56px 0; }
+    .sus-partner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+    .sus-partner-text { max-width: 100%; }
+    .sus-partner-text p { max-width: 100%; }
+    .sus-partner-btn { width: 100%; }
+    .sus-partner-trigger { width: 100%; justify-content: center; }
+}
+
+/* ≤ 767px */
+@media (max-width: 767px) {
+    .sus-partner-cta { padding: 44px 0; }
+    .sus-partner-text h2 { font-size: 26px; }
+    .sus-partner-text p  { font-size: 14.5px; }
+    .sus-partner-trigger { padding: 14px 24px; font-size: 15px; gap: 12px; }
+    .sus-btn-circle { width: 32px; height: 32px; font-size: 14px; }
+}
+
+/* ≤ 575px */
+@media (max-width: 575px) {
+    .sus-partner-cta { padding: 36px 0; }
+    .sus-partner-inner { gap: 22px; }
+    .sus-partner-text h2 { font-size: 23px; }
+    .sus-partner-text p  { font-size: 14px; }
+    .sus-partner-trigger { padding: 13px 20px; font-size: 14.5px; }
+}
+
+/* ≤ 400px */
+@media (max-width: 400px) {
+    .sus-partner-text h2 { font-size: 21px; }
+    .sus-partner-trigger { font-size: 14px; padding: 12px 18px; }
+}

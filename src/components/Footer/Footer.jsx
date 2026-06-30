@@ -19,7 +19,7 @@ const Footer = () => {
                             <div className="footer-header">
                                 {/* Footer Logo Start */}
                                 <div className="section-title">
-                                    <h2 data-cursor="-opaque" className='text-white'>Let's build quality textiles together</h2>
+                                    <h2 data-cursor="-opaque" className='text-white'>Precision That Powers Progress.</h2>
                                 </div>
                                 
                                

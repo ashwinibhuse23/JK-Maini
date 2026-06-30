@@ -1,41 +1,38 @@
+/* ============================================================
+   EXPLORE MORE SECTION — Fully Responsive
+   ============================================================ */
 
-.how-it-work-gold{
-	padding: 4rem 0;
+.how-it-work-gold {
+    padding: 4rem 0;
     background-color: #F6F5ED;
 }
 
-@media (max-width: 991px) {
-    .how-it-work-gold {
-        padding: 2rem 0;
-    }
-}
-
-.how-it-work-item-gold{
-	background: var(--secondary-color);
+.how-it-work-item-gold {
+    background: var(--secondary-color);
     border-radius: 20px;
     height: calc(100% - 30px);
     margin-bottom: 30px;
     padding: 10px;
 }
 
-.how-work-item-header-gold{
-	position: relative;
+.how-work-item-header-gold {
+    position: relative;
 }
 
-.how-work-item-image-gold figure{
+.how-work-item-image-gold figure {
     display: block;
     border-radius: 20px;
 }
 
-.how-work-item-image-gold figure img{
-	width: 100%;
+.how-work-item-image-gold figure img {
+    width: 100%;
     aspect-ratio: 1 / 0.653;
     object-fit: cover;
     border-radius: 20px;
 }
 
-.how-work-item-no-gold{
-	position: relative;
+.how-work-item-no-gold {
+    position: relative;
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
@@ -46,36 +43,37 @@
     align-items: center;
     margin: -50px 30px 0 auto;
     transition: all 0.4s ease-in-out;
-	z-index: 1;
+    z-index: 1;
 }
 
-.how-work-item-no-gold h2{
-	font-size: 22px;
-	color: var(--white-color);
+.how-work-item-no-gold h2 {
+    font-size: 22px;
+    color: var(--white-color);
     font-family: var(--primary-font);
     margin-top: 8px;
 }
 
-.how-work-item-body-gold{
-	padding: 10px 30px 30px 30px;
+.how-work-item-body-gold {
+    padding: 10px 30px 30px 30px;
 }
 
-.how-work-item-body-gold h3{
-	font-size: 25px;
+.how-work-item-body-gold h3 {
+    font-size: 24px;
     font-family: var(--primary-font);
     color: #E81C3D;
 }
 
-.how-work-item-body-gold p{
-	margin: 15px 0 0;
+.how-work-item-body-gold p {
+    margin: 15px 0 0;
     font-family: var(--secondary-font);
+    font-size: 15px;
+    line-height: 1.65;
 }
 
-.how-work-item-body-gold ul{
-	list-style: none;
+.how-work-item-body-gold ul {
+    list-style: none;
     display: flex;
     align-items: center;
-    
     flex-wrap: wrap;
     gap: 10px;
     border-top: 1px solid var(--divider-color);
@@ -83,28 +81,31 @@
     padding: 30px 0 0;
 }
 
-.how-work-item-body-gold ul li{
+.how-work-item-body-gold ul li {
     font-size: 14px;
-	font-weight: 500;
+    font-weight: 500;
     color: #E81C3D;
     line-height: normal;
     background-color: var(--bg-color);
     border-radius: 100px;
     padding: 6px 16px;
     transition: all 0.4s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.how-work-item-body-gold ul li:hover{
-	background-color: #E81C3D;
-	color: var(--white-color);
+.how-work-item-body-gold ul li:hover {
+    background-color: #E81C3D;
+    color: var(--white-color);
 }
 
-.image-anime{
+.image-anime {
     position: relative;
     overflow: hidden;
 }
 
-.image-anime:after {
+.image-anime::after {
     content: "";
     position: absolute;
     width: 200%;
@@ -116,8 +117,66 @@
     z-index: 1;
 }
 
-.image-anime:hover:after {
+.image-anime:hover::after {
     height: 250%;
     transition: all 600ms linear;
     background-color: transparent;
+}
+
+/* ======================================================
+   EXPLORE MORE RESPONSIVE
+   ====================================================== */
+
+/* 1200–1399px */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .how-it-work-gold { padding: 3.5rem 0; }
+    .how-work-item-body-gold h3 { font-size: 22px; }
+    .how-work-item-body-gold p { font-size: 14.5px; }
+}
+
+/* 992–1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .how-it-work-gold { padding: 3rem 0; }
+    .how-work-item-body-gold { padding: 10px 22px 24px 22px; }
+    .how-work-item-body-gold h3 { font-size: 20px; }
+    .how-work-item-body-gold p { font-size: 14px; }
+    .how-work-item-no-gold { width: 52px; height: 52px; margin: -42px 22px 0 auto; }
+    .how-work-item-no-gold h2 { font-size: 18px; }
+}
+
+/* ≤ 991px */
+@media (max-width: 991px) {
+    .how-it-work-gold { padding: 2.5rem 0; }
+}
+
+/* 768–991px */
+@media (min-width: 768px) and (max-width: 991px) {
+    .how-work-item-body-gold h3 { font-size: 21px; }
+    .how-work-item-body-gold p { font-size: 14.5px; }
+    /* 2-column grid for medium cards */
+    .col-xl-4.col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* ≤ 767px — one card spans full row */
+@media (max-width: 767px) {
+    .how-it-work-gold { padding: 2rem 0; }
+    .how-it-work-item-gold { margin-bottom: 20px; height: auto; }
+    .how-work-item-body-gold { padding: 10px 20px 24px 20px; }
+    .how-work-item-body-gold h3 { font-size: 20px; }
+    .how-work-item-body-gold p { font-size: 14px; }
+    .how-work-item-no-gold { width: 52px; height: 52px; margin: -42px 22px 0 auto; }
+}
+
+/* ≤ 575px */
+@media (max-width: 575px) {
+    .how-it-work-gold { padding: 1.5rem 0; }
+    .how-work-item-body-gold { padding: 8px 16px 20px 16px; }
+    .how-work-item-body-gold h3 { font-size: 19px; }
+    .how-work-item-body-gold p { font-size: 13.5px; }
+    .how-work-item-body-gold ul { margin-top: 20px; padding-top: 20px; gap: 8px; }
+    .how-work-item-no-gold { width: 48px; height: 48px; margin: -38px 18px 0 auto; }
+    .how-work-item-no-gold h2 { font-size: 16px; }
 }

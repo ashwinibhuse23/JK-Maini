@@ -1,81 +1,82 @@
-
-header.main-header{
+header.main-header {
 	position: absolute;
 	top: 15px;
-    left: 15px;
-    right: 15px;
+	left: 15px;
+	right: 15px;
 	z-index: 100;
 }
 
-header.main-header .header-sticky{
-    position: relative;
+header.main-header .header-sticky {
+	position: relative;
 	top: 0px;
-    border-bottom: 1px solid var(--dark-divider-color);
+	border-bottom: 1px solid var(--dark-divider-color);
 	z-index: 100;
 }
 
-header.main-header .header-sticky.hide{
+header.main-header .header-sticky.hide {
 	transform: translateY(-100%);
 	transition: transform 0.3s ease-in-out;
 }
 
-header.main-header .header-sticky.active{
+header.main-header .header-sticky.active {
 	position: fixed;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    transform: translateY(0);
-    background: var(--primary-color);
-    border-bottom: 1px solid var(--dark-divider-color);
-    border-radius: 20px;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	transform: translateY(0);
+	background: var(--primary-color);
+	border-bottom: 1px solid var(--dark-divider-color);
+	border-radius: 20px;
 }
 
-.navbar{
+.navbar {
 	padding: 30px 0px;
 	align-items: center;
 }
 
-.navbar-brand{
+.navbar-brand {
 	padding: 0;
 	margin: 0;
 	width: 220px;
 }
 
-@media (max-width:576px){
-	.navbar-brand{
+@media (max-width:576px) {
+	.navbar-brand {
 		width: 180px;
 	}
 }
 
-.main-menu .nav-menu-wrapper{
+.main-menu .nav-menu-wrapper {
 	flex: 1;
 	text-align: center;
-	margin: 0 1.042vw;
+	margin: 0 0.5vw;
+	overflow: visible;
 }
 
-.main-menu .nav-menu-wrapper > ul{
+.main-menu .nav-menu-wrapper>ul {
 	align-items: center;
 	display: inline-flex;
 }
 
-.main-menu ul li{
-	margin: 0 10px;
+.main-menu ul li {
+	margin: 0 6px;
 	position: relative;
 }
 
-.main-menu ul li a{
-	font-size: 16px;
+.main-menu ul li a {
+	font-size: 14.5px;
 	font-weight: 400;
 	line-height: 1.2em;
-	padding: 12px 10px !important;
+	padding: 10px 8px !important;
 	color: var(--white-color);
 	background: transparent;
 	border-radius: 0px;
 	text-transform: capitalize;
 	transition: all 0.3s ease-in-out;
+	white-space: nowrap;
 }
 
-.main-menu ul li.submenu > a:after{
+.main-menu ul li.submenu>a:after {
 	content: '';
 	display: inline-block;
 	vertical-align: middle;
@@ -89,16 +90,16 @@ header.main-header .header-sticky.active{
 }
 
 .main-menu ul li a:hover,
-.main-menu ul li a:focus{
+.main-menu ul li a:focus {
 	color: var(--accent-secondary-color);
-	
+
 }
 
 
-.main-menu ul ul{
+.main-menu ul ul {
 	visibility: hidden;
 	opacity: 0;
-	transform: scale(1,0.8);
+	transform: scale(1, 0.8);
 	transform-origin: top;
 	padding: 0;
 	margin: 0;
@@ -113,132 +114,144 @@ header.main-header .header-sticky.active{
 	text-align: left;
 }
 
-.main-menu ul li.submenu:first-child ul{
-    width: 235px;
+.main-menu ul li.submenu:first-child ul {
+	width: 235px;
 }
 
-.main-menu ul ul ul{
+.main-menu ul ul ul {
 	left: 100%;
 	top: 0;
 	text-align: left;
 }
 
-.main-menu ul li:hover > ul{
+.main-menu ul li:hover>ul {
 	visibility: visible;
 	opacity: 1;
-	transform: scale(1,1);
-    padding: 5px 0;
+	transform: scale(1, 1);
+	padding: 5px 0;
 }
 
-.main-menu ul li.submenu ul li.submenu > a:after{
-    content: '';
+.main-menu ul li.submenu ul li.submenu>a:after {
+	content: '';
 	vertical-align: middle;
 	width: 6px;
 	height: 6px;
 	border-right: 2px solid currentColor;
 	border-top: 2px solid currentColor;
 	transform: rotate(45deg);
-    float: right;
+	float: right;
 	margin-top: 6px;
 }
 
-.main-menu ul ul li{
+.main-menu ul ul li {
 	margin: 0;
 	padding: 0;
 }
 
-.main-menu ul ul li a{
+.main-menu ul ul li a {
 	color: #000;
 	padding: 8px 20px !important;
 	transition: all 0.3s ease-in-out;
 }
 
 .main-menu ul ul li a:hover,
-.main-menu ul ul li a:focus{
+.main-menu ul ul li a:focus {
 	color: var(--primary-color);
 	background-color: transparent;
 	padding: 8px 20px 8px 23px !important;
 }
 
-.main-menu ul li.highlighted-menu{
-    display: none;
+.main-menu ul li.highlighted-menu {
+	display: none;
 }
 
 /* ─── Mega Menu ──────────────────────────────────────────────────────────── */
 .mega-parent {
-    position: static !important;
+	position: static !important;
 }
 
 .mega-menu {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(-50%) translateY(15px);
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    display: flex;
-    gap: 0;
-    padding: 20px;
-    min-width: 480px;
-    z-index: 200;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    pointer-events: none;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateX(-50%) translateY(15px);
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+	display: flex;
+	gap: 0;
+	padding: 20px;
+	min-width: 620px;
+	z-index: 200;
+	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	pointer-events: none;
 }
 
 /* Invisible bridge to prevent hover loss */
 .mega-menu::before {
-    content: '';
-    position: absolute;
-    top: -25px;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    background: transparent;
+	content: '';
+	position: absolute;
+	top: -25px;
+	left: 0;
+	width: 100%;
+	height: 25px;
+	background: transparent;
 }
 
 .mega-parent:hover .mega-menu {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: all;
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+	pointer-events: all;
 }
 
 .mega-menu .mega-col {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0 10px;
-    flex: 1;
-    min-width: 200px;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0 10px;
+	flex: 1;
+	min-width: 260px;
 }
 
-.mega-menu .mega-col + .mega-col {
-    border-left: 1px solid rgba(0, 0, 0, 0.05);
+.mega-menu .mega-col+.mega-col {
+	border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Column header (JKMPTL / JKMGAL) */
+.mega-col-header {
+	font-size: 14px;
+	font-weight: 600;
+	color: #111;
+	padding: 4px 16px 10px;
+	margin-bottom: 4px;
+	display: block;
 }
 
 .main-menu ul li .mega-menu .mega-col .mega-link {
-    display: block;
-    padding: 10px 16px !important;
-    font-size: 15px;
-    font-weight: 500;
-    color: #444 !important;
-    background: transparent;
-    border-radius: 8px;
-    transition: all 0.25s ease;
-    
-    text-transform: capitalize;
-    text-align: left;
-    text-decoration: none !important;
-    margin-bottom: 4px;
+	display: block;
+	padding: 10px 16px !important;
+	font-size: 15px;
+	font-weight: 500;
+	color: #444 !important;
+	background: transparent;
+	border-radius: 8px;
+	transition: all 0.25s ease;
+	text-transform: capitalize;
+	text-align: left;
+	text-decoration: none !important;
+	margin-bottom: 4px;
+	white-space: normal;
+	word-break: break-word;
+	line-height: 1.4;
 }
 
 .main-menu ul li .mega-menu .mega-col .mega-link:hover {
-    background: #f8f9fa !important;
-    color: #E81C3d !important;
-    padding-left: 22px !important;
+	background: #f8f9fa !important;
+	color: #E81C3D !important;
+	padding-left: 22px !important;
 }
 
 /* ─── Hamburger Toggle Button ─── */
@@ -272,9 +285,11 @@ header.main-header .header-sticky.active{
 .navbar-toggle-btn.open .bar:nth-child(1) {
 	transform: translateY(7.5px) rotate(45deg);
 }
+
 .navbar-toggle-btn.open .bar:nth-child(2) {
 	opacity: 0;
 }
+
 .navbar-toggle-btn.open .bar:nth-child(3) {
 	transform: translateY(-7.5px) rotate(-45deg);
 }
@@ -368,7 +383,7 @@ header.main-header .header-sticky.active{
 .mobile-submenu-link {
 	display: block;
 	padding: 8px 0;
-	color: rgba(255,255,255,0.7);
+	color: rgba(255, 255, 255, 0.7);
 	font-size: 14px;
 	text-transform: capitalize;
 	transition: color 0.2s ease;
@@ -386,7 +401,7 @@ header.main-header .header-sticky.active{
 .menu-overlay {
 	position: fixed;
 	inset: 0;
-	background: rgba(0,0,0,0.4);
+	background: rgba(0, 0, 0, 0.4);
 	z-index: 140;
 }
 
@@ -410,3 +425,23 @@ header.main-header .header-sticky.active{
 }
 
 
+/* ─── Header Get Started Button ─── */
+.header-btn {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.header-btn .custom-button {
+	padding: 10px 20px;
+}
+
+.header-btn .button-content {
+	font-size: 14px;
+	white-space: nowrap;
+	gap: 6px;
+}
+
+.header-btn .button-icon {
+	font-size: 18px;
+}

@@ -1,0 +1,223 @@
+/* ═══════════════════════════════════════════════════════
+   Investor Relation – Annual Reports
+═══════════════════════════════════════════════════════ */
+
+/* ── Section wrapper ─────────────────────────────────── */
+.ir-annual-section {
+    padding: 50px 0 60px;
+    background: #f7f7f7;
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle dot-grid background like the image */
+.ir-annual-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 340px;
+    height: 340px;
+    background-image: radial-gradient(circle, rgba(232,28,61,0.12) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    pointer-events: none;
+}
+
+/* ── Two-column layout ───────────────────────────────── */
+.ir-annual-wrapper {
+    display: grid;
+    grid-template-columns: 370px 1fr;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.ir-annual-right {
+    margin-top: 30px;
+}
+
+/* ── Left Panel ──────────────────────────────────────── */
+.ir-annual-left {
+    position: sticky;
+    top: 120px;
+    margin-top: -20px;
+}
+
+.ir-annual-desc {
+    font-family: var(--primary-font);
+    font-size: 15px;
+    line-height: 1.85;
+    color: #555;
+    margin: 0;
+}
+
+/* Annual Reports heading — smaller size to fit the left column */
+.ir-annual-left h2 {
+    font-size: 36px;
+    white-space: nowrap;
+}
+
+
+/* ── Right Panel — Timeline ──────────────────────────── */
+.ir-timeline {
+    position: relative;
+    padding-left: 0;
+}
+
+/* Vertical line — left: 7px = center of the 14px dot */
+.ir-timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 7px;
+    width: 2px;
+    background: #e8e8e8;
+    z-index: 0;
+}
+
+/* Each row = dot (flex item) + card */
+.ir-timeline-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+    z-index: 1;
+}
+
+.ir-timeline-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Red dot — flex child, always centered in the row */
+.ir-timeline-dot {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    border-radius: 50%;
+    background: #E81C3D;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(232, 28, 61, 0.15);
+}
+
+/* ── Document Card ───────────────────────────────────── */
+.ir-doc-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+    padding: 13px 18px;
+    text-decoration: none;
+    flex: 1;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    cursor: pointer;
+}
+
+.ir-doc-card:hover {
+    border-color: #E81C3D;
+    box-shadow: 0 8px 32px rgba(232, 28, 61, 0.1);
+    transform: translateX(4px);
+}
+
+/* File icon wrapper — light pink circle */
+.ir-doc-icon-wrap {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(232, 28, 61, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Label text */
+.ir-doc-label {
+    flex: 1;
+    font-family: var(--primary-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: #18191A;
+    line-height: 1.4;
+}
+
+/* Download button */
+.ir-doc-dl-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1.5px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    flex-shrink: 0;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.ir-doc-card:hover .ir-doc-dl-btn {
+    background: #E81C3D;
+    border-color: #E81C3D;
+    color: #fff;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .ir-annual-wrapper {
+        grid-template-columns: 260px 1fr;
+        gap: 50px;
+    }
+
+    .ir-heading-dark,
+    .ir-heading-red {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ir-annual-section {
+        padding: 60px 0 70px;
+    }
+
+    .ir-annual-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .ir-annual-left {
+        position: static;
+    }
+
+    .ir-heading-dark,
+    .ir-heading-red {
+        font-size: 44px;
+    }
+
+    .ir-timeline {
+        padding-left: 24px;
+    }
+
+    .ir-doc-label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ir-heading-dark,
+    .ir-heading-red {
+        font-size: 36px;
+    }
+
+    .ir-doc-card {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .ir-doc-icon-wrap {
+        width: 40px;
+        height: 40px;
+    }
+}

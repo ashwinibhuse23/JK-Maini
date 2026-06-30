@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PageHeader from '../../AboutHeader/PageHeader'
 import banner from "/images/sustainability-bg.png"
 import JKMPTLSusAbout from './JKMPTLSusAbout'
 import SustainabilityCards from '../../SustainabilityCards/SustainabilityCards'
 import Certifications from '../../Certifications/Certifications'
 import ReportsData from '../../ReportsData/ReportsData'
+import GetInTouchModal from '../../GetInTouchModal/GetInTouchModal'
+import ButtonOne from '../../ButtonOne/ButtonOne'
+import { FaArrowCircleRight } from 'react-icons/fa'
+import './JKMPTLSustainability.css'
 
 const JKMPTLSustainability = () => {
+    const [modalOpen, setModalOpen] = useState(false)
+
     return (
         <div>
             <>
+                {/* ── Get in Touch Modal ─────────────────────── */}
+                <GetInTouchModal
+                    isOpen={modalOpen}
+                    onClose={() => setModalOpen(false)}
+                    title="Partner With Us"
+                />
+
                 <PageHeader
                     title="Environmental, Social & Governance(ESG)"
                     desc="Precision with purpose. Engineering a sustainable future."
@@ -17,6 +30,7 @@ const JKMPTLSustainability = () => {
                 />
 
                 <JKMPTLSusAbout />
+
                 <SustainabilityCards
                     sectionTitle="Environmental Stewardship"
                     sectionDesc="We are committed to reducing our environmental footprint through resource efficiency and sustainable operations."
@@ -39,6 +53,34 @@ const JKMPTLSustainability = () => {
 
                 <Certifications bg={true} />
                 <ReportsData bg={false} />
+
+                {/* ── Partner With Us CTA Banner ─────────────── */}
+                <section className="sus-partner-cta">
+                    <div className="container">
+                        <div className="sus-partner-inner">
+                            <div className="sus-partner-text">
+                                <span className="section-sub-title">Collaborate With Us</span>
+                                <h2>Together, We Build a Greener Tomorrow!</h2>
+                                <p>
+                                    Empowering people, protecting the planet, and strengthening
+                                    communities through focused sustainability partnerships.
+                                </p>
+                            </div>
+                            <div className="sus-partner-btn">
+                                <button
+                                    className="sus-partner-trigger"
+                                    onClick={() => setModalOpen(true)}
+                                    aria-label="Open Partner With Us form"
+                                >
+                                    <span className="sus-btn-circle">
+                                        <FaArrowCircleRight />
+                                    </span>
+                                    Partner With Us
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </>
         </div>
     )

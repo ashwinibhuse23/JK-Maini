@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar';
@@ -13,6 +13,9 @@ import JKMPTLCSR from './components/Pages/JKMPTLCSR/JKMPTLCSR';
 import JKMPTLNewsEvents from './components/Pages/JKMPTLNewsEvents/JKMPTLNewsEvents';
 import JKMGALSustainability from './components/Pages/JKMGALSustainability/JKMGALSustainability';
 import JKMGALCSR from './components/Pages/JKMGALCSR/JKMGALCSR';
+import JKMGALNews from './components/Pages/JKMGALNews/JKMGALNews';
+import JKMGALAwards from './components/Pages/JKMGALAwards/JKMGALAwards';
+import InvestorRelation from './components/Pages/InvestorRelation/InvestorRelation';
 
 
 
@@ -32,43 +35,56 @@ import 'lenis/dist/lenis.css';
 gsap.registerPlugin(ScrollTrigger);
 
 function SmoothScroll() {
-  const location = useLocation();
+  const location = useLocation()
+  const lenisRef = useRef(null)
 
+  // Create Lenis ONCE on mount
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1,
+      wheelMultiplier: 0.9,
       smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
-    });
+    })
 
-    // Synchronize Lenis scrolling with GSAP's ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
+    lenisRef.current = lenis
+    window.__lenis = lenis  // expose globally so child components can stop/start
 
-    // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-    const update = (time) => {
-      lenis.raf(time * 1000);
-    };
-    gsap.ticker.add(update);
+    lenis.on('scroll', ScrollTrigger.update)
 
-    // Disable lag smoothing in GSAP to prevent syncing issues
-    gsap.ticker.lagSmoothing(0);
+    const update = (time) => lenis.raf(time * 1000)
+    gsap.ticker.add(update)
+    gsap.ticker.lagSmoothing(0)
 
-    // Scroll to top on route change
-    lenis.scrollTo(0, { immediate: true });
+    // Listen for stop/start events from Lightbox / other child components
+    const onStop  = () => lenis.stop()
+    const onStart = () => lenis.start()
+    window.addEventListener('lenis-stop',  onStop)
+    window.addEventListener('lenis-start', onStart)
 
     return () => {
-      gsap.ticker.remove(update);
-      lenis.destroy();
-    };
-  }, [location.pathname]);
+      window.removeEventListener('lenis-stop',  onStop)
+      window.removeEventListener('lenis-start', onStart)
+      gsap.ticker.remove(update)
+      lenis.destroy()
+      lenisRef.current = null
+      window.__lenis = null
+    }
+  }, [])
 
-  return null;
+  // On route change: scroll to top instantly
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true })
+    }
+  }, [location.pathname])
+
+  return null
 }
 
 
@@ -185,7 +201,7 @@ function App() {
   return (
     <BrowserRouter>
       <SmoothScroll />
-      <MagicCursor />
+      {/* <MagicCursor /> */}
       <GlobalAnimations />
       <Navbar />
       <Routes>
@@ -200,6 +216,9 @@ function App() {
         <Route path='/jkmptl-news-events' element={<JKMPTLNewsEvents />} />
         <Route path='/jkmgal-sustainability' element={<JKMGALSustainability />} />
         <Route path='/jkmgal-csr' element={<JKMGALCSR />} />
+        <Route path='/jkmgal-news' element={<JKMGALNews />} />
+        <Route path='/jkmgal-awards' element={<JKMGALAwards />} />
+        <Route path='/investor-relation' element={<InvestorRelation />} />
       </Routes>
       <div className="mt-4 mb-4">
         <Footer />
