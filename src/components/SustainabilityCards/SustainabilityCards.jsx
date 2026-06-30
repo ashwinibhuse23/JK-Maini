@@ -52,7 +52,7 @@ const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg,
                     </div>
                 </div>
                 <div className="container">
-                    <div class="cards-parent">
+                    <div className="cards-parent">
                         {
                             susCardContent.map((item, index) => {
                                 return (
@@ -75,48 +75,44 @@ const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg,
                     </div>
                 </div>
 
-                <div className="container mt-5">
+                <div className="container mt-4">
                     <div className="impact">
-                        <div className="row">
-                            <div className="col-md-3">
-                                <div className="impact-card d-flex">
-                                    <div className='d-flex align-items-center justify-content-center px-3'>
+                        <div className="row g-0">
+                            {/* ── Impact label card ── */}
+                            <div className="col-12 col-sm-6 col-md-3">
+                                <div className="impact-card d-flex align-items-center h-100">
+                                    <div className="impact-icon-wrap">
                                         <div className="impact-card-icon">
                                             <img src="./images/impact-icon.svg" alt="" />
                                         </div>
                                     </div>
-                                    <div className='d-flex align-items-center'>
-                                        <div className="impact-card-title">
-                                            <h3>Impact</h3>
-                                        </div>
+                                    <div className="impact-card-title">
+                                        <h3>Impact</h3>
                                     </div>
                                 </div>
                             </div>
+
+                            {/* ── Three impact metric cards ── */}
                             {
-                                impCardContent.map((items, key) => {
-                                    return (
-                                        <>
-                                            <div key={key} className="col-md-3">
-                                                <div className="impacts-cards d-flex gap-2 h-100">
-                                                    <div className='d-flex align-items-center justify-content-center px-3'>
-                                                        <div className="impacts-card-icon">
-                                                            <img src={items.ImpactIcon} alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div className='d-flex align-items-center'>
-                                                        <div className="impacts-card-title">
-                                                            <h3>{items.ImpactTitle}</h3>
-                                                        </div>
-                                                    </div>
+                                impCardContent.map((items, key) => (
+                                    <div key={key} className="col-12 col-sm-6 col-md-3">
+                                        <div className="impacts-cards d-flex align-items-center h-100">
+                                            <div className="impact-icon-wrap">
+                                                <div className="impacts-card-icon">
+                                                    <img src={items.ImpactIcon} alt="" />
                                                 </div>
                                             </div>
-                                        </>
-                                    )
-                                })
+                                            <div className="impacts-card-title">
+                                                <h3>{items.ImpactTitle}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
                             }
                         </div>
                     </div>
                 </div>
+
             </section>
         </>
     )

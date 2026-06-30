@@ -1,4 +1,5 @@
 import React from 'react'
+import '../AutomotiveAbout/AutomotiveAbout.css'
 
 const AeroAbout = () => {
     return (
@@ -6,7 +7,7 @@ const AeroAbout = () => {
             <div className="our-industries">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-xl-6">
+                        <div className="col-lg-6">
                             
                             <div className="our-industries-content">
                                 
@@ -30,7 +31,7 @@ const AeroAbout = () => {
                             </div>
                             
                         </div>
-                        <div className="col-xl-6">
+                        <div className="col-lg-6">
                             {/* Industries Image Box Start */}
                             <div
                                 className="industries-image-box wow fadeInUp"

@@ -6,7 +6,7 @@ const VisionMissionValues = () => {
         <>
             <div className="why-choose-us bg-section">
                 <div className="container-fluid">
-                    <div className="row px-5">
+                    <div className="row align-items-stretch">
 
                         <div className="col-md-6">
                             <div className="why-choose-image h-100">
@@ -16,7 +16,7 @@ const VisionMissionValues = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-6 px-5 d-flex flex-column justify-content-center">
+                        <div className="col-md-6 vmv-content-col d-flex flex-column justify-content-center">
                             <div className="section-title">
                                 <span className="section-sub-title wow fadeInUp">
                                     Who We Are

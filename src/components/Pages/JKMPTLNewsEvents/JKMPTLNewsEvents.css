@@ -89,9 +89,17 @@
 /* ── Upcoming Events Section ──────────────────────────────────────────── */
 .ue-wrapper {
     background: #f4f5f7;
-    padding: 50px 32px 60px;
+    padding: 30px 16px 36px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 576px) {
+    .ue-wrapper { padding: 40px 24px 50px; }
+}
+
+@media (min-width: 992px) {
+    .ue-wrapper { padding: 50px 32px 60px; }
 }
 
 .ue-section {
@@ -99,21 +107,36 @@
     gap: 0;
     max-width: 1120px;
     margin: 0 auto;
-    border-radius: 18px;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+@media (min-width: 860px) {
+    .ue-section {
+        border-radius: 18px;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    }
 }
 
 /* ── Left Sidebar ─────────────────────────────────────────────────────── */
 .ue-sidebar {
-    width: 360px;
-    min-width: 320px;
+    width: 100%;
+    min-width: unset;
     background: #0f1014;
     color: #fff;
-    padding: 32px 24px 24px;
+    padding: 24px 18px 18px;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+}
+
+@media (min-width: 860px) {
+    .ue-sidebar {
+        width: 360px;
+        min-width: 300px;
+        padding: 32px 24px 24px;
+    }
 }
 
 .ue-sidebar-heading {
@@ -123,7 +146,7 @@
 /* "Upcoming" — gradient text */
 .ue-sidebar-heading .ue-heading-upcoming {
     display: block;
-    font-size: 2.1rem;
+    font-size: 1.6rem;
     font-weight: 900;
     background: var(--ue-red);
     -webkit-background-clip: text;
@@ -134,15 +157,31 @@
     letter-spacing: -0.01em;
 }
 
+@media (min-width: 576px) {
+    .ue-sidebar-heading .ue-heading-upcoming { font-size: 1.9rem; }
+}
+
+@media (min-width: 860px) {
+    .ue-sidebar-heading .ue-heading-upcoming { font-size: 2.1rem; }
+}
+
 /* "Events" — same display treatment */
 .ue-sidebar-heading .ue-heading-events {
     display: block;
-    font-size: 2.1rem;
+    font-size: 1.6rem;
     font-weight: 900;
     color: #fff;
     line-height: 1.05;
     font-family: var(--secondary-font);   /* Gilroy */
     letter-spacing: -0.01em;
+}
+
+@media (min-width: 576px) {
+    .ue-sidebar-heading .ue-heading-events { font-size: 1.9rem; }
+}
+
+@media (min-width: 860px) {
+    .ue-sidebar-heading .ue-heading-events { font-size: 2.1rem; }
 }
 
 /* Sub-text uses Poppins (primary body font) */
@@ -174,7 +213,7 @@
 /* Scrollable variant — always shows vertical scrollbar */
 .ue-list-scroll {
     margin-top: 12px;
-    max-height: 460px;
+    max-height: 220px;
     overflow-y: scroll;
     padding-right: 4px;
     scrollbar-width: thin;
@@ -182,6 +221,12 @@
     scroll-behavior: smooth;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 860px) {
+    .ue-list-scroll {
+        max-height: 460px;
+    }
 }
 
 .ue-list-scroll::-webkit-scrollbar {
@@ -444,29 +489,46 @@
 
 /* Content below image */
 .ue-panel-content {
-    padding: 36px 26px 24px;
+    padding: 18px 16px 18px;
     flex: 1;
     display: flex;
     flex-direction: column;
     background: #fff;
 }
 
+@media (min-width: 576px) {
+    .ue-panel-content { padding: 24px 20px 20px; }
+}
+
+@media (min-width: 860px) {
+    .ue-panel-content { padding: 36px 26px 24px; }
+}
+
 /* Panel title — Gilroy for display/heading feel */
 .ue-panel-title {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #0d0d0d;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
     line-height: 1.2;
     font-family: var(--secondary-font);   /* Gilroy */
+}
+
+@media (min-width: 576px) {
+    .ue-panel-title { font-size: 1.3rem; }
+}
+
+@media (min-width: 860px) {
+    .ue-panel-title { font-size: 1.5rem; margin-bottom: 12px; }
 }
 
 .ue-panel-meta {
     display: flex;
     align-items: center;
     gap: 0;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
+    row-gap: 6px;
 }
 
 /* Meta items (date, location) — Poppins */
@@ -474,16 +536,22 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: #555;
     font-family: var(--primary-font);     /* Poppins */
 }
 
 .ue-panel-meta-sep {
     color: #ccc;
-    margin: 0 14px;
+    margin: 0 10px;
     font-size: 1rem;
     line-height: 1;
+}
+
+/* Hide separator on very small screens where items wrap */
+@media (max-width: 400px) {
+    .ue-panel-meta-sep { display: none; }
+    .ue-panel-meta-item { flex-basis: 100%; }
 }
 
 /* Description — Poppins body text */
@@ -584,25 +652,38 @@
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────── */
+/* Stacks sidebar above panel on smaller screens */
 @media (max-width: 860px) {
     .ue-section {
         flex-direction: column;
-    }
-    .ue-sidebar {
-        width: 100%;
-        min-width: unset;
     }
     /* aspect-ratio already handles height on mobile */
     .ue-panel-img-wrap {
         aspect-ratio: 16 / 9;
     }
-    .ue-wrapper {
-        padding: 30px 16px 40px;
-    }
 }
 
 @media (max-width: 520px) {
-    .ue-panel-title { font-size: 1.2rem; }
-    .ue-panel-content { padding: 16px 18px 20px; }
-    .ue-panel-img-wrap { height: 180px; }
+    .ue-btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+    .ue-slide-btn {
+        width: 30px;
+        height: 30px;
+    }
+    .ue-item {
+        padding: 10px 10px 10px 10px;
+        gap: 10px;
+    }
+    .ue-item-date {
+        min-width: 48px;
+        padding: 6px 8px;
+    }
+    .ue-item-date .month {
+        font-size: 1rem;
+    }
+    .ue-item-title {
+        font-size: 0.8rem;
+    }
 }

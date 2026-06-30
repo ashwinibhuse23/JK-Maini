@@ -1,0 +1,58 @@
+/*
+  AutomotiveAbout — uses the shared .our-industries, .industries-image-box-*
+  classes from RaymondGroupSection.css.
+  This file only adds component-specific overrides.
+*/
+
+/* On mobile: stack images vertically */
+.our-industries .industries-image-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-left: 0;
+    margin-top: 30px;
+}
+
+.our-industries .industries-image-box-1 {
+    width: 100%;
+    padding-bottom: 0;
+}
+
+.our-industries .industries-image-box-1 .industries-image {
+    margin-right: 0;
+}
+
+.our-industries .industries-image-box-1 .industries-image figure img {
+    aspect-ratio: 16 / 9;
+}
+
+.our-industries .industries-image-box-2 {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* On desktop (lg+): restore the overlapping two-image layout */
+@media (min-width: 992px) {
+    .our-industries .industries-image-box {
+        margin-left: 15px;
+        margin-top: 0;
+    }
+
+    .our-industries .industries-image-box-1 {
+        width: 23%;
+        padding-bottom: 110px;
+    }
+
+    .our-industries .industries-image-box-1 .industries-image {
+        margin-right: -415px;
+    }
+
+    .our-industries .industries-image-box-1 .industries-image figure img {
+        aspect-ratio: 1 / 0.864;
+    }
+
+    .our-industries .industries-image-box-2 {
+        width: 77%;
+        margin-top: 0;
+    }
+}

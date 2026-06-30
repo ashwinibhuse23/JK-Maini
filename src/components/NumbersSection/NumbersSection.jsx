@@ -37,7 +37,7 @@ const NumbersSection = () => {
 
                     </div>
 
-                    <div className="number-boxes parent" style={{gridTemplateColumns : `repeat(${Numbers.length}, 1fr)`}} >
+                    <div className="number-boxes parent">
 
                         {
                             Numbers.map((number, index) => {

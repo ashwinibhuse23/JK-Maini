@@ -7,7 +7,7 @@ const RaymondGroupSection = () => {
             <div className="our-industries">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-xl-6">
+                        <div className="col-lg-6">
                             {/* Our Industries Contant Start */}
                             <div className="our-industries-content">
                                 {/* Section Title Start */}
@@ -34,7 +34,7 @@ const RaymondGroupSection = () => {
                             </div>
                             {/* Our Industries Contant End */}
                         </div>
-                        <div className="col-xl-6">
+                        <div className="col-lg-6">
                             {/* Industries Image Box Start */}
                             <div
                                 className="industries-image-box wow fadeInUp"

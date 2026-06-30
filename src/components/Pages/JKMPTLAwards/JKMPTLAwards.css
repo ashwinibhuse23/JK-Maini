@@ -10,6 +10,12 @@
     overflow: hidden;
 }
 
+@media (min-width: 768px) {
+    .awards-section {
+        padding-block: 4rem;
+    }
+}
+
 .awards-section-overlay { display: none; }
 
 /* =========================================================
@@ -18,9 +24,28 @@
 
 .cert-awards-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     margin-top: 2rem;
+}
+
+@media (min-width: 480px) {
+    .cert-awards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .cert-awards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .cert-awards-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
 /* ── Keyframes ──────────────────────────────────────────── */
@@ -77,7 +102,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.1rem 0.85rem 0.95rem;
+    padding: 0.9rem 0.65rem 0.8rem;
     cursor: pointer;
     text-align: center;
     box-shadow: 0 3px 14px rgba(24, 25, 26, 0.07);
@@ -85,10 +110,23 @@
     transition: box-shadow 0.38s ease, border-color 0.3s ease;
 }
 
+@media (min-width: 576px) {
+    .cert-award-card {
+        padding: 1.1rem 0.85rem 0.95rem;
+    }
+}
+
 /* Once appeared, run the float loop */
 .cert-award-card.cert-appear {
     animation: certFadeUp 0.55s ease forwards,
                certFloat 4s ease-in-out 0.6s infinite;
+}
+
+/* Disable float animation on mobile for performance */
+@media (max-width: 575px) {
+    .cert-award-card.cert-appear {
+        animation: certFadeUp 0.55s ease forwards;
+    }
 }
 
 .cert-award-card:hover {
@@ -99,9 +137,6 @@
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.4s ease, border-color 0.3s ease;
 }
-
-
-
 
 /* Gradient top bar */
 .cert-award-card::before {
@@ -132,19 +167,35 @@
 
 /* Logo panel */
 .cert-award-img-panel {
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
     background: transparent;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.55rem;
     padding: 0;
     position: relative;
     z-index: 2;
     transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
+@media (min-width: 576px) {
+    .cert-award-img-panel {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (min-width: 992px) {
+    .cert-award-img-panel {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 0.65rem;
+    }
+}
+
 .cert-award-card:hover .cert-award-img-panel { transform: scale(1.1) rotate(-2deg); }
 
 .cert-award-img {
@@ -168,13 +219,20 @@
 .cert-award-card:hover .cert-award-footer { transform: translateY(-3px); }
 
 .cert-award-title {
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     font-weight: 700;
     color: var(--primary-color);
     font-family: var(--primary-font);
     margin: 0; line-height: 1.2;
     transition: color 0.25s ease;
 }
+
+@media (min-width: 576px) {
+    .cert-award-title {
+        font-size: 0.78rem;
+    }
+}
+
 .cert-award-card:hover .cert-award-title { color: #ED193A; }
 
 .cert-award-sub {
@@ -190,26 +248,28 @@
 
 .cert-award-bar { display: none; }
 
-/* ── Certifications Responsive ──────────────────────────── */
-@media (max-width: 1200px) { .cert-awards-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 991px)  { .cert-awards-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 680px)  {
-    .cert-awards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .awards-section   { padding-block: 3.5rem; }
-    .cert-award-card  { animation: none; }
-}
-@media (max-width: 400px)  { .cert-awards-grid { grid-template-columns: 1fr; } }
-
 
 /* =========================================================
    Featured Awards Section
    ========================================================= */
 
 .featured-awards-section {
-    padding-block: 5rem;
+    padding-block: 3rem;
     background: #ffffff;
     position: relative;
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .featured-awards-section {
+        padding-block: 4rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .featured-awards-section {
+        padding-block: 5rem;
+    }
 }
 
 .featured-awards-section::before {
@@ -225,57 +285,110 @@
 .fa-cards-list {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .fa-cards-list {
+        gap: 2rem;
+        margin-top: 2.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .fa-cards-list {
+        gap: 2.5rem;
+        margin-top: 3rem;
+    }
 }
 
 /* Card shell */
 .fa-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: stretch;
     background: #ffffff;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 6px 30px rgba(24, 25, 26, 0.08);
     border: 1px solid rgba(24, 25, 26, 0.06);
     transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.38s ease;
 }
 
+@media (min-width: 768px) {
+    .fa-card {
+        grid-template-columns: 1fr 1fr;
+        border-radius: 20px;
+    }
+}
+
 .fa-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: 0 22px 55px rgba(24, 25, 26, 0.13);
 }
 
-.fa-card--reverse { direction: rtl; }
-.fa-card--reverse > * { direction: ltr; }
+@media (min-width: 992px) {
+    .fa-card:hover {
+        transform: translateY(-6px);
+    }
+}
+
+/* Alternating image/text flip on desktop only */
+.fa-card--reverse { direction: ltr; }
+
+@media (min-width: 768px) {
+    .fa-card--reverse { direction: rtl; }
+    .fa-card--reverse > * { direction: ltr; }
+}
 
 /* Text side */
 .fa-card-text {
-    padding: 2.4rem 2.2rem;
+    padding: 1.4rem 1.2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 0.75rem;
     justify-content: center;
+}
+
+@media (min-width: 576px) {
+    .fa-card-text {
+        padding: 1.8rem 1.6rem;
+        gap: 0.85rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .fa-card-text {
+        padding: 2.4rem 2.2rem;
+        gap: 0.9rem;
+    }
 }
 
 .fa-card-tag {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.6px;
     font-family: var(--primary-font);
     border: 1px solid;
     border-radius: 100px;
-    padding: 0.25rem 0.8rem;
+    padding: 0.22rem 0.7rem;
     width: fit-content;
 }
 
+@media (min-width: 576px) {
+    .fa-card-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.8rem;
+    }
+}
+
 .fa-card-title {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--primary-color);
     font-family: var(--primary-font);
@@ -283,24 +396,50 @@
     margin: 0;
 }
 
+@media (min-width: 576px) {
+    .fa-card-title {
+        font-size: 1.15rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .fa-card-title {
+        font-size: 1.3rem;
+    }
+}
+
 .fa-card-meta {
     display: flex;
     flex-direction: column;
     gap: 0.22rem;
-    padding: 0.7rem 0.9rem;
+    padding: 0.6rem 0.75rem;
     background: var(--bg-color);
     border-radius: 10px;
     border-left: 3px solid var(--accent-secondary-color);
 }
 
+@media (min-width: 576px) {
+    .fa-card-meta {
+        padding: 0.7rem 0.9rem;
+    }
+}
+
+/* Meta row — responsive label column */
 .fa-meta-item {
     display: grid;
-    grid-template-columns: 110px 14px 1fr;
+    grid-template-columns: 90px 12px 1fr;
     align-items: baseline;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-color);
     font-family: var(--secondary-font);
     line-height: 1.5;
+}
+
+@media (min-width: 576px) {
+    .fa-meta-item {
+        grid-template-columns: 110px 14px 1fr;
+        font-size: 0.8rem;
+    }
 }
 
 .fa-meta-label {
@@ -320,11 +459,17 @@
 }
 
 .fa-card-desc {
-    font-size: 0.87rem;
+    font-size: 0.83rem;
     color: var(--text-color);
     line-height: 1.78;
     font-family: var(--secondary-font);
     margin: 0;
+}
+
+@media (min-width: 576px) {
+    .fa-card-desc {
+        font-size: 0.87rem;
+    }
 }
 
 .fa-card-bar {
@@ -341,22 +486,48 @@
     display: flex;
     flex-direction: column;
     gap: 0.65rem;
-    padding: 1.5rem;
+    padding: 1rem;
     background: var(--bg-color);
     justify-content: center;
 }
 
+@media (min-width: 768px) {
+    .fa-card-img-side {
+        padding: 1.5rem;
+    }
+}
+
 .fa-img-main-wrap {
     position: relative;
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    height: 380px;
+    height: 240px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: 1rem;
+    padding: 0.75rem;
+}
+
+@media (min-width: 576px) {
+    .fa-img-main-wrap {
+        height: 290px;
+    }
+}
+
+@media (min-width: 768px) {
+    .fa-img-main-wrap {
+        height: 340px;
+        border-radius: 14px;
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .fa-img-main-wrap {
+        height: 380px;
+    }
 }
 
 .fa-img-main {
@@ -434,7 +605,7 @@
 }
 
 .fa-thumb {
-    width: 62px; height: 46px;
+    width: 52px; height: 40px;
     border-radius: 8px;
     overflow: hidden;
     border: 2px solid var(--divider-color);
@@ -444,21 +615,14 @@
     flex-shrink: 0;
     transition: border-color 0.25s ease, transform 0.25s ease;
 }
+
+@media (min-width: 576px) {
+    .fa-thumb {
+        width: 62px;
+        height: 46px;
+    }
+}
+
 .fa-thumb:hover { transform: scale(1.06); }
 .fa-thumb--active { border-color: var(--accent-color) !important; }
 .fa-thumb img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #f8f8f8; padding: 2px; }
-
-
-/* Featured Awards Responsive */
-@media (max-width: 991px) {
-    .fa-card, .fa-card--reverse { grid-template-columns: 1fr; direction: ltr; }
-    .fa-card--reverse > * { direction: ltr; }
-    .fa-card-text { padding: 2rem 1.5rem 1.2rem; }
-    .fa-card-img-side { padding: 0 1.5rem 1.5rem; }
-}
-
-@media (max-width: 680px) {
-    .featured-awards-section { padding-block: 3rem; }
-    .fa-card-title { font-size: 1.05rem; }
-    .fa-cards-list { gap: 1.5rem; }
-}

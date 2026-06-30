@@ -1,7 +1,13 @@
 
 .cta-box{
-	padding: 120px 0;
+	padding: 60px 0;
     background-color: #F6F5ED;
+}
+
+@media (min-width: 992px) {
+	.cta-box {
+		padding: 120px 0;
+	}
 }
 
 .cta-box-item{
@@ -78,9 +84,36 @@
 
 .partner-world-map-image img{
 	width: 100%;
-	aspect-ratio: 1 / 0.53;
-	object-fit: cover;
+	aspect-ratio: 16 / 9;
+	object-fit: contain;
 	border-radius: 10px;
+}
+
+@media (min-width: 576px) {
+	.partner-world-map-image img {
+		aspect-ratio: 1 / 0.53;
+	}
+}
+
+/* Industry icon list — responsive wrap */
+.cta-box .industries-body-item-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	justify-content: center;
+	margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+	.cta-box .industries-body-item-list {
+		justify-content: space-between;
+		gap: 20px;
+	}
+}
+
+.cta-box .industries-body-item.w-auto {
+	width: auto;
+	flex: 0 0 auto;
 }
 
 .world-map-cards-box{

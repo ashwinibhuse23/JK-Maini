@@ -1,7 +1,20 @@
 .certifications-section {
-    padding-block: 5rem;
+    padding-block: 3rem;
 }
 
+@media (min-width: 768px) {
+    .certifications-section {
+        padding-block: 4rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .certifications-section {
+        padding-block: 5rem;
+    }
+}
+
+/* Flex grid: 1 card per row on xs, 2 on sm, wraps automatically */
 .certs-grid {
     display: flex;
     flex-wrap: wrap;
@@ -10,15 +23,23 @@
 }
 
 .cert-card {
-    flex: 1 1 300px;
+    flex: 1 1 260px;
     max-width: 380px;
-    padding-block: 1.2rem;
+    padding-block: 1rem;
     border-radius: 15px;
     border: 1px solid transparent;
     border-left: 3px solid #E81C3D;
-    /* Theme red matching Sustainability cards */
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: all .3s ease-in-out;
+    min-height: 80px;
+}
+
+@media (max-width: 575px) {
+    /* On very small screens, make each card take full width */
+    .cert-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
 
 .cert-card:hover {
@@ -29,13 +50,20 @@
 }
 
 .cert-card-icon {
-    width: 95px;
-    height: 95px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+}
+
+@media (max-width: 575px) {
+    .cert-card-icon {
+        width: 64px;
+        height: 64px;
+    }
 }
 
 .cert-card-icon img.cert-card-img {
@@ -53,9 +81,16 @@
 }
 
 .cert-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 600;
     font-family: var(--primary-font);
     margin: 0;
     color: #000;
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+    .cert-card h3 {
+        font-size: 1.3rem;
+    }
 }

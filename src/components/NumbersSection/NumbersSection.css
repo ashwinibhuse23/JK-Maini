@@ -1,38 +1,54 @@
+.numbers-section {
+    padding: 30px 0 60px;
+    background-color: #fff;
+}
+
+@media (min-width: 992px) {
+    .numbers-section {
+        padding: 50px 0 80px;
+    }
+}
+
+.numbers-section .section-title {
+    margin-bottom: 40px;
+}
+
+/* Grid — mobile: 1 col, sm: 2 cols, lg: 3 cols, xl: 6 cols */
 .parent {
     display: grid;
-    /* grid-template-columns: repeat(6, 1fr); */
-    gap: 15px;
+    grid-template-columns: 1fr;
+    gap: 12px;
 }
 
-@media (max-width: 1400px) {
-    .parent {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 991px) {
+@media (min-width: 480px) {
     .parent {
         grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
     }
 }
 
-@media (max-width: 575px) {
+@media (min-width: 768px) {
     .parent {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .parent {
+        grid-template-columns: repeat(6, 1fr);
     }
 }
 
 
-.number-box{
+.number-box {
     border-radius: 50px;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1rem;
     border: 1.5px solid #bfbfbf;
     display: flex;
     gap: 1rem;
     align-items: center;
     width: 100%;
-    min-width: 180px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     background-color: transparent;
@@ -45,9 +61,7 @@
     background-color: #fff;
 }
 
-
-.number-box-headline{
-    
+.number-box-headline {
     text-align: center;
     font-size: 15px;
     font-weight: 400;
@@ -56,44 +70,62 @@
     text-wrap: nowrap;
 }
 
-.box-icon{
-    font-size: 30px;
+.box-icon {
+    font-size: 26px;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #b3122f 0%, #E81C3D 50%, #ff5c77 100%);
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 50px;
+    flex-shrink: 0;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 992px) {
+    .box-icon {
+        font-size: 30px;
+    }
 }
 
 .number-box:hover .box-icon {
     transform: scale(1.1) rotate(5deg);
 }
 
-
-.number-box-content{
+.number-box-content {
     display: flex;
-    
-    
+    min-width: 0;
 }
 
-.count{
-    font-size: 1.5rem;
+.count {
+    font-size: 1.3rem;
     font-weight: 600;
     color: #222;
     margin: 0;
     transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+    .count {
+        font-size: 1.5rem;
+    }
 }
 
 .number-box:hover .count {
     color: #E81C3D;
 }
 
-.count-desc{
-    font-size: 14px;
+.count-desc {
+    font-size: 12px;
     font-weight: 500;
     color: #666;
     margin: 0;
+}
+
+@media (min-width: 992px) {
+    .count-desc {
+        font-size: 14px;
+    }
 }

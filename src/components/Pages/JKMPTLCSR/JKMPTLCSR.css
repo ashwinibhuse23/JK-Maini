@@ -2,11 +2,23 @@
    JKMPTL CSR Page — Exact match to reference design
    ========================================================= */
 
-/* ── Page Header ─────────────────────────────────────────── */
+/* ── Page Header — mobile-first stepped padding ───────────── */
 .csr-page .page-header {
     background-position: center top;
     background-size: cover;
-    padding: 300px 0 160px;
+    padding: 180px 0 100px;
+}
+
+@media (min-width: 576px) {
+    .csr-page .page-header {
+        padding: 250px 0 140px;
+    }
+}
+
+@media (min-width: 992px) {
+    .csr-page .page-header {
+        padding: 370px 0 210px;
+    }
 }
 
 /* =========================================================
@@ -107,13 +119,26 @@
 }
 
 /* ── Cards Grid ──────────────────────────────────────────── */
-/* 5 columns: card | connector | card | connector | card */
 .fdn-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 45px 24px;
+    grid-template-columns: 1fr;
+    gap: 40px 16px;
     align-items: start;
     margin-bottom: 1.8rem;
+}
+
+@media (min-width: 480px) {
+    .fdn-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 45px 18px;
+    }
+}
+
+@media (min-width: 900px) {
+    .fdn-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 45px 24px;
+    }
 }
 
 /* ── Foundation Card ─────────────────────────────────────── */
@@ -296,39 +321,13 @@
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 991px) {
-    .fdn-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 50px 20px;
-    }
-
-    .fdn-connector {
-        display: none;
-    }
-
-    .fdn-values-bar {
-        gap: 1rem;
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 680px) {
-    .fdn-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 44px 16px;
-    }
-
+@media (max-width: 679px) {
     .fdn-values-bar {
         flex-direction: column;
         align-items: flex-start;
     }
 }
 
-@media (max-width: 400px) {
-    .fdn-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* =========================================================
    CSR Activities — Dark Showcase Strip Layout
@@ -790,10 +789,16 @@
 
 .rdw-item-text strong {
     font-family: var(--primary-font, 'Poppins', sans-serif);
-    font-size: 1.02rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: #1a1a2e;
     line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+    .rdw-item-text strong {
+        font-size: 1.02rem;
+    }
 }
 
 .rdw-item-text p {
@@ -924,47 +929,72 @@
         grid-template-rows: auto;
     }
 
-    /* On mobile the circle goes back to normal flow */
+    /* On tablet/mobile the circle goes back to normal flow */
     .rdw-center {
         position: static;
         transform: none;
-        padding: 30px 0;
+        padding: 24px 0;
         border-top: 1px solid #f0ece6;
         border-bottom: 1px solid #f0ece6;
         width: 100%;
     }
 
     .rdw-left {
-        padding: 36px 36px 36px 36px;
+        padding: 28px 24px;
     }
 
     .rdw-right {
         border-left: none;
         border-top: 1px solid #ede8e1;
-        padding: 36px 36px 36px 36px;
+        padding: 28px 24px;
     }
 }
 
 @media (max-width: 540px) {
-
     .rdw-left,
     .rdw-right {
-        padding: 28px 20px 22px;
+        padding: 20px 16px 18px;
     }
 
     .rdw-item {
-        grid-template-columns: 28px 1fr 44px;
+        grid-template-columns: 24px 1fr 42px;
         gap: 8px;
     }
 
     .rdw-icon-chip {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
     }
 
     .rdw-icon-chip svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .rdw-num {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ── Right panel heading & list responsive spacing ──────────── */
+.rdw-right-heading {
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+.rdw-right-list {
+    margin-top: 12px;
+}
+
+@media (min-width: 900px) {
+    .rdw-right-heading {
+        margin-top: 62px;
+        margin-bottom: 12px;
+    }
+
+    .rdw-right-list {
+        margin-top: 48px;
     }
 }
 
@@ -1120,10 +1150,22 @@
     display: flex;
     align-items: stretch;
     overflow: hidden;
-    border-radius: 0;      /* full width — no rounded corners */
+    border-radius: 0;
     margin: 0;
-    height: 280px;       /* comfortable display height */
-    min-height: unset;
+    min-height: 260px;
+}
+
+@media (min-width: 576px) {
+    .csrcta-wrap {
+        min-height: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .csrcta-wrap {
+        height: 340px;
+        min-height: unset;
+    }
 }
 
 /* ── LEFT — light panel ────────────────────────────────────── */
@@ -1368,24 +1410,49 @@
 }
 
 /* ── Responsive ────────────────────────────────────────────── */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .csrcta-wrap {
         flex-direction: column;
-        border-radius: 0;
+        height: auto;
         min-height: unset;
     }
 
     .csrcta-left {
         flex: unset;
-        padding: 36px 24px;
+        padding: 28px 20px;
     }
 
     .csrcta-right {
-        height: 260px;
+        height: 220px;
+        min-height: 180px;
     }
 
     .csrcta-card {
-        bottom: 14px;
-        right: 14px;
+        bottom: 10px;
+        right: 10px;
+        max-width: 160px;
+    }
+
+    .csrcta-heading {
+        font-size: clamp(1rem, 5vw, 1.4rem);
+    }
+
+    .csrcta-desc {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .csrcta-left {
+        padding: 20px 16px;
+    }
+
+    .csrcta-right {
+        height: 180px;
+    }
+
+    .csrcta-badge {
+        font-size: 12px;
+        padding: 7px 16px 7px 30px;
     }
 }

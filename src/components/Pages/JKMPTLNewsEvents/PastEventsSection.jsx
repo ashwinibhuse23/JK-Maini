@@ -6,7 +6,7 @@ const allEvents = [
     /* ── Corporate ── */
     {
         id: 1,
-        number: '01',
+        
         category: 'Corporate',
         date: { day: '25', month: 'Jan', year: '2025' },
         title: 'RPAL Plant Visit, Nashik',
@@ -26,7 +26,7 @@ const allEvents = [
     },
     {
         id: 2,
-        number: '02',
+       
         category: 'Corporate',
         date: { day: '16', month: 'Feb', year: '2025' },
         title: 'Punjab Dealer Meet, T&H Business',
@@ -45,7 +45,7 @@ const allEvents = [
     /* ── Marketing ── */
     {
         id: 3,
-        number: '01',
+       
         category: 'Marketing',
         date: { day: '18', month: 'Mar', year: '2024' },
         title: 'Canton Fair 2025',
@@ -63,7 +63,7 @@ const allEvents = [
     },
     {
         id: 4,
-        number: '02',
+        
         category: 'Marketing',
         date: { day: '17', month: 'Jan', year: '2025' },
         title: 'Bharat Mobility Global Expo 2025',
@@ -237,10 +237,7 @@ const EventCard = ({ event }) => {
                     className="pe-card-hero"
                 />
 
-                {/* Blob + number */}
-                <div className="pe-blob">
-                    <span className="pe-number">{event.number}</span>
-                </div>
+               
 
                 {/* Date badge */}
                 <div className="pe-date-badge">

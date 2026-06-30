@@ -245,10 +245,10 @@ const JKMPTLCSR = () => {
                         <div className="rdw-right">
 
 
-                            <h2 className="text-anime-style-3" data-cursor="-opaque" style={{ marginTop: '62px', marginBottom: '12px' }}>Wellness &amp; Health</h2>
+                            <h2 className="text-anime-style-3 rdw-right-heading" data-cursor="-opaque">Wellness &amp; Health</h2>
                             <div className="rdw-red-bar"></div>
 
-                            <ul className="rdw-list" style={{ marginTop: '48px' }}>
+                            <ul className="rdw-list rdw-right-list">
 
                                 {/* Item 01 */}
                                 <li className="rdw-item">

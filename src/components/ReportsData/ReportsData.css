@@ -3,7 +3,19 @@
    ========================================================= */
 
 .reports-data-section {
-    padding-block: 5rem;
+    padding-block: 3rem;
+}
+
+@media (min-width: 768px) {
+    .reports-data-section {
+        padding-block: 4rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .reports-data-section {
+        padding-block: 5rem;
+    }
 }
 
 /* ── Reports Grid ──────────────────────────────────────────── */
@@ -12,14 +24,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 3rem;
+    gap: 16px;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .reports-grid {
+        gap: 20px;
+        margin-bottom: 3rem;
+    }
 }
 
 /* ── Report Card ───────────────────────────────────────────── */
 
 .report-card {
-    flex: 1 1 360px;
+    flex: 1 1 280px;
     max-width: 500px;
     border-radius: 15px;
     position: relative;
@@ -27,6 +46,13 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-left: 3px solid #E81C3D;
     transition: all 0.35s ease-in-out;
+}
+
+@media (max-width: 575px) {
+    .report-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
 
 .report-card:hover {

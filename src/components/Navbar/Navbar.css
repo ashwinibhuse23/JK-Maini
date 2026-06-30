@@ -313,9 +313,10 @@ header.main-header .header-sticky.active {
 }
 
 .mobile-menu-drawer.drawer-open {
-	max-height: 80vh;
+	max-height: 85vh;
 	padding: 16px 0 20px;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav-list {
@@ -351,6 +352,23 @@ header.main-header .header-sticky.active {
 
 .mobile-nav-link:hover {
 	color: var(--accent-secondary-color);
+}
+
+/* Toggle button styled exactly like a nav link */
+.mobile-nav-toggle {
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	width: auto;
+}
+
+/* External link ↗ icon */
+.mobile-ext-icon {
+	font-size: 11px;
+	margin-left: 5px;
+	opacity: 0.6;
+	vertical-align: middle;
 }
 
 .submenu-arrow {
@@ -391,6 +409,48 @@ header.main-header .header-sticky.active {
 
 .mobile-submenu-link:hover {
 	color: var(--accent-secondary-color);
+}
+
+/* ─── Mobile Mega Menu (Beyond Business) ─── */
+.mobile-mega-menu {
+	padding: 4px 0 10px 16px;
+}
+
+.mobile-mega-section {
+	margin-bottom: 12px;
+}
+
+.mobile-mega-section:last-child {
+	margin-bottom: 0;
+}
+
+.mobile-mega-section + .mobile-mega-section {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	padding-top: 10px;
+}
+
+/* JKMPTL / JKMGAL label */
+.mobile-mega-header {
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--accent-secondary-color);
+	padding: 4px 0 6px;
+	display: block;
+}
+
+/* Links inside a mega section — slightly more indented */
+.mobile-mega-link {
+	padding: 7px 0 7px 8px !important;
+	font-size: 13.5px;
+	border-left: 2px solid rgba(255, 255, 255, 0.08);
+	margin-bottom: 2px;
+}
+
+.mobile-mega-link:hover {
+	border-left-color: var(--accent-secondary-color);
+	color: var(--accent-secondary-color) !important;
 }
 
 .mobile-menu-btn {

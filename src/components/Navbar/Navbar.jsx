@@ -149,46 +149,106 @@ const Navbar = () => {
                     {/* Mobile Menu Drawer */}
                     <div className={`mobile-menu-drawer${menuOpen ? ' drawer-open' : ''}`}>
                         <ul className="mobile-nav-list">
-                            {navItems.map((item, i) => (
-                                <li key={i} className={`mobile-nav-item${item.children ? ' has-submenu' : ''}`}>
-                                    <div className="mobile-nav-row">
-                                        <Link className="mobile-nav-link" to={item.href} onClick={(item.children || item.isMega) ? (e) => { e.preventDefault(); toggleSubmenu(i); } : closeMenu}>
-                                            {item.label}
-                                        </Link>
-                                        {(item.children || item.isMega) && (
-                                            <button
-                                                className={`submenu-arrow${openSubmenu === i ? ' rotated' : ''}`}
-                                                onClick={() => toggleSubmenu(i)}
-                                                aria-label="Toggle submenu"
-                                            >
-                                                &#8249;
-                                            </button>
+                            {navItems.map((item, i) => {
+                                const hasDropdown = item.children || item.isMega;
+                                const isOpen = openSubmenu === i;
+                                // Decide if the label itself should be a link or a toggle button
+                                const isExternalOrHtml = item.href && (item.href.startsWith('http') || item.href.endsWith('.html'));
+
+                                return (
+                                    <li key={i} className={`mobile-nav-item${hasDropdown ? ' has-submenu' : ''}`}>
+                                        <div className="mobile-nav-row">
+                                            {hasDropdown ? (
+                                                /* Items with dropdown: label is a toggle, not a navigation link */
+                                                <button
+                                                    className="mobile-nav-link mobile-nav-toggle"
+                                                    onClick={() => toggleSubmenu(i)}
+                                                    aria-expanded={isOpen}
+                                                >
+                                                    {item.label}
+                                                </button>
+                                            ) : isExternalOrHtml ? (
+                                                /* External / .html pages: plain <a> */
+                                                <a
+                                                    className="mobile-nav-link"
+                                                    href={item.href}
+                                                    onClick={closeMenu}
+                                                >
+                                                    {item.label}
+                                                </a>
+                                            ) : (
+                                                /* Internal React Router routes: <Link> */
+                                                <Link
+                                                    className="mobile-nav-link"
+                                                    to={item.href}
+                                                    onClick={closeMenu}
+                                                >
+                                                    {item.label}
+                                                </Link>
+                                            )}
+
+                                            {/* Chevron arrow for items with dropdown */}
+                                            {hasDropdown && (
+                                                <button
+                                                    className={`submenu-arrow${isOpen ? ' rotated' : ''}`}
+                                                    onClick={() => toggleSubmenu(i)}
+                                                    aria-label="Toggle submenu"
+                                                >
+                                                    &#8249;
+                                                </button>
+                                            )}
+                                        </div>
+
+                                        {/* Regular submenu (Businesses, Careers) */}
+                                        {item.children && isOpen && (
+                                            <ul className="mobile-submenu">
+                                                {item.children.map((child, j) => (
+                                                    <li key={j} className="mobile-submenu-item">
+                                                        <a
+                                                            className="mobile-submenu-link"
+                                                            href={child.href}
+                                                            target={child.target || '_self'}
+                                                            rel={child.rel || ''}
+                                                            onClick={closeMenu}
+                                                        >
+                                                            {child.label}
+                                                            {child.target === '_blank' && (
+                                                                <span className="mobile-ext-icon">↗</span>
+                                                            )}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         )}
-                                    </div>
-                                    {item.children && openSubmenu === i && (
-                                        <ul className="mobile-submenu">
-                                            {item.children.map((child, j) => (
-                                                <li key={j} className="mobile-submenu-item">
-                                                    <a className="mobile-submenu-link" href={child.href} target={child.target || '_self'} rel={child.rel || ''} onClick={closeMenu}>
-                                                        {child.label}
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                    {item.isMega && openSubmenu === i && (
-                                        <ul className="mobile-submenu">
-                                            {item.megaColumns.flat().map((link, j) => (
-                                                <li key={j} className="mobile-submenu-item">
-                                                    <a className="mobile-submenu-link" href={link.href} onClick={closeMenu}>
-                                                        {link.label}
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                </li>
-                            ))}
+
+                                        {/* Mega menu (Beyond Business) */}
+                                        {item.isMega && isOpen && (
+                                            <div className="mobile-mega-menu">
+                                                {item.megaColumns.map((col, ci) => (
+                                                    <div key={ci} className="mobile-mega-section">
+                                                        {col.map((link, li) => (
+                                                            <React.Fragment key={li}>
+                                                                {link.header && (
+                                                                    <div className="mobile-mega-header">{link.header}</div>
+                                                                )}
+                                                                {link.label && link.href && (
+                                                                    <a
+                                                                        className="mobile-submenu-link mobile-mega-link"
+                                                                        href={link.href}
+                                                                        onClick={closeMenu}
+                                                                    >
+                                                                        {link.label}
+                                                                    </a>
+                                                                )}
+                                                            </React.Fragment>
+                                                        ))}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </li>
+                                );
+                            })}
                         </ul>
                         <div className="mobile-menu-btn">
                             <ButtonOne text="Get Started" icon={<FaRegArrowAltCircleRight />} link="#" />

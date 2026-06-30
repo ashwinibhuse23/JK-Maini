@@ -4,7 +4,13 @@
   color: #18191a;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
-  padding: 60px 0 100px;
+  padding: 40px 0 60px;
+}
+
+@media (min-width: 768px) {
+  .ap-root {
+    padding: 60px 0 100px;
+  }
 }
 
 .ap-container {
@@ -87,14 +93,31 @@
   background: #f1f2f4;
   color: #18191a;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 18px 40px;
-  font-size: 1rem;
+  padding: 12px 20px;
+  font-size: 0.85rem;
   font-weight: 600;
-  /* border-radius: 12px; */
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   font-family: "Poppins", sans-serif;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+@media (min-width: 576px) {
+  .ap-tab-btn {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .ap-tab-btn {
+    padding: 18px 40px;
+    font-size: 1rem;
+    border-radius: 0;
+  }
 }
 
 .ap-tab-btn:hover {
@@ -116,9 +139,29 @@
 
 .ap-parts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
   justify-content: center;
+}
+
+@media (min-width: 576px) {
+  .ap-parts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .ap-parts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .ap-parts-grid {
+    gap: 30px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -266,25 +309,24 @@
 }
 
 /* ─── Responsiveness ───────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .ap-root {
-    padding: 40px 0 60px;
-  }
+@media (max-width: 575px) {
   .ap-tab-btn {
-    padding: 14px 28px;
-    font-size: 0.9rem;
-    border-radius: 10px;
-    width: 100%;
-  }
-  .ap-parts-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    border-radius: 6px;
   }
   .ap-popup-overlay {
-    padding: 16px;
+    padding: 12px;
   }
   .ap-close-btn {
-    top: -45px;
-    font-size: 32px;
+    top: -40px;
+    font-size: 28px;
+  }
+  .ap-part-label {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+  .ap-part-img-wrap {
+    padding: 16px;
   }
 }

@@ -1,121 +1,224 @@
-.sustainability-cards{
+.sustainability-cards {
     background-color: #F6F5ED;
-    padding-block: 5rem;
+    padding-block: 3rem;
 }
 
+@media (min-width: 768px) {
+    .sustainability-cards {
+        padding-block: 4rem;
+    }
+}
 
+@media (min-width: 992px) {
+    .sustainability-cards {
+        padding-block: 5rem;
+    }
+}
+
+/* ── Main Cards Grid ── */
 .cards-parent {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
 }
+
+@media (min-width: 576px) {
+    .cards-parent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .cards-parent {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 .sus-card {
-    /* height: 130px; */
-    padding-block: 1.2rem;
-    /* background-color: #Fff; */
+    padding: 1rem 0.75rem;
     border-radius: 15px;
-    
     border-left: 3px solid #E81C3D;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: all .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.sus-card:hover{
-    
+.sus-card:hover {
     cursor: pointer;
-    transition: all .3s ease-in-out;
     transform: translateY(-5px);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+    box-shadow: rgba(149, 157, 165, 0.25) 0px 10px 28px;
 }
 
 .sus-card-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
     border-radius: 50%;
-    /* background-color: #F6F5ED; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.sus-card h3{
-    font-size: 1.3rem;
+@media (min-width: 768px) {
+    .sus-card-icon {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+.sus-card-icon img {
+    width: 55%;
+}
+
+.sus-card-title h3 {
+    font-size: 0.95rem;
     font-weight: 600;
     font-family: var(--primary-font);
+    margin: 0;
+    line-height: 1.4;
+    color: #111;
 }
 
-.sus-card-icon img{
-    width: 60%;
+@media (min-width: 768px) {
+    .sus-card-title h3 {
+        font-size: 1.1rem;
+    }
 }
 
-.impact{
+@media (min-width: 1200px) {
+    .sus-card-title h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ── Impact Row Container ── */
+.impact {
     background-color: #fff;
     border-radius: 15px;
     overflow: hidden;
-   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.impact-card{
-   padding-block: 1.2rem;
-   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
-   transition: all .3s ease-in-out;
-   /* border-radius: 10px; */
-   background: linear-gradient(90deg, rgba(255, 203, 4, 1) 0%, rgba(249, 166, 18, 1) 25%, rgba(237, 25, 58, 1) 75%, rgba(95, 15, 64, 1) 100%);
-   clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
+/* ── Shared icon padding wrapper ── */
+.impact-icon-wrap {
+    padding: 0 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.impact-card-icon{
-    width: 80px;
-    height: 80px;
+/* ── Impact Label Card (gradient) ── */
+.impact-card {
+    padding: 1rem 0;
+    min-height: 90px;
+    background: linear-gradient(90deg, #FFCB04 0%, #F9A612 25%, #ED193A 75%, #5F0F40 100%);
+    transition: all .3s ease-in-out;
+    /* Clip-path only on large screens */
+    clip-path: none;
+}
+
+@media (min-width: 768px) {
+    .impact-card {
+        clip-path: polygon(0 0, 100% 0, 72% 100%, 0% 100%);
+    }
+}
+
+.impact-card-icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
     border-radius: 50%;
-    /* background-color: #F6F5ED; */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
-.impact-card-icon img{
-    width: 60%;
+@media (min-width: 768px) {
+    .impact-card-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.impact-card-icon img {
+    width: 65%;
     filter: brightness(100);
 }
 
-.impact-card-title h3{
-    font-size: 1.3rem;
-    font-weight: 600;
+.impact-card-title h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
     font-family: var(--primary-font);
     color: #fff;
+    margin: 0;
+    white-space: nowrap;
 }
 
-.impacts-card{
-    padding-block: 1.2rem;
-    border-radius: 5px;
+@media (min-width: 768px) {
+    .impact-card-title h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* ── Impact Metric Cards ── */
+.impacts-cards {
+    padding: 1rem 0;
+    min-height: 90px;
     border-left: 3px solid #E81C3D;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    
 }
 
-.impacts-card-icon{
-    width: 80px;
-    height: 80px;
+/* Remove left border on the first impacts card that follows the Impact label
+   to avoid double borders on mobile when stacked */
+@media (max-width: 575px) {
+    .impacts-cards {
+        border-left: none;
+        border-top: 3px solid #E81C3D;
+    }
+}
+
+.impacts-card-icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
     border-radius: 50%;
-    /* background-color: #F6F5ED; */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
-.impacts-card-icon img{
+@media (min-width: 768px) {
+    .impacts-card-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.impacts-card-icon img {
     width: 70%;
 }
 
-.impacts-card-title h3{
-    font-size: 1.1rem;
+.impacts-card-title h3 {
+    font-size: 0.9rem;
     font-weight: 600;
     font-family: var(--primary-font);
-    color: #000;
+    color: #111;
+    margin: 0;
+    line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+    .impacts-card-title h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .impacts-card-title h3 {
+        font-size: 1.1rem;
+    }
 }

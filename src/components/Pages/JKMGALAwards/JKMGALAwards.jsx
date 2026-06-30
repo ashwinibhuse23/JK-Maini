@@ -11,17 +11,6 @@ import './JKMGALAwards.css'
 ---------------------------------------------------------- */
 const featuredAwards = [
 
-    {
-        tag: 'EEPC India Star Performer Award – Large Enterprise',
-        PresentedBy: 'EEPC India',
-        Category: 'Defence Related Equipment and Parts',
-        Location: 'Bengaluru',
-        desc: 'We are proud to share that Maini Precision Products Ltd. has received the Star Performer Award from EEPC India in the Large Enterprise category for Defence Related Equipment and Parts.',
-        desc2: 'This esteemed recognition reflects our contribution to India\'s defence exports and our continued focus on precision, quality, and innovation in advanced manufacturing.',
-        images: [
-            './images/awards/eepc-india-star.jpeg',
-        ],
-    },
 
 
 

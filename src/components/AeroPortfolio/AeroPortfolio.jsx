@@ -41,11 +41,11 @@ const AeroPortfolio = () => {
                 </div>
 
                 <div className="container">
-                    <div class="tools-parent" style={{gridTemplateColumns:`repeat(${AeroPortfolio.length}, 1fr)`}}>
+                    <div className="tools-parent">
                         {
                             AeroPortfolio.map((item, index) => {
                                 return (
-                                    <div key={index} class={`tool-box tools-div${index+1}`}>
+                                <div key={index} className={`tool-box tools-div${index+1}`}>
                                         <img src={item.image} alt="" />
                                         <div className="gradient-overlay"></div>
                                         <div className="tool-overlay">

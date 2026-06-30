@@ -3,6 +3,24 @@
 	background-image: none;
 }
 
+/* Content column padding — responsive replacement for Bootstrap px-5 */
+.vmv-content-col {
+	padding: 24px 16px;
+}
+
+@media (min-width: 768px) {
+	.vmv-content-col {
+		padding: 40px 32px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.vmv-content-col {
+		padding: 60px 4.688vw;
+	}
+}
+
+
 .why-choose-us-box{
 	display: flex;
 	flex-wrap: wrap;
@@ -10,8 +28,7 @@
 	padding: 10px;
 }
 
-
-
+/* Image — full width on mobile, fills height on desktop */
 .why-choose-image figure{
 	height: 100%;
 	display: block;
@@ -21,9 +38,28 @@
 .why-choose-image figure img{
 	width: 100%;
     height: 100%;
-    aspect-ratio: 1 / 0.9;
+    aspect-ratio: 16 / 10;
     object-fit: cover;
 	border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+	.why-choose-image figure img {
+		aspect-ratio: 1 / 0.9;
+	}
+}
+
+/* Override Bootstrap px-5 on small screens */
+@media (max-width: 767.98px) {
+	.why-choose-us .row.px-5 {
+		padding-left: 0.75rem !important;
+		padding-right: 0.75rem !important;
+	}
+	.why-choose-us .col-md-6.px-5 {
+		padding-left: 0.75rem !important;
+		padding-right: 0.75rem !important;
+		margin-top: 24px;
+	}
 }
 
 .why-choose-contant-box{
@@ -58,12 +94,18 @@
     background: transparent;
 	border: none;
     color: var(--primary-color);
-	font-size: 16px;
+	font-size: 14px;
     font-weight: 400;
     line-height: 1.4em;
 	padding: 0 5px 20px;
     text-transform: capitalize;
     transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 576px) {
+	.why-choose-nav ul li .nav-link {
+		font-size: 16px;
+	}
 }
 
 .why-choose-nav ul li .nav-link.active,

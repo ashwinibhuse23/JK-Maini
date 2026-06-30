@@ -1,14 +1,32 @@
+/* Mobile-first: full-width banner, no rounding, no side margin */
 .page-header {
 	position: relative;
-
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: scroll;
-	border-radius: 20px;
-	padding: 285px 0 150px;
-	margin: 15px 15px 0;
+	border-radius: 0;
+	padding: 180px 0 100px;
+	margin: 0;
 	overflow: hidden;
+}
+
+/* Tablet: still full-width, more breathing room */
+@media (min-width: 576px) {
+	.page-header {
+		padding: 250px 0 140px;
+		margin: 0;
+		border-radius: 0;
+	}
+}
+
+/* Desktop: restore the side-spaced rounded card style */
+@media (min-width: 992px) {
+	.page-header {
+		padding: 370px 0 210px;
+		margin: 15px 15px 0;
+		border-radius: 20px;
+	}
 }
 
 .page-header:before {
@@ -31,11 +49,44 @@
 
 .page-header-box h1 {
 	display: inline-block;
-	font-size: 60px;
+	font-size: 28px;
 	font-weight: 400;
 	color: var(--white-color);
 	margin-bottom: 15px;
 	cursor: none;
+	word-break: break-word;
+}
+
+@media (min-width: 576px) {
+	.page-header-box h1 {
+		font-size: 40px;
+	}
+}
+
+@media (min-width: 992px) {
+	.page-header-box h1 {
+		font-size: 60px;
+	}
+}
+
+.page-header-box p {
+	font-size: 14px;
+	line-height: 1.6;
+	max-width: 100%;
+	word-break: break-word;
+}
+
+@media (min-width: 576px) {
+	.page-header-box p {
+		font-size: 15px;
+	}
+}
+
+@media (min-width: 992px) {
+	.page-header-box p {
+		font-size: 16px;
+		max-width: 720px;
+	}
 }
 
 .page-header-box ol {
