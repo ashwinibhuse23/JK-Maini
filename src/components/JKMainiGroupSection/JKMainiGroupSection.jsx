@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import './JKMainiGroupSection.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ButtonOne from '../ButtonOne/ButtonOne';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,89 +10,17 @@ export default function JKMainiAboutSection() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Top Label Animation
-            gsap.from('.jkm-top-label', {
-                y: 20,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.jkm-top-label',
-                    start: 'top 90%',
-                }
+            gsap.from('.about-left-content', {
+                x: -50, opacity: 0, duration: 1, ease: 'power3.out',
+                scrollTrigger: { trigger: '.jk-maini-about-section', start: 'top 80%' }
             });
-
-            // Left Content Animation
-            gsap.from('.jkm-title-h1', {
-                x: -50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.jkm-title-h1',
-                    start: 'top 85%',
-                }
+            gsap.from('.about-right-content', {
+                x: 50, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.3,
+                scrollTrigger: { trigger: '.jk-maini-about-section', start: 'top 80%' }
             });
-
-            gsap.from('.jkm-hero-p', {
-                y: 20,
-                opacity: 0,
-                duration: 0.8,
-                delay: 0.2,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.jkm-hero-p',
-                    start: 'top 85%',
-                }
-            });
-
-            gsap.from('.jkm-btn-group', {
-                y: 20,
-                opacity: 0,
-                duration: 0.8,
-                delay: 0.4,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.jkm-btn-group',
-                    start: 'top 90%',
-                }
-            });
-
-            // Right Visual Animation
-            gsap.from('.jkm-visual-card', {
-                scale: 0.9,
-                opacity: 0,
-                duration: 1.2,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: '.jkm-visual-card',
-                    start: 'top 80%',
-                }
-            });
-
-            // Stats Animation
-            gsap.from('.jkm-stat-card', {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.jkm-stats-grid',
-                    start: 'top 85%',
-                }
-            });
-
-            // Footer Statement Animation
-            gsap.from('.jkm-footer-statement', {
-                scale: 0.8,
-                opacity: 0,
-                duration: 1,
-                ease: 'back.out(1.7)',
-                scrollTrigger: {
-                    trigger: '.jkm-footer-statement',
-                    start: 'top 95%',
-                }
+            gsap.from('.diagram-node', {
+                scale: 0.8, opacity: 0, duration: 0.8, stagger: 0.2, ease: 'back.out(1.5)', delay: 0.6,
+                scrollTrigger: { trigger: '.about-diagram-container', start: 'top 80%' }
             });
         }, sectionRef);
 
@@ -101,108 +28,92 @@ export default function JKMainiAboutSection() {
     }, []);
 
     return (
-        <div className="jk-maini-about-section" ref={sectionRef}>
-            <div className="jkm-container">
-                {/* Top Label */}
-                <div className="jkm-top-label">
-                    <div className="jkm-dot" />
-                    <span className="jkm-label-text">
-                        About JK Maini Group
-                    </span>
-                </div>
+        <section className="jk-maini-about-section" ref={sectionRef}>
+            <div className="container about-container">
+                <div className="row">
+                    {/* Left Column for Text */}
+                    <div className="col-lg-7 col-md-12 about-left-content">
+                        <div className="section-title">
+                            <span className="section-sub-title wow fadeInUp">
+                                About JK Maini Group
+                            </span> <br />
 
-                {/* Hero Section */}
-                <div className="jkm-hero-grid">
-                    {/* Left Content */}
-                    <div>
-                        <h1 className="jkm-title-h1">
-                            Delivering <span className="jkm-accent">Precision</span>.
-                            <br />
-                            Powering Industry.
-                            <br />
-                            Enabling Progress.
-                        </h1>
-
-                        <p className="jkm-hero-p">
-                            JK Maini Precision Technology (JKMPTL) is a new force in precision manufacturing, born from the strategic integration of three industry leaders: Maini Precision Products Ltd., Ring Plus Aqua Ltd., and JK Files Ltd. Together, these businesses bring decades of proven expertise in precision engineering, world-class manufacturing, and global quality standards. This powerful consolidation has created a unified entity with the scale, capabilities, and vision to drive the future of mobility, infrastructure, and industrial advancement. Backed by the strength and legacy of the Raymond Group, JK Maini is positioned to deliver advanced solutions across automotive, industrial, aerospace, and tooling sectors. With cutting-edge infrastructure, future-ready technologies, and a relentless commitment to quality, JK Maini is not just adapting to change, it’s engineering what’s next.
-                        </p>
-
-                        <div className="jkm-btn-group">
-                            <ButtonOne text="Explore Group Strengths" />
+                            <h2 className="text-anime-style-3" data-cursor="-opaque">
+                                DELIVERING PRECISION. POWERING INDUSTRY. ENABLING PROGRESS.
+                            </h2>
+                            <p className="wow fadeInUp about-raymond jk-maini-smaller-text mt-4" data-wow-delay="0.2s">
+                                JK Maini Precision Technology (JKMPTL) is a new force in precision manufacturing, born from the strategic integration of three industry leaders: Maini Precision Products Ltd., Ring Plus Aqua Ltd., and JK Files Ltd. Together, these businesses bring decades of proven expertise in precision engineering, world-class manufacturing, and global quality standards. This powerful consolidation has created a unified entity with the scale, capabilities, and vision to drive the future of mobility, infrastructure, and industrial advancement. Backed by the strength and legacy of the Raymond Group, JK Maini is positioned to deliver advanced solutions across automotive, industrial, aerospace, and tooling sectors. With cutting-edge infrastructure, future-ready technologies, and a relentless commitment to quality, JK Maini is not just adapting to change, it’s engineering what’s next.
+                            </p>
                         </div>
                     </div>
 
-                    {/* Right Visual */}
-                    <div className="jkm-visual-wrapper">
-                        <div className="jkm-blur-bg" />
-
-                        <div className="jkm-visual-card">
-                            {/* Background Grid */}
-                            <div className="jkm-grid-pattern" />
-
-                            <div className="jkm-visual-content">
-                                {/* Companies */}
-                                <div className="jkm-companies-grid">
-                                    <div className="jkm-logo-box">
-                                        <img
-                                            src="https://placehold.co/240x120/111111/FFFFFF?text=JK+Super+Drive"
-                                            alt="JK Super Drive"
-                                            className="jkm-logo-img"
-                                        />
-                                    </div>
-
-                                    <div className="jkm-connector-wrapper">
-                                        <div className="jkm-line-h">
-                                            <div className="jkm-arrow-head" />
+                    {/* Right Column for Diagram */}
+                    <div className="col-lg-5 col-md-12 about-right-content">
+                        <div className="about-diagram-container">
+                            <div className="diagram-top-row">
+                                {/* Top Left Node (Double Images) */}
+                                <div className="hex-shadow-wrapper">
+                                    <div className="diagram-node hex-node">
+                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', position: 'relative' }}>
+                                            <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                                                <img src="images/journey/logo/jk-superdrive-logo.png" alt="JK SuperDrive Logo" style={{ width: '90%', maxHeight: '65px', objectFit: 'contain' }} />
+                                            </div>
+                                            <span style={{ position: 'absolute', left: '55%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '24px', fontWeight: '400', color: '#a0a0a0', lineHeight: '1', zIndex: 2 }}>+</span>
+                                            <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                                                <img src="images/journey/logo/raymond-ring-aqua.png" alt="Ring Plus Aqua Logo" style={{ width: '90%', maxHeight: '65px', objectFit: 'contain' }} />
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div className="jkm-logo-box">
-                                        <img
-                                            src="https://placehold.co/240x120/111111/FFFFFF?text=Maini+Precision"
-                                            alt="Maini Precision"
-                                            className="jkm-logo-img"
-                                        />
                                     </div>
                                 </div>
 
-                                {/* Merge Connector */}
-                                <div className="jkm-connector-v">
-                                    <div className="jkm-line-v" />
-                                </div>
+                                <div className="diagram-plus">+</div>
 
-                                {/* Final Brand */}
-                                <div className="jkm-final-brand-card">
-                                    <div className="jkm-brand-inner">
-                                        <div className="jkm-brand-circle">
-                                            <div className="jkm-brand-dot-inner" />
-                                        </div>
-
-                                        <h2 className="jkm-brand-h2">
-                                            JK MAINI
-                                        </h2>
-
-                                        <p className="jkm-brand-p">
-                                            Three legacies united into one future-focused precision
-                                            engineering powerhouse.
-                                        </p>
+                                {/* Top Right Node */}
+                                <div className="hex-shadow-wrapper">
+                                    <div className="diagram-node hex-node">
+                                        <img src="images/journey/logo/mainiprecision.png" alt="JK Maini Precision Products" style={{ width: '95%', height: '100%', maxHeight: '85px', objectFit: 'contain' }} />
                                     </div>
+                                </div>
+                            </div>
+
+                            {/* Connecting Lines */}
+                            <div className="diagram-connector-area">
+                                <svg style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, overflow: 'visible' }}>
+                                    <line x1="20%" y1="0" x2="50%" y2="100%" stroke="#E81C3D" strokeWidth="1" strokeDasharray="4 4" />
+                                    <line x1="80%" y1="0" x2="50%" y2="100%" stroke="#E81C3D" strokeWidth="1" strokeDasharray="4 4" />
+
+                                    <circle cx="20%" cy="0" r="5" fill="#E81C3D" stroke="#fbfbfb" strokeWidth="3" />
+                                    <circle cx="80%" cy="0" r="5" fill="#E81C3D" stroke="#fbfbfb" strokeWidth="3" />
+                                    <circle cx="50%" cy="100%" r="5" fill="#E81C3D" stroke="#fbfbfb" strokeWidth="3" />
+                                </svg>
+                            </div>
+
+                            <div className="diagram-bottom-row">
+                                <div className="ripple-container">
+                                    <div className="ripple r1"></div>
+                                    <div className="ripple r2"></div>
+                                    <div className="ripple r3"></div>
+                                    <div className="ripple r4"></div>
+                                    <div className="node-glow"></div>
+                                </div>
+                                {/* Bottom Center Node */}
+                                <div className="diagram-node circle-node">
+                                    <img src="images/journey/logo/Artboard 15.svg" alt="JK Maini Logo" onError={(e) => { e.target.style.display = 'none'; }} />
+                                    <h3>JK MAINI</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom Stats */}
-                
-
-                {/* Footer Statement */}
-                {/* <div className="jkm-footer-wrapper">
-                    <div className="jkm-footer-statement">
-                        Three Legacies. One Purpose. Powering Precision Forward.
+                <div className="row" style={{ marginTop: '0px' }}>
+                    <div className="col-lg-12">
+                        <div className="diagram-bottom-text section-title wow fadeInUp" data-wow-delay="0.4s">
+                            <p className="wow fadeInUp about-raymond jk-maini-smaller-text">A Complete Precision Engineering Partner For The World’s Leading Industries. Three Industry Leaders, Maini Precision Products, Ring Plus Aqua, And JK Files, Now Come Together As JK Maini Precision Technology (JKMPTL) To Form A Unified Powerhouse In Precision Engineering. Backed By The Legacy Of The Raymond Group, We Deliver End-To-End Solutions Across Precision Components, Motion Systems, Powertrain Technologies, Engineering And Industrial Tooling, Serving The World’s Most Demanding Sectors Like Automotive, Off Highway, Industrial, Railways, Power Tools And Other Critical Manufacturing Sectors. With A Complete Ecosystem Of Capabilities, A Future-Focused Vision, And Decades Of Expertise, JK Maini Is Built To Deliver Precision Where It Matters, Driving Performance, Reliability, And Progress At Scale.</p>
+                        </div>
                     </div>
-                </div> */}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }

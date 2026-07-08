@@ -82,19 +82,17 @@ const AboutSection = () => {
                             </p>
                         </div>
 
-                        {/* Right: video / factory image */}
+                        {/* Right: inline playing video */}
                         <div className="leadership-video-wrap">
                             <figure className="leadership-video-figure">
-                                <img src="./images/about-auto.png" alt="Factory floor" />
-                                <div className="video-play-btn">
-                                    <a
-                                        href="https://www.youtube.com/watch?v=iXLn-Yv0_fU"
-                                        className="bg-effect popup-video"
-                                        data-cursor-text="Play"
-                                    >
-                                        <FaPlay />
-                                    </a>
-                                </div>
+                                <video 
+                                    src="./images/Jk Mini Logo Animation.webm" 
+                                    autoPlay 
+                                    muted 
+                                    loop 
+                                    playsInline
+                                    className="leadership-inline-video"
+                                ></video>
                             </figure>
 
 

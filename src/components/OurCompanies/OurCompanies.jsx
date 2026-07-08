@@ -39,13 +39,13 @@ const ExpandableDesc = ({ text }) => {
 const OurCompanies = () => {
     return (
         <>
-            <div className="intro-video-box-gold bg-section" style={{ marginBottom: "5rem" }}>
+            <div className="intro-video-box-gold bg-section mb-4 mb-lg-5">
                 <div className="container-fluid px-3 px-md-5">
                     <div className="row align-items-stretch g-4">
 
                         {/* ── Left: Section Intro ── */}
-                        <div className="col-lg-4 d-flex">
-                            <div className="company-intro-col">
+                        <div className="col-lg-4 d-flex flex-column">
+                            <div className="company-intro-col h-100">
                                 <div className="section-title">
                                     <span className="section-sub-title wow fadeInUp text-white border-white">
                                         Our Companies
@@ -62,10 +62,10 @@ const OurCompanies = () => {
                         </div>
 
                         {/* ── JKMPTL Card ── */}
-                        <div className="col-lg-4 d-flex">
-                            <div className="intro-video-content-gold">
-                                <div className="intro-video-content-header-gold">
-                                    <div className="section-title">
+                        <div className="col-lg-4 d-flex flex-column">
+                            <div className="intro-video-content-gold h-100">
+                                <div className="intro-video-content-header-gold d-flex flex-column flex-grow-1">
+                                    <div className="section-title mb-0">
                                         <span className="section-sub-title wow fadeInUp text-white border-white">
                                             JKMPTL
                                         </span>
@@ -78,17 +78,17 @@ const OurCompanies = () => {
                                         <ExpandableDesc text={jkmptlDesc} />
                                     </div>
                                 </div>
-                                <div className="company-btn-wrap">
-                                    <ButtonOne text="Read More" icon={<FaArrowCircleRight />} link="/about" />
+                                <div className="company-btn-wrap mt-auto">
+                                    <ButtonOne text="Read More" icon={<FaArrowCircleRight />} link="/automotive" />
                                 </div>
                             </div>
                         </div>
 
                         {/* ── JKMGAL Card ── */}
-                        <div className="col-lg-4 d-flex">
-                            <div className="intro-video-content-gold">
-                                <div className="intro-video-content-header-gold">
-                                    <div className="section-title">
+                        <div className="col-lg-4 d-flex flex-column">
+                            <div className="intro-video-content-gold h-100">
+                                <div className="intro-video-content-header-gold d-flex flex-column flex-grow-1">
+                                    <div className="section-title mb-0">
                                         <span className="section-sub-title wow fadeInUp text-white border-white">
                                             JKMGAL
                                         </span>
@@ -101,8 +101,8 @@ const OurCompanies = () => {
                                         <ExpandableDesc text={jkmgalDesc} />
                                     </div>
                                 </div>
-                                <div className="company-btn-wrap">
-                                    <ButtonOne text="Read More" icon={<FaArrowCircleRight />} link="/about" />
+                                <div className="company-btn-wrap mt-auto">
+                                    <ButtonOne text="Read More" icon={<FaArrowCircleRight />} link="/aerospace" />
                                 </div>
                             </div>
                         </div>

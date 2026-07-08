@@ -16,6 +16,7 @@ import JKMGALCSR from './components/Pages/JKMGALCSR/JKMGALCSR';
 import JKMGALNews from './components/Pages/JKMGALNews/JKMGALNews';
 import JKMGALAwards from './components/Pages/JKMGALAwards/JKMGALAwards';
 import InvestorRelation from './components/Pages/InvestorRelation/InvestorRelation';
+import Contact from './components/Pages/Contact/Contact';
 
 
 
@@ -219,6 +220,7 @@ function App() {
         <Route path='/jkmgal-news' element={<JKMGALNews />} />
         <Route path='/jkmgal-awards' element={<JKMGALAwards />} />
         <Route path='/investor-relation' element={<InvestorRelation />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
       <div className="mt-4 mb-4">
         <Footer />

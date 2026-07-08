@@ -1,166 +1,274 @@
-/* ─── Portfolio Grid ─────────────────────────────────────────────────────────
-   Shared by AeroPortfolio and any other portfolio component.
-   Default = 4 cols (to match the 4-item Aero grid).
-   Use .tools-parent--5 to override to 5 cols for other sections.
-────────────────────────────────────────────────────────────────────────────── */
-.tools-parent {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 0;
-}
-
-/* 3 cols: tablet landscape / smaller desktop */
-@media (max-width: 1024px) {
-    .tools-parent {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* 2 cols: tablet portrait */
-@media (max-width: 768px) {
-    .tools-parent {
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 4px;
-    }
-}
-
-/* 1 col: mobile */
-@media (max-width: 480px) {
-    .tools-parent {
-        grid-template-columns: 1fr;
-        grid-column-gap: 0;
-    }
-}
-
-/* ─── Row spans (needed to prevent CSS grid collapsing rows) ── */
-.tools-div1 { grid-row: auto; }
-.tools-div2 { grid-row: auto; }
-.tools-div3 { grid-row: auto; }
-.tools-div4 { grid-row: auto; }
-.tools-div5 { grid-row: auto; }
-
-/* ─── Card ───────────────────────────────────────────────────────────────── */
-.tool-box {
+.tools-portfolio {
+    background-color: #f6f8fa;
+    padding: 50px 0 15px 0;
     position: relative;
     overflow: hidden;
-    height: 280px;
 }
 
-@media (min-width: 576px) {
-    .tool-box {
-        height: 320px;
-    }
-}
-
-@media (min-width: 768px) {
-    .tool-box {
-        height: 360px;
-    }
-}
-
-@media (min-width: 992px) {
-    .tool-box {
-        height: 400px;
-    }
-}
-
-.tool-box img {
+.tools-portfolio::before {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 0;
+    right: 0;
+    width: 65%;
+    height: 200%;
+    background-color: #ffffff;
+    transform: rotate(25deg);
+    transform-origin: bottom right;
+    z-index: 0;
+    box-shadow: -20px 0 50px rgba(0,0,0,0.02);
+}
+
+.tools-portfolio::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 400px;
+    height: 400px;
+    background-image: radial-gradient(#d0d0d0 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.tools-portfolio .container {
+    position: relative;
+    z-index: 1;
+}
+
+.tp-custom-container {
+    max-width: 1450px !important;
+}
+
+.tp-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: -20px;
+}
+
+.tp-header-left {
+    max-width: 650px;
+    margin-left: 30px; /* Shifting slightly to the right */
+}
+
+.tp-main-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #1a2530;
+    margin: 15px 0 15px 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.tp-main-title span {
+    color: #e36b2c;
+}
+
+.tp-desc-line {
+    width: 40px;
+    height: 3px;
+    background-color: #e36b2c;
+    margin-top: 20px;
+}
+
+.tp-header-right {
+    margin-top: 20px;
+}
+
+.tp-explore-all-btn {
+    background-color: #ffffff;
+    color: #1a2530;
+    border: 1px solid #e36b2c;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tp-explore-all-btn svg {
+    color: #e36b2c;
+    transition: transform 0.3s ease;
+    font-size: 16px;
+}
+
+.tp-explore-all-btn:hover {
+    background-color: #e36b2c;
+    color: white;
+}
+
+.tp-explore-all-btn:hover svg {
+    color: white;
+    transform: translateX(5px);
+}
+
+.tp-grid-container {
+    margin-top: 40px;
+}
+
+.tp-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.tp-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f4f6f8 100%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+}
+
+.tp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.tp-card-image-box {
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: all 0.5s ease-in-out;
+    height: 220px;
+    background-color: #f5f5f5; /* Light gray background */
+    overflow: hidden;
 }
 
-.tool-box:hover img {
-    scale: 1.04;
-}
-
-.tool-box .gradient-overlay {
+.tp-card-image-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1));
-    opacity: 0.5;
-    transition: all 0.3s ease-in-out;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Removed padding to let image reach edges */
 }
 
-.tool-box:hover .gradient-overlay {
-    opacity: 1;
-}
-
-.tool-box .tool-overlay {
-    position: absolute;
-    padding: 1rem;
-    color: #fff;
-    z-index: 10;
+.tp-card-image {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Changed to cover so it fills the entire box */
+    mix-blend-mode: multiply;
+}
+
+.tp-card-content {
+    padding: 25px 20px;
+    background: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
 }
 
-@media (min-width: 576px) {
-    .tool-box .tool-overlay {
-        padding: 1.5rem;
-    }
-}
-
-.portfolio-bag-btn {
-    width: fit-content;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.portfolio-bag-btn button {
-    padding: 8px 12px;
-    font-size: 0.8rem;
-}
-
-@media (min-width: 576px) {
-    .portfolio-bag-btn button {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-}
-
-.tool-overlay h2 {
-    font-size: 14px;
-    font-weight: 500;
-    color: #fff;
+.tp-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111e2d;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
 }
 
-@media (min-width: 576px) {
-    .tool-overlay h2 {
-        font-size: 18px;
+.tp-card-small-btn {
+    padding: 6px 16px !important;
+    min-height: 32px !important;
+    background: linear-gradient(90deg, #a61b36 0%, #f13c5f 100%) !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 6px 15px rgba(241, 60, 95, 0.35) !important;
+    color: #fff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.tp-card-small-btn .button-text {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+}
+
+.tp-card-small-btn .button-icon {
+    color: #fff !important;
+}
+
+.tp-card-small-btn .button-icon svg {
+    font-size: 13px !important;
+    width: 13px !important;
+    height: 13px !important;
+    color: #fff !important;
+}
+
+@media (max-width: 1200px) {
+    .tp-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (min-width: 992px) {
-    .tool-overlay h2 {
-        font-size: 20px;
+@media (max-width: 992px) {
+    .tp-header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .tp-header-right {
+        margin-top: 0;
+    }
+
+    .tp-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-.title-line {
-    width: 0;
-    height: 2px;
-    background-color: #fff;
-    transition: width 0.2s ease-in-out;
+@media (max-width: 576px) {
+    .tp-grid {
+        grid-template-columns: 1fr;
+    }
+    .tp-main-title {
+        font-size: 28px;
+    }
 }
 
-.tool-box:hover .title-line {
-    width: 80px;
+@media (max-width: 1200px) {
+    .tp-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .tp-header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .tp-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .tp-grid {
+        grid-template-columns: 1fr;
+    }
+    .tp-main-title {
+        font-size: 32px;
+    }
 }

@@ -1,0 +1,158 @@
+.contact-page-section {
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.contact-info-wrapper h2 {
+    font-size: 2.3rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #333;
+}
+
+.contact-info-wrapper p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-icon-box {
+    width: 35px;
+    height: 35px;
+    background-color: #f68c2d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    margin-right: 15px;
+}
+
+.contact-item strong {
+    font-weight: 600;
+    color: #333;
+}
+
+.contact-form-container {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 40px;
+    border-top: 5px solid #f68c2d;
+}
+
+.form-header h3 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #333;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.material-input {
+    border: none;
+    border-bottom: 1px solid #dcdcdc;
+    background-color: transparent !important;
+    border-radius: 0;
+    padding: 12px 0;
+    box-shadow: none !important;
+    color: #333;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.material-input:focus {
+    border-bottom-color: #f68c2d;
+}
+
+.material-input::placeholder {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+select.material-input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23999%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0px top 50% !important;
+    background-size: 10px auto !important;
+    color: #777;
+}
+
+.upload-label {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+.file-input-native {
+    border-bottom: 1px solid #ccc !important;
+}
+
+.file-input-native::file-selector-button {
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.file-input-native::file-selector-button:hover {
+    background-color: #e2e2e2;
+}
+
+.custom-checkbox-wrapper {
+    padding-left: 1.8rem;
+    margin-top: 10px;
+}
+
+.custom-checkbox {
+    width: 13px;
+    height: 13px;
+    margin-left: -1.8rem !important;
+    margin-top: 0.25rem;
+    border: 1px solid #999;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: transparent;
+    appearance: none;
+}
+
+.custom-checkbox:checked {
+    background-color: transparent;
+    border-color: #999;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.privacy-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+.privacy-link {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+
+.privacy-link:hover {
+    color: #0a58ca;
+}
+
+
+
+@media (max-width: 991px) {
+    .contact-info-wrapper {
+        margin-bottom: 40px;
+    }
+}

@@ -108,7 +108,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 28px;
+    /* gap: 28px; */
     border: 1px solid var(--dark-divider-color);
     background: var(--divider-color);
     backdrop-filter: blur(20px);
@@ -234,7 +234,7 @@
     font-family: var(--secondary-font) !important;
     line-height: 1.75;
     margin-bottom: 0;
-    margin-top: 50px !important;
+    /* margin-top: 50px !important; */
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
@@ -266,7 +266,7 @@
 /* Button wrapper — pushes to bottom of flex card */
 .company-btn-wrap {
     margin-top: auto;
-    padding-top: 8px;
+    padding-top: 20px;
 }
 
 /* ======================================================
@@ -311,6 +311,19 @@
 
 /* ≤ 991px */
 @media (max-width: 991px) {
+    .company-intro-col {
+        padding: 0;
+    }
+
+    .company-intro-desc {
+        margin-top: 0 !important;
+        margin-bottom: 0;
+    }
+
+    .company-logo img {
+        margin-left: 0;
+    }
+
     .intro-video-content-gold {
         padding: 1.75rem;
         gap: 20px;
@@ -338,6 +351,7 @@
 
     .company-logo img {
         max-width: 200px;
+        margin-left: 0;
     }
 
     .company-desc {
@@ -366,6 +380,7 @@
 
     .company-logo img {
         max-width: 170px;
+        margin-left: 0;
     }
 }
 

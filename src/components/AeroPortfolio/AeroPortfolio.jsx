@@ -7,10 +7,10 @@ import SqaureButton from '../SqaureButton/SqaureButton';
 const AeroPortfolio = () => {
 
     const AeroPortfolio = [
-        { image: "images/commercial-aircraft.jpg", text: "Commercial Aircraft" },
-        { image: "images/business-jets.jpg", text: "Business Jets" },
-        { image: "images/defence-aviation.jpg", text: "Defence Aviation" },
-        { image: "images/helicopter.jpg", text: "Helicopter Programs" },
+        { image: "images/aero/commercial-aircraft.png", text: "Commercial Aircraft" },
+        { image: "images/aero/business-jets.png", text: "Business Jets" },
+        { image: "images/aero/defence-aviation.png", text: "Defence Aviation" },
+        { image: "images/aero/helicopter.png", text: "Helicopter Programs" },
     ]
 
 

@@ -5,6 +5,8 @@ import ToolsAbout from '../../ToolsAbout/ToolsAbout'
 import ToolsPortfolio from '../../ToolsPortfolio/ToolsPortfolio'
 
 import ToolsNumbers from './ToolsNumbers'
+import ButtonOne from '../../ButtonOne/ButtonOne'
+import { FaArrowCircleRight } from 'react-icons/fa'
 const ToolsAndHardware = () => {
     return (
         <>
@@ -17,7 +19,9 @@ const ToolsAndHardware = () => {
                     Power Tools & Power Tool Accessories.
                 "
                 bgImg={banner}
-            />
+            >
+                <ButtonOne text="Visit Site"  icon={<FaArrowCircleRight />} link="https://jksuperdrive.com/" target="_blank" />
+            </PageHeader>
             <ToolsAbout />
             <ToolsNumbers />
             <ToolsPortfolio />

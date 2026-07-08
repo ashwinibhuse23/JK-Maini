@@ -6,7 +6,7 @@
 	background-size: cover;
 	background-attachment: scroll;
 	border-radius: 0;
-	padding: 180px 0 100px;
+	padding: 120px 0 80px;
 	margin: 0;
 	overflow: hidden;
 }
@@ -14,7 +14,7 @@
 /* Tablet: still full-width, more breathing room */
 @media (min-width: 576px) {
 	.page-header {
-		padding: 250px 0 140px;
+		padding: 160px 0 100px;
 		margin: 0;
 		border-radius: 0;
 	}
@@ -23,7 +23,7 @@
 /* Desktop: restore the side-spaced rounded card style */
 @media (min-width: 992px) {
 	.page-header {
-		padding: 370px 0 210px;
+		padding: 220px 0 120px;
 		margin: 15px 15px 0;
 		border-radius: 20px;
 	}

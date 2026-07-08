@@ -564,7 +564,8 @@
   position: relative;
   /* overflow:hidden removed — it disrupts Lenis scroll position tracking */
   margin-top: 64px;
-  padding-bottom: 40px;
+  padding-bottom: 64px;
+  overflow-x: hidden;
 }
 
 /* Subtle world-map dot grid background */
@@ -589,6 +590,8 @@
   will-change: opacity, transform;
   transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
               transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  /* Fallback: always show after 0.8s */
+  animation: evRowFallback 0.7s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
 }
 
 .ev-header--visible {
@@ -665,6 +668,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  overflow-x: hidden;
 }
 
 /* ── Single event row ────────────────────────────────────────────── */
@@ -679,6 +683,8 @@
   will-change: opacity, transform;
   transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1) var(--row-delay, 0ms),
               transform 0.85s cubic-bezier(0.16,1,0.3,1) var(--row-delay, 0ms);
+  /* Fallback: show content after 1.2s even if IntersectionObserver is slow */
+  animation: evRowFallback 0.7s cubic-bezier(0.16,1,0.3,1) 1.2s forwards;
 }
 
 .ev-row--visible {
@@ -697,6 +703,14 @@
 /* Push Aero India info content slightly further down */
 .ev-row + .ev-row .ev-info {
   padding-top: 40px;
+}
+
+/* Fallback keyframes */
+@keyframes evRowFallback {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes evThumbFallback {
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 /* ── Left info panel ─────────────────────────────────────────────── */
@@ -777,7 +791,7 @@
 .ev-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 130px);
+  grid-auto-rows: 130px;
   gap: 6px;
   min-height: calc(2 * 130px + 6px);
 }
@@ -794,6 +808,9 @@
   transition:
     opacity 0.45s cubic-bezier(0.16,1,0.3,1) calc(var(--thumb-i, 0) * 40ms),
     transform 0.45s cubic-bezier(0.16,1,0.3,1) calc(var(--thumb-i, 0) * 40ms);
+  /* Fallback: always show after 1.8s */
+  animation: evThumbFallback 0.45s cubic-bezier(0.16,1,0.3,1)
+    calc(1.6s + var(--thumb-i, 0) * 35ms) forwards;
 }
 
 /* Reveal thumbnails when the parent row is visible */
@@ -879,8 +896,8 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-.ev-arrow--prev { left: -20px; }
-.ev-arrow--next { right: -20px; }
+.ev-arrow--prev { left: -18px; }
+.ev-arrow--next { right: -18px; }
 
 /* ── Carousel dots ───────────────────────────────────────────────── */
 .ev-dots {
@@ -984,7 +1001,7 @@
 @media (max-width: 1024px) {
   .ev-grid {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 130px);
+    grid-auto-rows: 120px;
   }
   .ev-info { width: 180px; min-width: 160px; }
   .ev-info-title { font-size: 1.25rem; }
@@ -996,22 +1013,57 @@
     flex-direction: column;
     gap: 20px;
   }
-  .ev-info { width: 100%; min-width: unset; }
+  .ev-row + .ev-row {
+    margin-top: 32px;
+  }
+  .ev-row + .ev-row .ev-info {
+    padding-top: 0;
+  }
+  .ev-info { width: 100%; min-width: unset; padding-top: 0; }
+  .ev-grid-wrap {
+    width: 100%;
+    padding: 0;
+  }
   .ev-grid {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 120px);
+    grid-auto-rows: 120px;
   }
-  .ev-rows { padding: 0 16px; }
-  .ev-arrow--prev { left: -8px; }
-  .ev-arrow--next { right: -8px; }
+  .ev-rows { padding: 0 40px; }
+  .ev-arrow--prev { left: -18px; }
+  .ev-arrow--next { right: -18px; }
+  .ev-section { margin-top: 32px; }
 }
 
 @media (max-width: 520px) {
+  .ev-grid-wrap {
+    width: 100%;
+    padding: 0;
+  }
   .ev-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 110px);
+    grid-auto-rows: 120px;
   }
   .ev-header-title { font-size: 1.6rem; }
+  .ev-rows { padding: 0 28px; }
+  .ev-arrow--prev { left: -14px; }
+  .ev-arrow--next { right: -14px; }
+  .ev-header { padding: 32px 16px 16px; }
+}
+
+@media (max-width: 380px) {
+  .ev-grid-wrap {
+    width: 100%;
+    padding: 0;
+  }
+  .ev-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 105px;
+  }
+  .ev-header-title { font-size: 1.4rem; }
+  .ev-rows { padding: 0 24px; }
+  .ev-arrow { width: 28px; height: 28px; font-size: 1.1rem; }
+  .ev-arrow--prev { left: -12px; }
+  .ev-arrow--next { right: -12px; }
 }
 
 
@@ -1222,4 +1274,17 @@
   .collab-img-wrap { width: 100%; height: 180px; }
   .collab-body { padding: 20px 20px 8px; }
   .collab-cta { padding: 12px 20px 20px; }
+}
+
+@media (max-width: 480px) {
+  .collab-banner {
+    margin: 24px 12px 40px;
+    border-radius: 12px;
+  }
+  .collab-img-wrap { height: 160px; }
+  .collab-body { padding: 16px 16px 6px; }
+  .collab-heading { font-size: clamp(0.9rem, 3.5vw, 1.2rem); }
+  .collab-tag { font-size: 12px; padding: 7px 16px 7px 30px; }
+  .collab-cta { padding: 10px 16px 18px; }
+  .collab-btn { font-size: 0.75rem; padding: 7px 8px 7px 14px; }
 }

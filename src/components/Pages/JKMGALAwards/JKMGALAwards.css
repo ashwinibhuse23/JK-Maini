@@ -44,21 +44,29 @@
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Fallback for award card visibility */
+@keyframes galCardReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .gal-cert-appear {
     opacity: 0;
     animation: galCertFadeUp 0.55s ease forwards;
 }
 
-/* Scroll-triggered card reveal */
+/* ── Scroll-triggered card reveal ───────────────────────── */
 .gal-fa-card--hidden {
     opacity: 0;
     transform: translateY(28px);
+    /* Fallback: always show after 1s even if IntersectionObserver is slow */
+    animation: galCardReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
 }
 
 .gal-fa-card--visible {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: none;
 }
 
 /* ── Cert Card ───────────────────────────────────────────── */
@@ -216,7 +224,7 @@
     margin-top: 3rem;
 }
 
-/* Card shell */
+/* ── Card Shell ─────────────────────────────────────────── */
 .gal-fa-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -237,7 +245,7 @@
 .gal-fa-card--reverse { direction: rtl; }
 .gal-fa-card--reverse > * { direction: ltr; }
 
-/* Text side */
+/* ── Text Side ─────────────────────────────────────────── */
 .gal-fa-card-text {
     padding: 2.4rem 2.2rem;
     display: flex;
@@ -259,8 +267,12 @@
     border-radius: 100px;
     padding: 0.25rem 0.8rem;
     width: fit-content;
+    max-width: 100%;
     color: #763235;
     background: rgba(118, 50, 53, 0.05);
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.5;
 }
 
 .gal-fa-card-title {
@@ -326,7 +338,7 @@
 }
 .gal-fa-card:hover .gal-fa-card-bar { width: 100%; }
 
-/* Image side */
+/* ── Image Side ─────────────────────────────────────────── */
 .gal-fa-card-img-side {
     display: flex;
     flex-direction: column;
@@ -387,16 +399,94 @@
 .gal-fa-thumb--active { border-color: #763235 !important; }
 .gal-fa-thumb img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #f8f8f8; padding: 2px; }
 
-/* Featured Awards Responsive */
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+/* ── Tablet (≤ 991px) ───────────────────────────────────── */
 @media (max-width: 991px) {
-    .gal-fa-card, .gal-fa-card--reverse { grid-template-columns: 1fr; direction: ltr; }
+    /* Stack card: image on top, text below */
+    .gal-fa-card,
+    .gal-fa-card--reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
     .gal-fa-card--reverse > * { direction: ltr; }
-    .gal-fa-card-text { padding: 2rem 1.5rem 1.2rem; }
-    .gal-fa-card-img-side { padding: 0 1.5rem 1.5rem; }
+
+    .gal-fa-card-text { padding: 2rem 1.8rem 1.2rem; }
+    .gal-fa-card-img-side { padding: 1.5rem 1.8rem; }
+
+    .gal-fa-img-main-wrap { height: 300px; }
+
+    .gal-featured-awards-section { padding-block: 4rem; }
+    .gal-fa-cards-list { gap: 2rem; }
 }
 
+/* ── Mobile (≤ 680px) ───────────────────────────────────── */
 @media (max-width: 680px) {
     .gal-featured-awards-section { padding-block: 3rem; }
+
+    .gal-fa-card { border-radius: 14px; }
+
+    .gal-fa-card-text { padding: 1.5rem 1.2rem 1rem; gap: 0.75rem; }
+    .gal-fa-card-img-side { padding: 0 1.2rem 1.2rem; }
+
+    .gal-fa-img-main-wrap { height: 240px; padding: 0.5rem; }
+
     .gal-fa-card-title { font-size: 1.05rem; }
-    .gal-fa-cards-list { gap: 1.5rem; }
+    .gal-fa-card-desc  { font-size: 0.82rem; line-height: 1.7; }
+
+    .gal-fa-card-tag {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.65rem;
+    }
+
+    .gal-fa-cards-list { gap: 1.5rem; margin-top: 2rem; }
+
+    /* Meta grid: collapse label into stacked layout */
+    .gal-fa-meta-item {
+        grid-template-columns: 90px 12px 1fr;
+        font-size: 0.75rem;
+    }
+
+    /* Stagger fallback delays so each card reveals in order */
+    .gal-fa-card--hidden:nth-child(1) { animation-delay: 0.4s; }
+    .gal-fa-card--hidden:nth-child(2) { animation-delay: 0.6s; }
+    .gal-fa-card--hidden:nth-child(3) { animation-delay: 0.8s; }
+    .gal-fa-card--hidden:nth-child(4) { animation-delay: 1.0s; }
+}
+
+/* ── Small Mobile (≤ 480px) ─────────────────────────────── */
+@media (max-width: 480px) {
+    .gal-fa-card-text { padding: 1.2rem 1rem 0.8rem; gap: 0.65rem; }
+    .gal-fa-card-img-side { padding: 0 1rem 1rem; }
+    .gal-fa-img-main-wrap { height: 200px; }
+
+    .gal-fa-card-title { font-size: 1rem; }
+    .gal-fa-card-desc  { font-size: 0.8rem; }
+
+    /* Stack meta items vertically on very small screens */
+    .gal-fa-meta-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .gal-fa-meta-colon { display: none; }
+    .gal-fa-meta-label::after { content: ':'; }
+    .gal-fa-meta-value { padding-left: 0.1rem; color: #555; }
+
+    .gal-fa-card-meta { gap: 0.5rem; padding: 0.6rem 0.75rem; }
+
+    .gal-fa-card-tag { font-size: 0.6rem; }
+
+    .gal-featured-awards-section { padding-block: 2.5rem; }
+    .gal-fa-cards-list { gap: 1.2rem; margin-top: 1.5rem; }
+}
+
+/* ── Extra Small (≤ 360px) ──────────────────────────────── */
+@media (max-width: 360px) {
+    .gal-fa-img-main-wrap { height: 180px; }
+    .gal-fa-card-title { font-size: 0.95rem; }
+    .gal-fa-card-text { padding: 1rem 0.85rem 0.75rem; }
+    .gal-fa-card-img-side { padding: 0 0.85rem 0.85rem; }
 }

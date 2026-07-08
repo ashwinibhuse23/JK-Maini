@@ -19,12 +19,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 16px;
+    max-width: 1050px; /* Limits width so max 3 cards fit per row */
+    margin: 0 auto;
 }
 
 .cert-card {
-    flex: 1 1 260px;
-    max-width: 380px;
+    flex: 1 1 300px;
+    max-width: 330px;
     padding-block: 1rem;
     border-radius: 15px;
     border: 1px solid transparent;

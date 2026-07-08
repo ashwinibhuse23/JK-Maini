@@ -7,7 +7,7 @@ import Certifications from '../../Certifications/Certifications'
 import ReportsData from '../../ReportsData/ReportsData'
 import GetInTouchModal from '../../GetInTouchModal/GetInTouchModal'
 import ButtonOne from '../../ButtonOne/ButtonOne'
-import { FaArrowCircleRight } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
 import './JKMPTLSustainability.css'
 
 const JKMPTLSustainability = () => {
@@ -20,7 +20,10 @@ const JKMPTLSustainability = () => {
                 <GetInTouchModal
                     isOpen={modalOpen}
                     onClose={() => setModalOpen(false)}
-                    title="Partner With Us"
+                    title="
+                    Partner With Us for a Sustainable Future
+                    
+                "
                 />
 
                 <PageHeader
@@ -67,16 +70,11 @@ const JKMPTLSustainability = () => {
                                 </p>
                             </div>
                             <div className="sus-partner-btn">
-                                <button
-                                    className="sus-partner-trigger"
+                                <ButtonOne
+                                    text="Partner With Us for a Sustainable Future"
+                                    icon={<FaArrowRight />}
                                     onClick={() => setModalOpen(true)}
-                                    aria-label="Open Partner With Us form"
-                                >
-                                    <span className="sus-btn-circle">
-                                        <FaArrowCircleRight />
-                                    </span>
-                                    Partner With Us
-                                </button>
+                                />
                             </div>
                         </div>
                     </div>

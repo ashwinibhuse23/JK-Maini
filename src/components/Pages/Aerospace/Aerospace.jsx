@@ -1,6 +1,5 @@
 import React from 'react'
 import PageHeader from '../../AboutHeader/PageHeader'
-import banner from "/images/Aerospace-banner.png"
 import ToolsAbout from '../../ToolsAbout/ToolsAbout'
 import AeroPortfolio from '../../AeroPortfolio/AeroPortfolio'
 import AeroAbout from '../../AeroAbout/AeroAbout'
@@ -18,7 +17,7 @@ const Aerospace = () => {
                     stringent industry standards. Our products are trusted for critical applications 
                     where performance and reliability are non-negotiable.
                 "
-                bgImg={banner}
+                bgVideo="/images/aerospace.mp4"
             />
             <AeroAbout />
             <AeroNumbers />

@@ -10,7 +10,7 @@ import { BiWorld } from "react-icons/bi";
 const ToolsNumbers = () => {
 
     const Numbers = [
-        { icon: <AiFillProduct />, count: "5000+", countDesc: "PRODUCT SKUs" },
+        { icon: <AiFillProduct />, count: "5000+", countDesc: "PRODUCT SKUS" },
         { icon: <IoSettingsSharp />, count: "1000+", countDesc: "DEALERS GLOBALLY" },
         { icon: <FaIndustry />, count: "4", countDesc: "PLANTS" },
         { icon: <BiWorld />, count: "55+", countDesc: "COUNTRIES" },
@@ -19,7 +19,7 @@ const ToolsNumbers = () => {
 
     return (
         <>
-            <section className="numbers-section">
+            <section className="numbers-section tools-numbers-section">
                 <div className="container">
                     <div className="our-industries-content">
                         {/* Section Title Start */}
@@ -35,7 +35,7 @@ const ToolsNumbers = () => {
 
                     </div>
 
-                    <div className="number-boxes parent" style={{gridTemplateColumns : `repeat(${Numbers.length}, 1fr)`}}>
+                    <div className="number-boxes parent">
 
                         {
                             Numbers.map((number, index) => {

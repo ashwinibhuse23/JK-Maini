@@ -12,17 +12,32 @@ import "swiper/css/navigation";
 
 import "./SectorCards.css";
 
+// ─── SVGs for Cards ─────────────────────────────────────────────────────────────
+
+const SVGS = {
+  commercial: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>,
+  passenger: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a2 2 0 0 0-1.6-.8H9.3a2 2 0 0 0-1.6.8L5 11l-5.16.86a1 1 0 0 0-.84.99V16h3m14 0v1.5a2.5 2.5 0 0 1-5 0V16m5 0h-5m-9 0v1.5a2.5 2.5 0 0 1-5 0V16m5 0H2"/></svg>,
+  ev: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>,
+  offhighway: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="7" cy="15" r="5"/><circle cx="17" cy="15" r="3"/><path d="M11.5 15H14"/><path d="M7 10h4.5l1.5 5"/><path d="M14 11h3l2 4"/></svg>,
+  tools: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>,
+  locomotive: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="M8 19l-2 3"/><path d="M16 19l2 3"/><path d="M2 22h20"/></svg>,
+  agriculture: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>,
+  defence: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+};
+
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const SECTORS = [
-  { id: "commercial", label: "Commercial Vehicles", img: "./images/commercial-vehicles.png", hasTab: true },
-  { id: "passenger-veh", label: "Passenger Vehicles", img: "./images/passanger-vehicles.png", hasTab: true },
-  { id: "ev", label: "Electric & Hybrid", img: "./images/electric-vehicles.png", hasTab: true },
-  { id: "off-highway", label: "Off Highway & Industrial Applications", img: "./images/off-highway.png", hasTab: true },
-  { id: "tools", label: "Tools, Hardware & Powertools", img: "./images/power-tools-sector.png", hasTab: true },
-  { id: "locomotive", label: "Locomotive & Marine", img: "./images/loco-marine.png", hasTab: true },
-  { id: "agriculture", label: "Agriculture", img: "./images/agriculture-sector.png", hasTab: false },
-  { id: "defence", label: "Defence", img: "./images/defence-sector.png", hasTab: false },
+  { id: "commercial", label: "Commercial Vehicles", img: "/images/sectorCards/commercial-vehicles.png", hasTab: true, subtitle: "Powering heavy-duty transport.", icon: SVGS.commercial },
+  { id: "passenger-veh", label: "Passenger Vehicles", img: "/images/sectorCards/passanger-vehicles.png", hasTab: true, subtitle: "Driving everyday journeys.", icon: SVGS.passenger },
+  { id: "ev", label: "Electric & Hybrid", img: "/images/sectorCards/electric-vehicles.png", hasTab: true, subtitle: "Efficient power. Smarter future.", icon: SVGS.ev },
+  { id: "off-highway", label: "Off Highway & Industrial Applications", img: "/images/sectorCards/off-highway.png", hasTab: true, subtitle: "Built for the toughest terrains.", icon: SVGS.offhighway },
+  { id: "tools", label: "Tools, Hardware & Powertools", img: "/images/sectorCards/power-tools-sector.png", hasTab: true, subtitle: "Precision in every tool.", icon: SVGS.tools },
+  { id: "locomotive", label: "Locomotive & Marine", img: "/images/sectorCards/loco-marine.png", hasTab: true, subtitle: "Connecting the world.", icon: SVGS.locomotive },
+  { id: "agriculture", label: "Agriculture", img: "/images/sectorCards/agriculture-sector.png", hasTab: false, subtitle: "Cultivating tomorrow.", icon: SVGS.agriculture },
+  { id: "defence", label: "Defence", img: "/images/sectorCards/defence-sector.png", hasTab: false, subtitle: "Securing our future.", icon: SVGS.defence },
+  { id: "E-bikes", label: "E-bikes", img: "/images/sectorCards/E-bikes.png", hasTab: false, subtitle: "Securing our future.", icon: SVGS.defence },
+  { id: "After-market", label: "After-market", img: "/images/sectorCards/after-market.png", hasTab: false, subtitle: "Securing our future.", icon: SVGS.defence },
 ];
 
 const TAB_DATA = {
@@ -150,15 +165,36 @@ const TAB_DATA = {
   },
 };
 
+// ─── SVGs & Helpers ────────────────────────────────────────────────────────────
+
+const ICON_MAP = {
+  engine: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20h2"/><path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4"/><path d="M5 14h14"/><path d="M7 14v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4"/><path d="M3 10h18v4H3z"/></svg>,
+  chasis: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 15v7"/><path d="M9.5 10.5 4 7"/><path d="M14.5 10.5 20 7"/></svg>,
+  "fuel-injection": <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>,
+  transmission: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M22 12h-2"/><path d="M4 12H2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/><path d="m4.93 19.07 1.41-1.41"/></svg>,
+  default: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+};
+
+const getIcon = (id) => {
+  if (id.includes("engine")) return ICON_MAP.engine;
+  if (id.includes("chasis") || id.includes("breaking")) return ICON_MAP.chasis;
+  if (id.includes("fuel")) return ICON_MAP["fuel-injection"];
+  if (id.includes("transmission")) return ICON_MAP.transmission;
+  return ICON_MAP.default;
+};
+
 // ─── PartCard ──────────────────────────────────────────────────────────────────
 
-function PartCard({ img, label, onOpenPopup }) {
+function PartCard({ img, label, index, onOpenPopup }) {
   return (
-    <div className="sc-part-card" onClick={() => onOpenPopup(img)}>
-      <div className="sc-part-img-wrap">
-        <img src={img} alt={label} className="sc-part-img popup-image" />
+    <div className="sc-part-card-new" onClick={() => onOpenPopup(img)}>
+      <div className="sc-part-img-wrap-new">
+        <img src={img} alt={label} className="sc-part-img-new popup-image" />
       </div>
-      <div className="sc-part-label">{label}</div>
+      <div className="sc-part-label-new">
+        {label}
+        <div className="sc-part-underline"></div>
+      </div>
     </div>
   );
 }
@@ -239,29 +275,51 @@ function ProductPanel({ tabId, onOpenPopup }) {
   if (!data) return null;
   const parts = data.parts[activeSub] || [];
 
-  return (
-    <div className="sc-product-panel">
-      {hasSubTabs && (
-        <div className="sc-subtab-bar">
-          {data.subTabs.map((sub) => (
-            <button
-              key={sub.id}
-              className={`sc-subtab-btn${activeSub === sub.id ? " active" : ""}`}
-              onClick={() => setActiveSub(sub.id)}
-            >
-              {sub.label}
-            </button>
-          ))}
-        </div>
-      )}
-      <div className="sc-parts-grid">
-        {parts.length === 0
-          ? <p className="sc-empty">Products coming soon.</p>
-          : parts.map((p, i) => <PartCard key={i} img={p.img} label={p.label} onOpenPopup={onOpenPopup} />)
-        }
+  const activeSubLabel = hasSubTabs 
+    ? data.subTabs.find(s => s.id === activeSub)?.label.toUpperCase() || "" 
+    : "PRODUCTS";
 
+  return (
+    <>
+      <div className="sc-main-header">
+        <h3>EXPLORE OUR <span>{activeSubLabel}</span> COMPONENTS</h3>
+        <div className="sc-header-underline"></div>
       </div>
-    </div>
+      <div className="sc-product-panel-new">
+        {hasSubTabs && (
+          <div className="sc-sidebar">
+            {data.subTabs.map((sub) => (
+              <button
+                key={sub.id}
+                className={`sc-sidebar-btn ${activeSub === sub.id ? "active" : ""}`}
+                onClick={() => setActiveSub(sub.id)}
+              >
+                <span className="sc-sidebar-icon">
+                  {getIcon(sub.id)}
+                </span>
+                <div className="sc-sidebar-text">
+                  {sub.label}
+                </div>
+                <span className="sc-sidebar-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+        
+        <div className="sc-main-content">
+          <div className="sc-parts-grid-wrapper">
+            <div className="sc-parts-grid-new">
+              {parts.length === 0
+                ? <p className="sc-empty">Products coming soon.</p>
+                : parts.map((p, i) => <PartCard key={i} index={i} img={p.img} label={p.label} onOpenPopup={onOpenPopup} />)
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -269,6 +327,7 @@ function ProductPanel({ tabId, onOpenPopup }) {
 
 export default function SectorCards() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
   const [popupImg, setPopupImg] = useState(null);
   const activeTab = SECTORS[activeIndex]?.hasTab ? SECTORS[activeIndex].id : null;
 
@@ -307,12 +366,14 @@ export default function SectorCards() {
               grabCursor={true}
               centeredSlides={true}
               slidesPerView={"auto"}
+              loop={true}
+              slideToClickedSlide={true}
               coverflowEffect={{
-                rotate: 30,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
+                rotate: 0,
+                stretch: -60,
+                depth: 150,
+                modifier: 1.5,
+                slideShadows: false,
               }}
               pagination={{
                 clickable: true,
@@ -329,19 +390,32 @@ export default function SectorCards() {
               }}
               modules={[EffectCoverflow, Pagination, Navigation]}
               className="sector-swiper"
-              onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+              onSwiper={setSwiperInstance}
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
               {SECTORS.map((sector, i) => (
                 <SwiperSlide key={sector.id} className="sc-slide-wrapper">
-                  <div className="sc-card">
-                    <img src={sector.img} alt={sector.label} className="sc-card-img" />
-                    <div className="sc-card-overlay">
-                      <span className="sc-card-label">{sector.label}</span>
-                      {sector.hasTab && activeIndex === i && (
-                        <span className="sc-active-badge">
-                          {/* View Products <span className="sc-chevron">↓</span> */}
-                        </span>
-                      )}
+                  <div className="sc-card-skew-wrapper">
+                    <div className="sc-card-inner">
+                      <div className="sc-card-bg" style={{ backgroundColor: sector.id === 'ev' ? '#f4f6f9' : (sector.id === 'tools' ? '#d4cbc5' : 'transparent') }}>
+                        <img 
+                          src={sector.img} 
+                          alt={sector.label} 
+                          className="sc-card-img" 
+                          style={
+                            sector.id === 'ev' || sector.id === 'tools' ? { objectFit: 'contain' } : 
+                            sector.id === 'locomotive' || sector.id === 'E-bikes' ? { objectFit: 'cover', objectPosition: '30px center' } : 
+                            {}
+                          } 
+                        />
+                        <div className="sc-card-overlay"></div>
+                        <div className="sc-card-gradient"></div>
+                      </div>
+                      <div className="sc-card-content">
+                        <h3 className="sc-card-title">{sector.label}</h3>
+                        {sector.subtitle && <p className="sc-card-subtitle">{sector.subtitle}</p>}
+                        <div className="sc-card-line"></div>
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>

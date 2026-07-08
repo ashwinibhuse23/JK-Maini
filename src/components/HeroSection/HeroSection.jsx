@@ -56,21 +56,10 @@ const HeroSection = () => {
                                 <div className="hero-content-body wow fadeInUp" data-wow-delay="0.4s">
                                     {/* Hero Button Start */}
                                     <div className="hero-btn">
-                                        <ButtonOne text="Explore More" icon={<FaRegArrowAltCircleRight />} link="#" />
+                                        <ButtonOne text="Explore More" icon={<FaRegArrowAltCircleRight />} link="/about" />
                                     </div>
                                     {/* Hero Button End */}
-                                    {/* Video Play Button Start */}
-                                    <div className="video-play-button">
-                                        <a
-                                            href="https://www.youtube.com/watch?v=Y-x0efG1seA"
-                                            className="popup-video bg-effect"
-                                            data-cursor-text="Play"
-                                        >
-                                            <FaPlay />
-                                        </a>
-                                        <span>Watch Video</span>
-                                    </div>
-                                    {/* Video Play Button End */}
+                                    
                                 </div>
                                 {/* Hero Content Body End */}
                             </div>

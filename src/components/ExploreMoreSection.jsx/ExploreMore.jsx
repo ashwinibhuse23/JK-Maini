@@ -5,50 +5,51 @@ import { FaArrowCircleRight } from "react-icons/fa";
 
 
 const boxData = [{
-   
+
     title: "Sustainability",
     description: "At JK Maini, sustainability isn't an initiative, it's engineered into everything we do. From optimizing resources to minimizing environmental impact, we are committed to responsible innovation",
-    image: "./images/sustainability.jpg",
-    link: "/sustainability"
+    image: "./images/sustainability.jpeg",
+    link1: "/jkmptl-sustainability",
+    link2: "/jkmgal-sustainability",
+    target: "_self"
 }, {
-   
+
     title: "Career",
     description: "Precision is built by people, those who challenge limits, innovate with purpose, and deliver with excellence. Across engineering, design, operations, and beyond, we offer opportunities.",
-    image: "./images/career.jpg",
-    link: "/career"
-}, {
-    
-    title: "Innovation",
-    description: "Precision is built by people, those who challenge limits, innovate with purpose, and deliver with excellence. Across engineering, design, operations, and beyond, we offer opportunities.",
-    image: "./images/innovation.jpg",
-    link: "/innovation"
+    image: "./images/career.jpeg",
+    link1: "https://auto.jkmaini.com/careers.html",
+    link2: "https://aero.jkmaini.com/careers.html",
+    target: "_blank"
 }]
 
 const ExploreMore = () => {
     return (
         <>
             <div className="how-it-work-gold">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-xl-6">
-                            {/* Section Title Start */}
-                            <div className="section-title">
-                                <span className="section-sub-title wow fadeInUp">Explore More</span>
-                                <h2 className="text-anime-style-3" data-cursor="-opaque">
-                                    Discover how we build a better tomorrow
-                                </h2>
-                            </div>
-                            {/* Section Title End */}
-                        </div>
+                <div className="container-fluid px-3 px-md-5">
+                    <div className="row align-items-stretch g-4">
                         
-                    </div>
-                    <div className="row">
+                        {/* Section Title Column */}
+                        <div className="col-lg-4 d-flex flex-column">
+                            <div className="d-flex flex-column justify-content-center h-100 pe-lg-4">
+                                <div className="section-title mb-3">
+                                    <span className="section-sub-title wow fadeInUp">Explore More</span>
+                                    <h2 className="text-anime-style-3" data-cursor="-opaque">
+                                        Discover how we build a better tomorrow
+                                    </h2>
+                                    <p className="text-dark">
+                                        Through sustainable practices, empowering careers, and innovations that make a difference.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
+                        {/* Cards Columns */}
                         {boxData.map((dataBox, i) => {
                             return (
-                                <div key={i} className="col-xl-4 col-md-6">
+                                <div key={i} className="col-lg-4 col-md-6 d-flex flex-column">
                                     {/* How Work Item Start */}
-                                    <div className="how-it-work-item-gold wow fadeInUp">
+                                    <div className="how-it-work-item-gold wow fadeInUp h-100 d-flex flex-column">
                                         {/* How Work Item Header Start */}
                                         <div className="how-work-item-header-gold">
                                             {/* How Work Item Image Start */}
@@ -58,19 +59,21 @@ const ExploreMore = () => {
                                                 </figure>
                                             </div>
                                             {/* How Work Item Image End */}
-                                            {/* How Work Item Number Start */}
-                                           
-                                            {/* How Work Item Number End */}
                                         </div>
                                         {/* How Work Item Header End */}
                                         {/* How Work Item Body Start */}
-                                        <div className="how-work-item-body-gold">
+                                        <div className="how-work-item-body-gold d-flex flex-column flex-grow-1">
                                             <h3>{dataBox.title}</h3>
                                             <p>
                                                 {dataBox.description}
                                             </p>
-                                            <ul>
-                                                <a href={dataBox.link} style={{textDecoration:"none"}}><li className='px-4 py-2'>Explore More <FaArrowCircleRight /></li></a>
+                                            <ul className="mt-auto flex-nowrap" style={{ gap: "10px", width: "100%" }}>
+                                                <a href={dataBox.link1} target={dataBox.target || "_self"} rel={dataBox.target === "_blank" ? "noopener noreferrer" : undefined} style={{ textDecoration: "none", flex: 1 }}>
+                                                    <li className="justify-content-center" style={{ width: "100%", padding: "10px 0", fontSize: "15px" }}>Explore More <FaArrowCircleRight /></li>
+                                                </a>
+                                                <a href={dataBox.link2} target={dataBox.target || "_self"} rel={dataBox.target === "_blank" ? "noopener noreferrer" : undefined} style={{ textDecoration: "none", flex: 1 }}>
+                                                    <li className="justify-content-center" style={{ width: "100%", padding: "10px 0", fontSize: "15px" }}>Explore More <FaArrowCircleRight /></li>
+                                                </a>
                                             </ul>
                                         </div>
                                         {/* How Work Item Body End */}

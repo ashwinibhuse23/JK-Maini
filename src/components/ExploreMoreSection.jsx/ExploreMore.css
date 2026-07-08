@@ -10,8 +10,6 @@
 .how-it-work-item-gold {
     background: var(--secondary-color);
     border-radius: 20px;
-    height: calc(100% - 30px);
-    margin-bottom: 30px;
     padding: 10px;
 }
 

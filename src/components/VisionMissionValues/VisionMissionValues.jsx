@@ -9,8 +9,8 @@ const VisionMissionValues = () => {
                     <div className="row align-items-stretch">
 
                         <div className="col-md-6">
-                            <div className="why-choose-image h-100">
-                                <figure className="image-anime">
+                            <div className="why-choose-image h-100 d-flex align-items-center justify-content-center p-4 p-lg-5">
+                                <figure className="image-anime w-100 mb-0">
                                     <img src="images/vision&mission.jpg" alt="" />
                                 </figure>
                             </div>

@@ -3,6 +3,8 @@ import './GetInTouchModal.css'
 import { FaTimes } from 'react-icons/fa'
 import { FaRegArrowAltCircleRight } from 'react-icons/fa'
 import '../ButtonOne/ButtonOne.css'
+import ButtonOne from '../ButtonOne/ButtonOne'
+
 
 const GetInTouchModal = ({ isOpen, onClose, title = "Get in Touch" }) => {
     const [formData, setFormData] = useState({
@@ -15,6 +17,7 @@ const GetInTouchModal = ({ isOpen, onClose, title = "Get in Touch" }) => {
         message: '',
         consent: false,
     })
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     // Lock body scroll when modal is open
     useEffect(() => {
@@ -72,13 +75,13 @@ const GetInTouchModal = ({ isOpen, onClose, title = "Get in Touch" }) => {
                 <div className="git-header">
                     <h2 className="git-title">{title}</h2>
                     <p className="git-sub">
-                        Tell us what you're building — we'll show you how to get there,
+                        Tell us whate you're building & we'll show you how to get there,
                         faster and smarter. Response guaranteed within 24 hours.
                     </p>
                 </div>
 
                 {/* ── Form ──────────────────────────── */}
-                <form className="git-form" onSubmit={handleSubmit} noValidate>
+                <form className="git-form" onSubmit={handleSubmit}>
 
                     {/* Row 1: First + Last Name */}
                     <div className="git-row">
@@ -143,24 +146,49 @@ const GetInTouchModal = ({ isOpen, onClose, title = "Get in Touch" }) => {
                                 autoComplete="tel"
                             />
                         </div>
-                        <div className="git-field">
-                            <select
-                                name="industry"
-                                value={formData.industry}
-                                onChange={handleChange}
+                        <div
+                            className="git-field"
+                            onBlur={(e) => {
+                                if (!e.currentTarget.contains(e.relatedTarget)) {
+                                    setDropdownOpen(false);
+                                }
+                            }}
+                        >
+                            <div
+                                className="git-custom-select"
+                                tabIndex={0}
+                                onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
-                                <option value="" disabled>Select Industry</option>
-                                <option value="Agriculture">Agriculture</option>
-                                <option value="Aerospace">Aerospace &amp; Defence</option>
-                                <option value="Automotive">Automotive</option>
-                                <option value="Education">Education</option>
-                                <option value="Environment">Environment</option>
-                                <option value="Healthcare">Healthcare</option>
-                                <option value="Infrastructure">Infrastructure</option>
-                                <option value="Technology">Technology</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <span className="git-select-arrow">&#8250;</span>
+                                <span className={formData.industry ? 'git-select-value' : 'git-select-placeholder'}>
+                                    {formData.industry || "Select Industry"}
+                                </span>
+                                <span className={`git-select-arrow ${dropdownOpen ? 'open' : ''}`}>&#8250;</span>
+                            </div>
+                            {dropdownOpen && (
+                                <ul className="git-custom-options">
+                                    {[
+                                        "Agriculture",
+                                        "Aerospace & Defence",
+                                        "Automotive",
+                                        "Education",
+                                        "Environment",
+                                        "Healthcare",
+                                        "Infrastructure",
+                                        "Technology",
+                                        "Other"
+                                    ].map((ind) => (
+                                        <li
+                                            key={ind}
+                                            onClick={() => {
+                                                setFormData(prev => ({ ...prev, industry: ind }));
+                                                setDropdownOpen(false);
+                                            }}
+                                        >
+                                            {ind}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
                     </div>
 
@@ -194,13 +222,14 @@ const GetInTouchModal = ({ isOpen, onClose, title = "Get in Touch" }) => {
                     </label>
 
                     {/* Submit */}
-                    <button type="submit" className="custom-button git-submit-btn">
-                        <span className="button-content">
-                            <span className="button-text">Submit</span>
-                            <span className="button-icon"><FaRegArrowAltCircleRight /></span>
-                        </span>
-                        <span className="button-background"></span>
-                    </button>
+                    <ButtonOne
+                        type="submit"
+                        className="git-submit-btn"
+                        text="Submit"
+                        icon={<FaRegArrowAltCircleRight />}
+                        iconPosition="right"
+                        withIconBg={false}
+                    />
 
                 </form>
             </div>

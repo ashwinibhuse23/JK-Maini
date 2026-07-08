@@ -10,7 +10,16 @@ const navItems = [
         label: 'Home',
         href: '/',
     },
-    { label: 'About Us', href: '/about' },
+    {
+        label: 'Company',
+        href: '#',
+        children: [
+            { label: 'Raymond Group', href: '/about' },
+            { label: 'Precision Engineering (JKMPTL)', href: 'https://auto.jkmaini.com/', target: '_blank', rel: 'noopener noreferrer' },
+            { label: 'Aerospace & Defence (JKMGAL)', href: 'https://aero.jkmaini.com/', target: '_blank', rel: 'noopener noreferrer' },
+            { label: 'Tools & Hardware (JK Superdrive)', href: 'https://jksuperdrive.com/', target: '_blank', rel: 'noopener noreferrer' },
+        ]
+    },
 
     {
         label: 'Businesses',
@@ -55,7 +64,7 @@ const navItems = [
             { label: 'Aerospace', href: 'https://aero.jkmaini.com/careers.html', target: '_blank', rel: 'noopener noreferrer' },
         ]
     },
-    { label: 'Contact Us', href: 'contact.html' },
+    { label: 'Contact Us', href: '/contact' },
 ];
 
 const Navbar = () => {
@@ -126,7 +135,6 @@ const Navbar = () => {
                                 {/* Header Btn Start */}
                                 <div className="header-btn">
                                     <ButtonOne text="Get Started" icon={<FaRegArrowAltCircleRight />} link="#" />
-
                                 </div>
                                 {/* Header Btn End */}
                             </div>
@@ -146,119 +154,140 @@ const Navbar = () => {
                         </div>
                     </nav>
 
-                    {/* Mobile Menu Drawer */}
-                    <div className={`mobile-menu-drawer${menuOpen ? ' drawer-open' : ''}`}>
-                        <ul className="mobile-nav-list">
-                            {navItems.map((item, i) => {
-                                const hasDropdown = item.children || item.isMega;
-                                const isOpen = openSubmenu === i;
-                                // Decide if the label itself should be a link or a toggle button
-                                const isExternalOrHtml = item.href && (item.href.startsWith('http') || item.href.endsWith('.html'));
-
-                                return (
-                                    <li key={i} className={`mobile-nav-item${hasDropdown ? ' has-submenu' : ''}`}>
-                                        <div className="mobile-nav-row">
-                                            {hasDropdown ? (
-                                                /* Items with dropdown: label is a toggle, not a navigation link */
-                                                <button
-                                                    className="mobile-nav-link mobile-nav-toggle"
-                                                    onClick={() => toggleSubmenu(i)}
-                                                    aria-expanded={isOpen}
-                                                >
-                                                    {item.label}
-                                                </button>
-                                            ) : isExternalOrHtml ? (
-                                                /* External / .html pages: plain <a> */
-                                                <a
-                                                    className="mobile-nav-link"
-                                                    href={item.href}
-                                                    onClick={closeMenu}
-                                                >
-                                                    {item.label}
-                                                </a>
-                                            ) : (
-                                                /* Internal React Router routes: <Link> */
-                                                <Link
-                                                    className="mobile-nav-link"
-                                                    to={item.href}
-                                                    onClick={closeMenu}
-                                                >
-                                                    {item.label}
-                                                </Link>
-                                            )}
-
-                                            {/* Chevron arrow for items with dropdown */}
-                                            {hasDropdown && (
-                                                <button
-                                                    className={`submenu-arrow${isOpen ? ' rotated' : ''}`}
-                                                    onClick={() => toggleSubmenu(i)}
-                                                    aria-label="Toggle submenu"
-                                                >
-                                                    &#8249;
-                                                </button>
-                                            )}
-                                        </div>
-
-                                        {/* Regular submenu (Businesses, Careers) */}
-                                        {item.children && isOpen && (
-                                            <ul className="mobile-submenu">
-                                                {item.children.map((child, j) => (
-                                                    <li key={j} className="mobile-submenu-item">
-                                                        <a
-                                                            className="mobile-submenu-link"
-                                                            href={child.href}
-                                                            target={child.target || '_self'}
-                                                            rel={child.rel || ''}
-                                                            onClick={closeMenu}
-                                                        >
-                                                            {child.label}
-                                                            {child.target === '_blank' && (
-                                                                <span className="mobile-ext-icon">↗</span>
-                                                            )}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-
-                                        {/* Mega menu (Beyond Business) */}
-                                        {item.isMega && isOpen && (
-                                            <div className="mobile-mega-menu">
-                                                {item.megaColumns.map((col, ci) => (
-                                                    <div key={ci} className="mobile-mega-section">
-                                                        {col.map((link, li) => (
-                                                            <React.Fragment key={li}>
-                                                                {link.header && (
-                                                                    <div className="mobile-mega-header">{link.header}</div>
-                                                                )}
-                                                                {link.label && link.href && (
-                                                                    <a
-                                                                        className="mobile-submenu-link mobile-mega-link"
-                                                                        href={link.href}
-                                                                        onClick={closeMenu}
-                                                                    >
-                                                                        {link.label}
-                                                                    </a>
-                                                                )}
-                                                            </React.Fragment>
-                                                        ))}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                        <div className="mobile-menu-btn">
-                            <ButtonOne text="Get Started" icon={<FaRegArrowAltCircleRight />} link="#" />
-                        </div>
-                    </div>
-
-                    {/* Overlay */}
+                    {/* Overlay — rendered outside drawer so it covers the whole screen */}
                     {menuOpen && <div className="menu-overlay" onClick={closeMenu} />}
                 </div>
             </header>
+
+            {/* ── Mobile Menu Drawer (full-screen side panel, outside header) ── */}
+            <div className={`mobile-menu-drawer${menuOpen ? ' drawer-open' : ''}`}>
+                {/* Inner scrollable wrapper */}
+                <div className="mobile-drawer-inner">
+
+                    {/* Drawer Header */}
+                    <div className="mobile-drawer-header">
+                        <Link to="/" className="navbar-brand mobile-drawer-logo" onClick={closeMenu}>
+                            <img src="./images/jk-maini-logo.svg" alt="JK Maini Logo" />
+                        </Link>
+                        <button
+                            className="mobile-drawer-close"
+                            onClick={closeMenu}
+                            aria-label="Close navigation menu"
+                        >
+                            &#10005;
+                        </button>
+                    </div>
+
+                    {/* Nav Items */}
+                    <ul className="mobile-nav-list">
+                        {navItems.map((item, i) => {
+                            const hasDropdown = item.children || item.isMega;
+                            const isOpen = openSubmenu === i;
+                            const isExternalOrHtml = item.href && (item.href.startsWith('http') || item.href.endsWith('.html'));
+
+                            return (
+                                <li key={i} className={`mobile-nav-item${hasDropdown ? ' has-submenu' : ''}`}>
+                                    <div className="mobile-nav-row">
+                                        {hasDropdown ? (
+                                            /* Items with dropdown: toggle button */
+                                            <button
+                                                className="mobile-nav-toggle"
+                                                onClick={() => toggleSubmenu(i)}
+                                                aria-expanded={isOpen}
+                                            >
+                                                {item.label}
+                                            </button>
+                                        ) : isExternalOrHtml ? (
+                                            /* External / .html pages */
+                                            <a
+                                                className="mobile-nav-link"
+                                                href={item.href}
+                                                onClick={closeMenu}
+                                            >
+                                                {item.label}
+                                            </a>
+                                        ) : (
+                                            /* Internal React Router routes */
+                                            <Link
+                                                className="mobile-nav-link"
+                                                to={item.href}
+                                                onClick={closeMenu}
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        )}
+
+                                        {/* Chevron arrow for items with dropdown */}
+                                        {hasDropdown && (
+                                            <button
+                                                className={`submenu-arrow${isOpen ? ' rotated' : ''}`}
+                                                onClick={() => toggleSubmenu(i)}
+                                                aria-label="Toggle submenu"
+                                            >
+                                                &#8249;
+                                            </button>
+                                        )}
+                                    </div>
+
+                                    {/* Regular submenu (Businesses, Careers) */}
+                                    {item.children && isOpen && (
+                                        <ul className="mobile-submenu">
+                                            {item.children.map((child, j) => (
+                                                <li key={j} className="mobile-submenu-item">
+                                                    <a
+                                                        className="mobile-submenu-link"
+                                                        href={child.href}
+                                                        target={child.target || '_self'}
+                                                        rel={child.rel || ''}
+                                                        onClick={closeMenu}
+                                                    >
+                                                        {child.label}
+                                                        {child.target === '_blank' && (
+                                                            <span className="mobile-ext-icon">↗</span>
+                                                        )}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+
+                                    {/* Mega menu (Beyond Business) */}
+                                    {item.isMega && isOpen && (
+                                        <div className="mobile-mega-menu">
+                                            {item.megaColumns.map((col, ci) => (
+                                                <div key={ci} className="mobile-mega-section">
+                                                    {col.map((link, li) => (
+                                                        <React.Fragment key={li}>
+                                                            {link.header && (
+                                                                <div className="mobile-mega-header">{link.header}</div>
+                                                            )}
+                                                            {link.label && link.href && (
+                                                                <a
+                                                                    className="mobile-submenu-link mobile-mega-link"
+                                                                    href={link.href}
+                                                                    onClick={closeMenu}
+                                                                >
+                                                                    {link.label}
+                                                                </a>
+                                                            )}
+                                                        </React.Fragment>
+                                                    ))}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </li>
+                            );
+                        })}
+                    </ul>
+
+                    {/* Drawer Footer — Get Started Button */}
+                    <div className="mobile-menu-btn">
+                        <ButtonOne text="Get Started" icon={<FaRegArrowAltCircleRight />} link="#" />
+                    </div>
+
+                </div>{/* /mobile-drawer-inner */}
+            </div>
         </>
     )
 }

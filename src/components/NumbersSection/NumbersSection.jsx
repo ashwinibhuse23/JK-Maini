@@ -31,7 +31,7 @@ const NumbersSection = () => {
                             </span> <br />
 
                             <h2 className="text-anime-style-3" data-cursor="-opaque">
-                                A Legacy of Excellence, A Future of Innovation
+                                A LEGACY OF EXCELLENCE, <br/> A FUTURE OF INNOVATION
                             </h2>
                         </div>
 
