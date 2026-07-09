@@ -1,6 +1,6 @@
 import React from 'react'
 import PageHeader from '../../AboutHeader/PageHeader'
-import banner from "/images/t&h-banner.png"
+import bannerVideo from "/images/toolsvideo.mp4"
 import ToolsAbout from '../../ToolsAbout/ToolsAbout'
 import ToolsPortfolio from '../../ToolsPortfolio/ToolsPortfolio'
 
@@ -18,7 +18,7 @@ const ToolsAndHardware = () => {
                     applications. Our comprehensive portfolio includes Files, Cutting Tools, Hand Tools,
                     Power Tools & Power Tool Accessories.
                 "
-                bgImg={banner}
+                bgVideo={bannerVideo}
             >
                 <ButtonOne text="Visit Site"  icon={<FaArrowCircleRight />} link="https://jksuperdrive.com/" target="_blank" />
             </PageHeader>

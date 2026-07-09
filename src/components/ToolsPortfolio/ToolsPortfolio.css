@@ -185,34 +185,30 @@
     line-height: 1.2;
 }
 
-.tp-card-small-btn {
-    padding: 6px 16px !important;
-    min-height: 32px !important;
-    background: linear-gradient(90deg, #a61b36 0%, #f13c5f 100%) !important;
-    border: none !important;
-    border-radius: 9999px !important;
-    box-shadow: 0 6px 15px rgba(241, 60, 95, 0.35) !important;
-    color: #fff !important;
-    display: inline-flex !important;
-    align-items: center !important;
+.tp-card-small-btn.custom-button.icon-left {
+    padding: 6px 14px 6px 6px !important;
+    align-self: flex-start;
+    margin: 0;
+}
+
+.tp-card-small-btn .button-content {
     gap: 8px !important;
 }
 
-.tp-card-small-btn .button-text {
-    font-size: 13px !important;
-    font-weight: 800 !important;
-    color: #fff !important;
+.tp-card-small-btn .button-icon-container {
+    width: 24px !important;
+    height: 24px !important;
+    background-color: #fff !important;
 }
 
 .tp-card-small-btn .button-icon {
-    color: #fff !important;
+    font-size: 10px !important;
+    color: #E81C3D !important;
 }
 
-.tp-card-small-btn .button-icon svg {
-    font-size: 13px !important;
-    width: 13px !important;
-    height: 13px !important;
-    color: #fff !important;
+.tp-card-small-btn .button-text {
+    font-size: 11px !important;
+    font-weight: 700 !important;
 }
 
 @media (max-width: 1200px) {

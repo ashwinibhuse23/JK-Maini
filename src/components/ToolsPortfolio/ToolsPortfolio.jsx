@@ -5,25 +5,25 @@ import ButtonOne from '../ButtonOne/ButtonOne';
 const ToolsPortfolio = () => {
 
     const toolsPortfolio = [
-        { 
-            image: "images/tools/files.png", 
+        {
+            image: "images/tools/files.png",
             text: "FILES",
-           
+
         },
-        { 
-            image: "images/tools/cutting-tools.jpg", 
+        {
+            image: "images/tools/cutting-tools.png",
             text: "CUTTING TOOLS"
         },
-        { 
-            image: "images/tools/hand-tools.png", 
+        {
+            image: "images/tools/hand-tools.png",
             text: "HAND TOOLS"
         },
-        { 
-            image: "images/tools/power-tools.jpg", 
+        {
+            image: "images/tools/power-tools.png",
             text: "POWER TOOLS"
         },
-        { 
-            image: "images/tools/power-tools-accessories.png", 
+        {
+            image: "images/tools/power-tools-accessories.png",
             text: "POWER TOOLS ACCESSORIES"
         },
     ]
@@ -39,9 +39,9 @@ const ToolsPortfolio = () => {
                     <div className="tp-header-left">
                         <div className="section-title">
                             <span className="section-sub-title wow fadeInUp">OUR PORTFOLIO</span>
-                             <p className="about-raymond mt-3 text-capitalize">
-                           We offer a comprehensive product portfolio that caters to a wide spectrum of manufacturing, construction, automotive, and industrial needs. Our range includes:
-                        </p>
+                            <p className="about-raymond mt-3 text-capitalize">
+                                We offer a comprehensive product portfolio that caters to a wide spectrum of manufacturing, construction, automotive, and industrial needs. Our range includes:
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ const ToolsPortfolio = () => {
                                         </div>
                                         <div className="tp-card-content">
                                             <h3 className="tp-card-title">{item.text}</h3>
-                                            <ButtonOne text="Explore More" icon={<ArrowIcon />} iconPosition="right" withIconBg={false} className="tp-card-small-btn" />
+                                            <ButtonOne text="Explore More" icon={<ArrowIcon />} iconPosition="left" withIconBg={true} className="tp-card-small-btn" />
                                         </div>
                                     </div>
                                 )

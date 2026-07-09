@@ -219,53 +219,61 @@
     }
 }
 
-/* ToolsNumbers specific spacing */
-.tools-numbers-section .number-box {
-    padding: 15px 20px;
+/* ToolsNumbers & AeroNumbers specific spacing */
+.tools-numbers-section .number-box,
+.aero-numbers-section .number-box {
+    padding: 20px 15px;
 }
 
-.tools-numbers-section .number-box-content {
-    gap: 25px !important;
-}
-
-.tools-numbers-section .count,
-.tools-numbers-section .count-desc {
+.tools-numbers-section .number-box-content,
+.aero-numbers-section .number-box-content {
+    gap: 20px !important;
     padding-left: 0;
 }
 
-.tools-numbers-section .count::after {
-    left: 0;
+.tools-numbers-section .box-icon,
+.aero-numbers-section .box-icon {
+    margin-right: 0;
+    transform: scale(0.85);
+    transform-origin: center;
+}
+
+.tools-numbers-section .count,
+.aero-numbers-section .count {
+    padding-left: 5px;
+    font-size: 30px;
+}
+
+.tools-numbers-section .count-desc,
+.aero-numbers-section .count-desc {
+    padding-left: 5px;
+    white-space: normal;
+}
+
+.tools-numbers-section .count::after,
+.aero-numbers-section .count::after {
+    left: 5px;
 }
 
 @media (max-width: 1199px) {
-    .tools-numbers-section .number-box-content {
-        gap: 20px !important;
-    }
-    .tools-numbers-section .box-icon {
-        margin-right: 0px;
+    .tools-numbers-section .number-box-content,
+    .aero-numbers-section .number-box-content {
+        gap: 15px !important;
     }
 }
 
 @media (min-width: 992px) {
-    .tools-numbers-section .parent {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-@media (min-width: 1200px) {
-    .tools-numbers-section .container {
-        max-width: 1300px;
-    }
-    .tools-numbers-section .parent {
-        grid-template-columns: repeat(4, 1fr);
+    .tools-numbers-section .parent,
+    .aero-numbers-section .parent {
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 }
 
-@media (min-width: 1400px) {
-    .tools-numbers-section .container {
-        max-width: 1400px;
-    }
-    .tools-numbers-section .parent {
+@media (min-width: 1200px) {
+    .tools-numbers-section .parent,
+    .aero-numbers-section .parent {
+        grid-template-columns: repeat(4, 1fr);
         gap: 25px;
     }
 }

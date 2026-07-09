@@ -1,8 +1,5 @@
 import React from 'react'
-import "../ToolsPortfolio/ToolsPortfolio.css"
-import ButtonOne from '../ButtonOne/ButtonOne'
-import { FaArrowRight } from "react-icons/fa6";
-import SqaureButton from '../SqaureButton/SqaureButton';
+import "./AeroPortfolio.css"
 
 const AeroPortfolio = () => {
 
@@ -13,63 +10,41 @@ const AeroPortfolio = () => {
         { image: "images/aero/helicopter.png", text: "Helicopter Programs" },
     ]
 
-
-
-
-
     return (
-        <>
-            <section className="tools-portfolio py-5">
-                <div className="container">
-                    <div className="our-industries-content">
-
-                        <div className="section-title">
-                            <span className="section-sub-title wow fadeInUp">
-                                Our Portfolio
-                            </span> <br />
-
-                            <h2 className="text-anime-style-3" data-cursor="-opaque">
-                                AEROSPACE PORTFOLIO
-                            </h2>
-
-                            <p className='about-raymond mt-3'>
-                                JK Maini offers a comprehensive product portfolio that caters to a wide spectrum of manufacturing, construction, automotive, and industrial needs. Our range includes:
-                            </p>
-                        </div>
-
+        <section className="aero-portfolio-section">
+            <div className="container aero-custom-container">
+                <div className="aero-header-container">
+                    <div className="section-title">
+                        <span className="section-sub-title wow fadeInUp">Our Portfolio</span>
+                        <br />
+                        <h2 className="text-anime-style-3" data-cursor="-opaque">
+                            AEROSPACE PORTFOLIO
+                        </h2>
+                        <p className="about-raymond mt-3">
+                            JK Maini offers a comprehensive product portfolio that caters to a wide spectrum of manufacturing, construction, automotive, and industrial needs. Our range includes:
+                        </p>
                     </div>
                 </div>
 
-                <div className="container">
-                    <div className="tools-parent">
+                <div className="aero-grid-container">
+                    <div className="aero-grid">
                         {
                             AeroPortfolio.map((item, index) => {
                                 return (
-                                <div key={index} className={`tool-box tools-div${index+1}`}>
-                                        <img src={item.image} alt="" />
-                                        <div className="gradient-overlay"></div>
-                                        <div className="tool-overlay">
-                                            <div>
-                                                <h2>{item.text}</h2>
-                                            <div className="title-line"></div>
-                                            </div>
-                                            <div className='portfolio-bag-btn text-start'>
-                                                <SqaureButton
-                                                    text={"Explore More"}
-                                                    icon={<FaArrowRight />}
-                                                />
-                                            </div>
-
+                                    <div key={index} className="aero-card">
+                                        <img src={item.image} alt={item.text} className="aero-card-image" />
+                                        <div className="aero-card-overlay"></div>
+                                        <div className="aero-card-content">
+                                            <h3 className="aero-card-title">{item.text}</h3>
                                         </div>
                                     </div>
                                 )
                             })
                         }
-
                     </div>
                 </div>
-            </section>
-        </>
+            </div>
+        </section>
     )
 }
 

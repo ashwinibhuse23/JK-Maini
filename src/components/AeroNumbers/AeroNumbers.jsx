@@ -19,7 +19,7 @@ const AeroNumbers = () => {
 
     return (
         <>
-            <section className="numbers-section">
+            <section className="numbers-section aero-numbers-section">
                 <div className="container">
                     <div className="our-industries-content">
                         {/* Section Title Start */}

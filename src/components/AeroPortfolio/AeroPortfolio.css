@@ -1,0 +1,181 @@
+.aero-portfolio-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decorative elements */
+.aero-portfolio-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232, 28, 61, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.aero-custom-container {
+    max-width: 1450px !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Grid Layout */
+.aero-grid-container {
+    margin-top: 50px;
+}
+
+.aero-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Card Design */
+.aero-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    background-color: #000;
+}
+
+/* Background Image */
+.aero-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.aero-card:hover .aero-card-image {
+    transform: scale(1.1);
+}
+
+/* Gradient Overlay */
+.aero-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 35%, transparent 100%);
+    z-index: 2;
+    transition: height 0.4s ease, background 0.4s ease;
+}
+
+.aero-card:hover .aero-card-overlay {
+    height: 80%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.8) 45%, transparent 100%);
+}
+
+/* Card Content */
+.aero-card-content {
+    position: relative;
+    z-index: 3;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    gap: 15px;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.aero-card:hover .aero-card-content {
+    transform: translateY(0);
+}
+
+.aero-card-title {
+    font-size: 22px; /* Adjusted to fit on one line */
+    font-weight: 600; /* Slightly reduced font weight */
+    color: #ffffff;
+    margin: 0;
+    text-align: center; /* Center the text */
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+    line-height: 1.2;
+    max-width: 100%;
+    white-space: nowrap; /* Forces text to stay on one line */
+}
+
+/* Dark Solid Button */
+.aero-glass-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #2a2a2a; /* Solid dark grey */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 16px 32px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 1; /* Always visible */
+    transition: all 0.4s ease;
+    align-self: flex-start;
+}
+
+.aero-card:hover .aero-glass-btn {
+    background: #404040;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.aero-glass-btn svg {
+    transition: transform 0.3s ease;
+    font-size: 18px;
+}
+
+.aero-glass-btn:hover {
+    background: #E81C3D;
+    border-color: #E81C3D;
+}
+
+.aero-glass-btn:hover svg {
+    transform: translateX(5px);
+}
+
+/* Header Adjustments */
+.aero-header-container {
+    max-width: 800px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .aero-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .aero-card {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .aero-grid {
+        grid-template-columns: 1fr;
+    }
+    .aero-card {
+        height: 350px;
+    }
+    
+    /* Make button always visible on mobile */
+    .aero-card-content {
+        transform: translateY(0);
+    }
+}
