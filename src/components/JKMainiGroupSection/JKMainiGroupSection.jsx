@@ -28,20 +28,23 @@ export default function JKMainiAboutSection() {
     }, []);
 
     return (
-        <section className="jk-maini-about-section" ref={sectionRef}>
+        <section className="jk-maini-about-section bg-section" ref={sectionRef}>
             <div className="container about-container">
                 <div className="row">
                     {/* Left Column for Text */}
                     <div className="col-lg-7 col-md-12 about-left-content">
                         <div className="section-title">
-                            <span className="section-sub-title wow fadeInUp">
+                            <span className="section-sub-title wow fadeInUp text-white border-white" style={{ marginTop: '15px' }}>
                                 About JK Maini Group
                             </span> <br />
 
-                            <h2 className="text-anime-style-3" data-cursor="-opaque">
-                                DELIVERING PRECISION. POWERING INDUSTRY. ENABLING PROGRESS.
+                            <h2 className="text-anime-style-3 text-white" data-cursor="-opaque" style={{ fontSize: 'clamp(26px, 3.2vw, 40px)', fontWeight: '600', lineHeight: '1.3' }}>
+                                DELIVERING PRECISION.<br/>
+                                POWERING INDUSTRY.<br/>
+                                ENABLING PROGRESS.
                             </h2>
-                            <p className="wow fadeInUp about-raymond jk-maini-smaller-text mt-4" data-wow-delay="0.2s">
+                            
+                            <p className="wow fadeInUp mt-4 text-white" data-wow-delay="0.2s" style={{ opacity: 0.85, fontSize: '17px', lineHeight: '1.6' }}>
                                 JK Maini Precision Technology (JKMPTL) is a new force in precision manufacturing, born from the strategic integration of three industry leaders: Maini Precision Products Ltd., Ring Plus Aqua Ltd., and JK Files Ltd. Together, these businesses bring decades of proven expertise in precision engineering, world-class manufacturing, and global quality standards. This powerful consolidation has created a unified entity with the scale, capabilities, and vision to drive the future of mobility, infrastructure, and industrial advancement. Backed by the strength and legacy of the Raymond Group, JK Maini is positioned to deliver advanced solutions across automotive, industrial, aerospace, and tooling sectors. With cutting-edge infrastructure, future-ready technologies, and a relentless commitment to quality, JK Maini is not just adapting to change, it’s engineering what’s next.
                             </p>
                         </div>
@@ -49,42 +52,37 @@ export default function JKMainiAboutSection() {
 
                     {/* Right Column for Diagram */}
                     <div className="col-lg-5 col-md-12 about-right-content">
-                        <div className="about-diagram-container">
-                            <div className="diagram-top-row">
-                                {/* Top Left Node (Double Images) */}
-                                <div className="hex-shadow-wrapper">
-                                    <div className="diagram-node hex-node">
-                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', position: 'relative' }}>
-                                            <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                                                <img src="images/journey/logo/jk-superdrive-logo.png" alt="JK SuperDrive Logo" style={{ width: '90%', maxHeight: '65px', objectFit: 'contain' }} />
-                                            </div>
-                                            <span style={{ position: 'absolute', left: '55%', top: '50%', transform: 'translate(-50%, -50%)', fontSize: '24px', fontWeight: '400', color: '#a0a0a0', lineHeight: '1', zIndex: 2 }}>+</span>
-                                            <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                                                <img src="images/journey/logo/raymond-ring-aqua.png" alt="Ring Plus Aqua Logo" style={{ width: '90%', maxHeight: '65px', objectFit: 'contain' }} />
-                                            </div>
-                                        </div>
+                        <div className="about-diagram-container" style={{ marginTop: '20px' }}>
+                            <div className="diagram-top-row-new">
+                                {/* Top Left Node */}
+                                <div className="dark-card-node">
+                                    <div className="card-logo-container-left dual-logo" style={{ flexDirection: 'column', height: 'auto', border: 'none', background: 'transparent' }}>
+                                        <img src="images/journey/logo/jk-superdrive-logo.png" alt="JK SuperDrive Logo" style={{ height: '75px', objectFit: 'contain' }} />
+                                        <span style={{ color: '#fff', margin: '10px 0', fontSize: '24px', fontWeight: '500' }}>+</span>
+                                        <img src="images/journey/logo/raymond-ring-aqua.png" alt="Ring Plus Aqua Logo" style={{ height: '95px', width: 'auto', objectFit: 'contain', backgroundColor: '#ffffff', padding: '8px 20px', borderRadius: '8px' }} />
                                     </div>
                                 </div>
 
-                                <div className="diagram-plus">+</div>
+                                <div className="diagram-plus position-absolute" style={{ top: '35%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '20px', color: '#fff' }}>+</div>
 
                                 {/* Top Right Node */}
-                                <div className="hex-shadow-wrapper">
-                                    <div className="diagram-node hex-node">
-                                        <img src="images/journey/logo/mainiprecision.png" alt="JK Maini Precision Products" style={{ width: '95%', height: '100%', maxHeight: '85px', objectFit: 'contain' }} />
+                                <div className="dark-card-node">
+                                    <div className="card-logo-container-right" style={{ flexDirection: 'column', height: '100%', width: '100%', border: 'none', background: 'transparent', boxShadow: 'none' }}>
+                                        <img src="images/journey/logo/mainiprecision.png" alt="JK Maini Precision Products" style={{ height: '110px', width: 'auto', objectFit: 'contain', backgroundColor: '#ffffff', padding: '10px 20px', borderRadius: '8px' }} />
                                     </div>
                                 </div>
                             </div>
 
                             {/* Connecting Lines */}
-                            <div className="diagram-connector-area">
-                                <svg style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, overflow: 'visible' }}>
-                                    <line x1="20%" y1="0" x2="50%" y2="100%" stroke="#E81C3D" strokeWidth="1" strokeDasharray="4 4" />
-                                    <line x1="80%" y1="0" x2="50%" y2="100%" stroke="#E81C3D" strokeWidth="1" strokeDasharray="4 4" />
-
-                                    <circle cx="20%" cy="0" r="5" fill="#E81C3D" stroke="#fbfbfb" strokeWidth="3" />
-                                    <circle cx="80%" cy="0" r="5" fill="#E81C3D" stroke="#fbfbfb" strokeWidth="3" />
-                                    <circle cx="50%" cy="100%" r="5" fill="#E81C3D" stroke="#fbfbfb" strokeWidth="3" />
+                            <div className="diagram-connector-area-new" style={{ position: 'relative', width: '250px', height: '70px', margin: '0 auto' }}>
+                                <svg width="100%" height="100%" style={{ overflow: 'visible' }}>
+                                    <line x1="0" y1="0" x2="0" y2="15" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+                                    <line x1="100%" y1="0" x2="100%" y2="15" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+                                    <line x1="0" y1="15" x2="100%" y2="15" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+                                    <line x1="50%" y1="15" x2="50%" y2="70" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+                                    
+                                    <circle cx="50%" cy="15" r="3" fill="#fff" />
+                                    <circle cx="50%" cy="15" r="7" fill="rgba(255,255,255,0.2)" />
                                 </svg>
                             </div>
 
@@ -97,11 +95,13 @@ export default function JKMainiAboutSection() {
                                     <div className="node-glow"></div>
                                 </div>
                                 {/* Bottom Center Node */}
-                                <div className="diagram-node circle-node">
+                                <div className="diagram-node circle-node-dark">
                                     <img src="images/journey/logo/Artboard 15.svg" alt="JK Maini Logo" onError={(e) => { e.target.style.display = 'none'; }} />
                                     <h3>JK MAINI</h3>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@ export default function JKMainiAboutSection() {
                 <div className="row" style={{ marginTop: '0px' }}>
                     <div className="col-lg-12">
                         <div className="diagram-bottom-text section-title wow fadeInUp" data-wow-delay="0.4s">
-                            <p className="wow fadeInUp about-raymond jk-maini-smaller-text">A Complete Precision Engineering Partner For The World’s Leading Industries. Three Industry Leaders, Maini Precision Products, Ring Plus Aqua, And JK Files, Now Come Together As JK Maini Precision Technology (JKMPTL) To Form A Unified Powerhouse In Precision Engineering. Backed By The Legacy Of The Raymond Group, We Deliver End-To-End Solutions Across Precision Components, Motion Systems, Powertrain Technologies, Engineering And Industrial Tooling, Serving The World’s Most Demanding Sectors Like Automotive, Off Highway, Industrial, Railways, Power Tools And Other Critical Manufacturing Sectors. With A Complete Ecosystem Of Capabilities, A Future-Focused Vision, And Decades Of Expertise, JK Maini Is Built To Deliver Precision Where It Matters, Driving Performance, Reliability, And Progress At Scale.</p>
+                            <p className="wow fadeInUp text-white" style={{ opacity: 0.85, fontSize: '17px', lineHeight: '1.6' }}>A Complete Precision Engineering Partner For The World’s Leading Industries. Three Industry Leaders, Maini Precision Products, Ring Plus Aqua, And JK Files, Now Come Together As JK Maini Precision Technology (JKMPTL) To Form A Unified Powerhouse In Precision Engineering. Backed By The Legacy Of The Raymond Group, We Deliver End-To-End Solutions Across Precision Components, Motion Systems, Powertrain Technologies, Engineering And Industrial Tooling, Serving The World’s Most Demanding Sectors Like Automotive, Off Highway, Industrial, Railways, Power Tools And Other Critical Manufacturing Sectors. With A Complete Ecosystem Of Capabilities, A Future-Focused Vision, And Decades Of Expertise, JK Maini Is Built To Deliver Precision Where It Matters, Driving Performance, Reliability, And Progress At Scale.</p>
                         </div>
                     </div>
                 </div>

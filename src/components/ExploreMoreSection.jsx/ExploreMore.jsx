@@ -11,6 +11,8 @@ const boxData = [{
     image: "./images/sustainability.jpeg",
     link1: "/jkmptl-sustainability",
     link2: "/jkmgal-sustainability",
+    button1Text: "JKMPTL",
+    button2Text: "JKMGAL",
     target: "_self"
 }, {
 
@@ -19,6 +21,8 @@ const boxData = [{
     image: "./images/career.jpeg",
     link1: "https://auto.jkmaini.com/careers.html",
     link2: "https://aero.jkmaini.com/careers.html",
+    button1Text: "Automobile",
+    button2Text: "Aerospace",
     target: "_blank"
 }]
 
@@ -67,12 +71,12 @@ const ExploreMore = () => {
                                             <p>
                                                 {dataBox.description}
                                             </p>
-                                            <ul className="mt-auto flex-nowrap" style={{ gap: "10px", width: "100%" }}>
-                                                <a href={dataBox.link1} target={dataBox.target || "_self"} rel={dataBox.target === "_blank" ? "noopener noreferrer" : undefined} style={{ textDecoration: "none", flex: 1 }}>
-                                                    <li className="justify-content-center" style={{ width: "100%", padding: "10px 0", fontSize: "15px" }}>Explore More <FaArrowCircleRight /></li>
+                                            <ul className="mt-auto flex-wrap" style={{ gap: "10px" }}>
+                                                <a href={dataBox.link1} target={dataBox.target || "_self"} rel={dataBox.target === "_blank" ? "noopener noreferrer" : undefined} style={{ textDecoration: "none" }}>
+                                                    <li className="justify-content-between px-3" style={{ padding: "10px 15px", fontSize: "16px", fontWeight: "600", gap: "10px" }}>{dataBox.button1Text || "Explore More"} <FaArrowCircleRight /></li>
                                                 </a>
-                                                <a href={dataBox.link2} target={dataBox.target || "_self"} rel={dataBox.target === "_blank" ? "noopener noreferrer" : undefined} style={{ textDecoration: "none", flex: 1 }}>
-                                                    <li className="justify-content-center" style={{ width: "100%", padding: "10px 0", fontSize: "15px" }}>Explore More <FaArrowCircleRight /></li>
+                                                <a href={dataBox.link2} target={dataBox.target || "_self"} rel={dataBox.target === "_blank" ? "noopener noreferrer" : undefined} style={{ textDecoration: "none" }}>
+                                                    <li className="justify-content-between px-3" style={{ padding: "10px 15px", fontSize: "16px", fontWeight: "600", gap: "10px" }}>{dataBox.button2Text || "Explore More"} <FaArrowCircleRight /></li>
                                                 </a>
                                             </ul>
                                         </div>

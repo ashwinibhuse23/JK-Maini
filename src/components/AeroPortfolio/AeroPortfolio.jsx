@@ -1,13 +1,14 @@
 import React from 'react'
 import "./AeroPortfolio.css"
+import { TbPlane, TbPlaneDeparture, TbShieldChevron, TbHelicopter } from "react-icons/tb";
 
 const AeroPortfolio = () => {
 
-    const AeroPortfolio = [
-        { image: "images/aero/commercial-aircraft.png", text: "Commercial Aircraft" },
-        { image: "images/aero/business-jets.png", text: "Business Jets" },
-        { image: "images/aero/defence-aviation.png", text: "Defence Aviation" },
-        { image: "images/aero/helicopter.png", text: "Helicopter Programs" },
+    const AeroPortfolioData = [
+        { image: "images/aero/commercial-aircraft.png", text: "COMMERCIAL AIRCRAFT", icon: <TbPlane size={30} color="#E81C3D" strokeWidth={1.5}/> },
+        { image: "images/aero/business-jets.png", text: "BUSINESS JETS", icon: <TbPlaneDeparture size={30} color="#E81C3D" strokeWidth={1.5}/> },
+        { image: "images/aero/defence-aviation.jpeg", text: "DEFENCE AVIATION", icon: <TbShieldChevron size={30} color="#E81C3D" strokeWidth={1.5}/> },
+        { image: "images/aero/helicopter.png", text: "HELICOPTER PROGRAMS", icon: <TbHelicopter size={30} color="#E81C3D" strokeWidth={1.5}/> },
     ]
 
     return (
@@ -29,13 +30,22 @@ const AeroPortfolio = () => {
                 <div className="aero-grid-container">
                     <div className="aero-grid">
                         {
-                            AeroPortfolio.map((item, index) => {
+                            AeroPortfolioData.map((item, index) => {
                                 return (
-                                    <div key={index} className="aero-card">
-                                        <img src={item.image} alt={item.text} className="aero-card-image" />
-                                        <div className="aero-card-overlay"></div>
-                                        <div className="aero-card-content">
-                                            <h3 className="aero-card-title">{item.text}</h3>
+                                    <div key={index} className="aero-card-new">
+                                        <div className="aero-image-wrapper">
+                                            <img src={item.image} alt={item.text.replace('\n', ' ')} className="aero-card-img" />
+                                        </div>
+                                        <div className="aero-card-divider">
+                                            <div className="aero-card-dot"></div>
+                                        </div>
+                                        <div className="aero-card-content-new">
+                                            <div className="aero-card-icon">
+                                                {item.icon}
+                                            </div>
+                                            <h3 className="aero-card-title-new">
+                                                {item.text}
+                                            </h3>
                                         </div>
                                     </div>
                                 )
