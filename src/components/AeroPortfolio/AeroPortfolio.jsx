@@ -5,10 +5,10 @@ import { TbPlane, TbPlaneDeparture, TbShieldChevron, TbHelicopter } from "react-
 const AeroPortfolio = () => {
 
     const AeroPortfolioData = [
-        { image: "images/aero/commercial-aircraft.png", text: "COMMERCIAL AIRCRAFT", icon: <TbPlane size={30} color="#E81C3D" strokeWidth={1.5}/> },
-        { image: "images/aero/business-jets.png", text: "BUSINESS JETS", icon: <TbPlaneDeparture size={30} color="#E81C3D" strokeWidth={1.5}/> },
-        { image: "images/aero/defence-aviation.jpeg", text: "DEFENCE AVIATION", icon: <TbShieldChevron size={30} color="#E81C3D" strokeWidth={1.5}/> },
-        { image: "images/aero/helicopter.png", text: "HELICOPTER PROGRAMS", icon: <TbHelicopter size={30} color="#E81C3D" strokeWidth={1.5}/> },
+        { image: "images/aero/commercial-aircraft.jpeg", text: "COMMERCIAL AIRCRAFT", icon: <TbPlane size={30} color="#E81C3D" strokeWidth={1.5} /> },
+        { image: "images/aero/business-jets.jpeg", text: "BUSINESS JETS", icon: <TbPlaneDeparture size={30} color="#E81C3D" strokeWidth={1.5} /> },
+        { image: "images/aero/defence-aviation.jpeg", text: "DEFENCE AVIATION", icon: <TbShieldChevron size={30} color="#E81C3D" strokeWidth={1.5} /> },
+        { image: "images/aero/helicopter.jpeg", text: "HELICOPTER PROGRAMS", icon: <TbHelicopter size={30} color="#E81C3D" strokeWidth={1.5} /> },
     ]
 
     return (
@@ -18,7 +18,7 @@ const AeroPortfolio = () => {
                     <div className="section-title">
                         <span className="section-sub-title wow fadeInUp">Our Portfolio</span>
                         <br />
-                        <h2 className="text-anime-style-3" data-cursor="-opaque">
+                        <h2 className="text-anime-style-3" data-cursor="-opaque" style={{ fontWeight: 700 }}>
                             AEROSPACE PORTFOLIO
                         </h2>
                         <p className="about-raymond mt-3">

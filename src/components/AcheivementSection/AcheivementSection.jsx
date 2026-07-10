@@ -18,8 +18,6 @@ const carouselImages = [
     'images/journey/DSC_0273.jpg',
     'images/journey/DSC_0508.jpg',
     'images/journey/old-photo-2.png',
-    'images/journey/old-photo-3.jpg',
-    'images/journey/old-photo-4.jpg',
     'images/journey/old-photo.jpg'
 ];
 
@@ -82,11 +80,6 @@ const AcheivementSection = () => {
                                                 objectFit: 'cover',
                                                 opacity: currentImageIndex === idx ? 1 : 0,
                                                 transition: 'opacity 0.8s ease-in-out'
-                                            }}
-                                            onError={(e) => {
-                                                if (!e.target.src.includes('images/about-auto.png')) {
-                                                    e.target.src = 'images/about-auto.png';
-                                                }
                                             }}
                                         />
                                     ))}
