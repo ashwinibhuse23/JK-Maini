@@ -24,8 +24,8 @@ const AeroAbout = () => {
 
 
                                     </p>
-                                    <p className="wow fadeInUp about-raymond mt-3" data-wow-delay="0.2s" ></p>
-                                    From stator vanes and engine housings to flap tracks and fuel system assemblies, we engineer over 1200+ SKUs across complex engine, structural, and system components. Our 10,500 sq. m. aerospace facility in Bengaluru is built to meet the rigorous standards of global OEMs and Tier-1 suppliers.
+                                    <p className="wow fadeInUp about-raymond mt-3" data-wow-delay="0.2s" > From stator vanes and engine housings to flap tracks and fuel system assemblies, we engineer over 1200+ SKUs across complex engine, structural, and system components. Our 10,500 sq. m. aerospace facility in Bengaluru is built to meet the rigorous standards of global OEMs and Tier-1 suppliers.</p>
+                                   
                                     </div>
                                 
                             </div>

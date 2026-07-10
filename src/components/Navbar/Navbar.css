@@ -146,7 +146,8 @@ header.main-header .header-sticky.active {
 	z-index: 200;
 }
 
-.main-menu ul li:hover > ul {
+.main-menu ul li:hover > ul,
+.main-menu ul li.show-submenu > ul {
 	visibility: visible;
 	opacity: 1;
 	transform: scale(1, 1);
@@ -174,7 +175,7 @@ header.main-header .header-sticky.active {
 
 /* ─── Mega Menu ─── */
 .mega-parent {
-	position: static !important;
+	position: relative !important;
 }
 
 .mega-menu {
@@ -207,7 +208,8 @@ header.main-header .header-sticky.active {
 	background: transparent;
 }
 
-.mega-parent:hover .mega-menu {
+.mega-parent:hover .mega-menu,
+.mega-parent.show-submenu .mega-menu {
 	visibility: visible;
 	opacity: 1;
 	transform: translateX(-50%) translateY(0);

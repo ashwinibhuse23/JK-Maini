@@ -95,8 +95,21 @@ const Navbar = () => {
                                 <div className="nav-menu-wrapper">
                                     <ul className="navbar-nav mr-auto" id="menu">
                                         {navItems.map((item, i) => (
-                                            <li key={i} className={`nav-item${item.children ? ' submenu' : ''}${item.isMega ? ' submenu mega-parent' : ''}`}>
-                                                <a className="nav-link" href={item.href}>
+                                            <li 
+                                                key={i} 
+                                                className={`nav-item${item.children ? ' submenu' : ''}${item.isMega ? ' submenu mega-parent' : ''}${openSubmenu === i ? ' show-submenu' : ''}`}
+                                                onMouseLeave={() => setOpenSubmenu(null)}
+                                            >
+                                                <a 
+                                                    className="nav-link" 
+                                                    href={item.href}
+                                                    onClick={(e) => {
+                                                        if (item.children || item.isMega) {
+                                                            e.preventDefault();
+                                                            toggleSubmenu(i);
+                                                        }
+                                                    }}
+                                                >
                                                     {item.label}
                                                 </a>
                                                 {item.children && (
