@@ -15,7 +15,6 @@ const certs = [
 ]
 
 const carouselImages = [
-    'images/journey/DSC_0273.jpg',
     'images/journey/DSC_0508.jpg',
     'images/journey/old-photo-2.png',
     'images/journey/old-photo.jpg'
