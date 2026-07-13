@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PageHeader from '../../AboutHeader/PageHeader'
-import banner from "/images/awardsBack.jpg"
+import banner from "/images/award-bg.png"
 import './JKMGALAwards.css'
 
 

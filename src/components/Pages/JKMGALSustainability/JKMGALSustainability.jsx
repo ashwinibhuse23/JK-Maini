@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PageHeader from '../../AboutHeader/PageHeader'
 import Background from "/images/ss.png"
 import './JKMGALESSunstainbility.css'
 import ButtonOne from '../../ButtonOne/ButtonOne'
 import { FaArrowCircleRight } from 'react-icons/fa'
+import GetInTouchModal from '../../GetInTouchModal/GetInTouchModal'
 
 const JKMGALSustainability = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
       <PageHeader
@@ -22,29 +24,28 @@ const JKMGALSustainability = () => {
         <div className="jkmgal-hero-block">
 
           {/* LEFT column: heading + framework text together */}
-          <div className="jkmgal-hero-left">
+          <div className="jkmgal-hero-left section-title">
 
             {/* ESG Tag */}
-            <span className="jkmgal-esg-tag">Sustainability &amp; ESG</span>
+            <span className="section-sub-title wow fadeInUp mt-4" style={{ width: 'fit-content' }}>
+                Sustainability &amp; ESG
+            </span> <br />
 
-            {/* Main heading — site standard: text-anime-style-3 + inline red for Aerospace */}
-            <h2 className="jkmgal-main-heading text-anime-style-3" data-cursor="-opaque">
-              Building a Sustainable Aerospace Future
+            {/* Main heading */}
+            <h2 className="text-anime-style-3 text-uppercase" data-cursor="-opaque" style={{ fontSize: "2.2rem" }}>
+              Building a Sustainable <br /> Aerospace Future
             </h2>
 
-            {/* Red underline */}
-            <hr className="jkmgal-heading-rule" />
-
-            {/* Intro description — site standard paragraph style */}
-            <p className="about-raymond wow fadeInUp jkmgal-hero-desc" data-wow-delay="0.2s">
+            {/* Intro description */}
+            <p className="wow fadeInUp about-raymond mt-3" data-wow-delay="0.2s">
               At JKMGAL, we believe engineering excellence must go hand in hand with environmental responsibility, social equity, and ethical governance. Guided by our ESG Development Plan 2030, we are committed to shaping a future ready aerospace ecosystem that is sustainable, inclusive, and accountable.
             </p>
 
-            {/* Framework sub-section — inside same left column */}
-            {/* Framework heading — same style as main heading */}
-            <h3 className="jkmgal-framework-title text-anime-style-3" data-cursor="-opaque">Our Sustainability Framework</h3>
-            <hr className="jkmgal-framework-rule" />
-            <p className="about-raymond wow fadeInUp jkmgal-framework-desc" data-wow-delay="0.3s">
+            {/* Framework sub-section */}
+            <h3 className="text-anime-style-3 mt-5 text-uppercase" data-cursor="-opaque" style={{fontSize: "1.75rem", fontWeight: "700", color: "#111"}}>
+              Our Sustainability Framework
+            </h3>
+            <p className="wow fadeInUp about-raymond mt-3 mb-5" data-wow-delay="0.3s">
               Our ESG approach is built around three key pillars, Environmental (Planet), Social
               (People), and Governance (Partnership), each backed by measurable goals and ongoing action.
             </p>
@@ -224,7 +225,7 @@ const JKMGALSustainability = () => {
       </section>
 
       {/* ===== Get in Touch CTA Section ===== */}
-      <section className="jkmgal-cta-section">
+      <section className="jkmgal-cta-section text-center section-title">
 
         {/* Decorative blobs */}
         <div className="jkmgal-cta-blob jkmgal-cta-blob--red" aria-hidden="true" />
@@ -234,22 +235,23 @@ const JKMGALSustainability = () => {
 
           {/* Centered: Text content */}
           <div className="jkmgal-cta-text">
-            <span className="jkmgal-esg-tag jkmgal-cta-tag">Get in Touch</span>
+            <span className="section-sub-title wow fadeInUp mx-auto mb-2" style={{ width: 'fit-content' }}>
+                Get in Touch
+            </span>
 
-            <h2 className="jkmgal-cta-heading text-anime-style-3" data-cursor="-opaque">
-              Want to collaborate on your next{' '}
-              <span className="jkmgal-cta-accent">aerospace innovation?</span>
+            <h2 className="text-anime-style-3 mt-3 mb-2 text-uppercase" data-cursor="-opaque" style={{ fontSize: "2.2rem" }}>
+              Want to collaborate on your next <br />
+              <span className="text-danger">aerospace innovation?</span>
             </h2>
-            <hr className="jkmgal-cta-rule" />
 
-            <p className="jkmgal-cta-desc">
+            <p className="wow fadeInUp about-raymond mx-auto mb-3" data-wow-delay="0.2s" style={{ maxWidth: '800px' }}>
               Whether you&apos;re looking for custom-engineered solutions or want to explore how our
               capabilities align with your needs, we&apos;re here to help.
             </p>
 
-            {/* Action button — site theme ButtonOne */}
+            {/* Action button */}
             <div className="jkmgal-cta-actions">
-              <a href="/contact" className="btn-default">
+              <a onClick={() => setIsModalOpen(true)} className="btn-default" style={{cursor:"pointer"}}>
                 <ButtonOne text="Get In Touch" icon={<FaArrowCircleRight />} />
               </a>
             </div>
@@ -257,6 +259,12 @@ const JKMGALSustainability = () => {
 
         </div>
       </section>
+
+      {/* Modal Component */}
+      <GetInTouchModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+      />
     </>
   )
 }

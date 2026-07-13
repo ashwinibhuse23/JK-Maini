@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import PageHeader from '../../AboutHeader/PageHeader'
-import banner from "/images/awardsBack.jpg"
+import banner from "/images/award-bg.png"
 import './JKMPTLAwards.css'
 
 const certifications = [

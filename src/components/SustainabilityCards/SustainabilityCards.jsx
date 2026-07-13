@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./SustainabilityCards.css"
 
-const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg, impactIcons, impactTitles }) => {
+const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg, impactIcons, impactTitles, centerImage }) => {
 
 
     const susCardContent = [
@@ -12,6 +12,10 @@ const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg,
         { icon: icons.icon5, title: iconTitles.title5 },
         { icon: icons.icon6, title: iconTitles.title6 },
     ].filter(item => item.title);
+
+    const midIndex = Math.ceil(susCardContent.length / 2);
+    const leftColItems = susCardContent.slice(0, midIndex);
+    const rightColItems = susCardContent.slice(midIndex);
 
     const impCardContent = [
         { ImpactIcon: impactIcons.impIcon1, ImpactTitle: impactTitles.impTitle1 },
@@ -40,75 +44,72 @@ const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg,
             <section className="sustainability-cards" style={bg ? { backgroundColor: "#F6F5ED" } : { backgroundColor: "#fff" }}>
                 <div className="container">
                     <div className="section-title text-center">
-                        {/* <span className="section-sub-title wow fadeInUp">
-                        Who We Are
-                    </span> */}
+                       
                         <h2 className="text-anime-style-3" data-cursor="-opaque">
                             {sectionTitle}
                         </h2>
-                        <p className="wow fadeInUp text-dark" data-wow-delay="0.2s">
+                        <p className="wow fadeInUp about-raymond mt-3" data-wow-delay="0.2s">
                             {sectionDesc}
                         </p>
                     </div>
                 </div>
-                <div className="container">
-                    <div className="cards-parent">
-                        {
-                            susCardContent.map((item, index) => {
-                                return (
-                                    <div key={index} className={`sus-card sus-card${index} d-flex gap-2`} style={bg ? { backgroundColor: "#FFF" } : { backgroundColor: "#F6F5ED" }}>
-                                        <div className='d-flex align-items-center justify-content-center px-3'>
-                                            <div className="sus-card-icon" style={bg ? { backgroundColor: "#F6F5ED" } : { backgroundColor: "#fff" }}>
-                                                <img src={item.icon} alt="" />
-                                            </div>
-                                        </div>
-                                        <div className='d-flex align-items-center'>
-                                            <div className="sus-card-title">
-                                                <h3>{item.title}</h3>
-                                            </div>
-                                        </div>
+                <div className="container mt-4">
+                    <div className="sus-diagram">
+                        
+                        <div className="sus-col left">
+                            {leftColItems.map((item, index) => (
+                                <div key={`left-${index}`} className="sus-card" style={bg ? { backgroundColor: "#FFF" } : { backgroundColor: "#F6F5ED" }}>
+                                    <div className="sus-card-icon" style={{ background: "linear-gradient(to right, #a8112d 0%, #ff4c6c 100%)" }}>
+                                        <img src={item.icon} alt="" style={{ filter: 'brightness(0) invert(1)' }} />
+                                        <div className="connector"></div>
                                     </div>
-                                )
-                            })
-                        }
+                                    <div className="sus-card-title">
+                                        <h3>{item.title}</h3>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="sus-center">
+                            <div className="sus-center-circle">
+                                <img src={centerImage || "./images/sustainability-center-plant.jpg"} alt="Sustainability" className="sus-center-img" onError={(e) => { e.target.src = centerImage || "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800"; }} />
+                            </div>
+                        </div>
+
+                        <div className="sus-col right">
+                            {rightColItems.map((item, index) => (
+                                <div key={`right-${index}`} className="sus-card" style={bg ? { backgroundColor: "#FFF" } : { backgroundColor: "#F6F5ED" }}>
+                                    <div className="sus-card-icon" style={{ background: "linear-gradient(to right, #a8112d 0%, #ff4c6c 100%)" }}>
+                                        <img src={item.icon} alt="" style={{ filter: 'brightness(0) invert(1)' }} />
+                                        <div className="connector"></div>
+                                    </div>
+                                    <div className="sus-card-title">
+                                        <h3>{item.title}</h3>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
                     </div>
                 </div>
 
                 <div className="container mt-4">
-                    <div className="impact">
-                        <div className="row g-0">
-                            {/* ── Impact label card ── */}
-                            <div className="col-12 col-sm-6 col-md-3">
-                                <div className="impact-card d-flex align-items-center h-100">
-                                    <div className="impact-icon-wrap">
-                                        <div className="impact-card-icon">
-                                            <img src="./images/impact-icon.svg" alt="" />
-                                        </div>
+                    <div className="impact-container" style={bg ? { backgroundColor: "#FFF" } : { backgroundColor: "#F6F5ED" }}>
+                        <div className="impact-badge">
+                            <img src="./images/impact-icon.svg" alt="Impact" className="impact-badge-icon" style={{filter: 'brightness(0) invert(1)'}} />
+                            <span className="impact-badge-text">IMPACT</span>
+                        </div>
+                        <div className="impact-metrics">
+                            {impCardContent.map((item, key) => (
+                                <div key={key} className="impact-metric">
+                                    <div className="impact-metric-icon">
+                                        <img src={item.ImpactIcon} alt="" />
                                     </div>
-                                    <div className="impact-card-title">
-                                        <h3>Impact</h3>
+                                    <div className="impact-metric-title">
+                                        {item.ImpactTitle}
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* ── Three impact metric cards ── */}
-                            {
-                                impCardContent.map((items, key) => (
-                                    <div key={key} className="col-12 col-sm-6 col-md-3">
-                                        <div className="impacts-cards d-flex align-items-center h-100">
-                                            <div className="impact-icon-wrap">
-                                                <div className="impacts-card-icon">
-                                                    <img src={items.ImpactIcon} alt="" />
-                                                </div>
-                                            </div>
-                                            <div className="impacts-card-title">
-                                                <h3>{items.ImpactTitle}</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            }
+                            ))}
                         </div>
                     </div>
                 </div>

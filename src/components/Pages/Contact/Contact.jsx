@@ -80,7 +80,7 @@ const Contact = () => {
                                 </p>
                             </div>
                             
-                            <div className="contact-details-cards d-flex flex-column flex-sm-row gap-3 wow fadeInUp" data-wow-delay="0.2s" style={{ marginTop: '1.5rem', marginLeft: '-10px' }}>
+                            <div className="contact-details-cards d-flex flex-column flex-sm-row gap-3 wow fadeInUp" data-wow-delay="0.2s" style={{ marginTop: '2.5rem', marginLeft: '-10px' }}>
                                 <div className="premium-contact-card">
                                     <div className="premium-icon-wrapper">
                                         <FaPhoneAlt />
@@ -104,7 +104,7 @@ const Contact = () => {
                     </div>
 
                     {/* Right side form */}
-                    <div className="col-lg-7 mb-4 mb-lg-0">
+                    <div className="col-lg-6 custom-form-width mb-4 mb-lg-0">
                         <svg width="0" height="0" style={{ position: 'absolute' }}>
                             <defs>
                                 <linearGradient id="form-icon-grad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -220,11 +220,11 @@ const Contact = () => {
 
             {/* Our Locations Section */}
             <section className="locations-section py-4 py-lg-5 bg-light">
-                <div className="container-xl py-lg-5">
+                <div className="container-xl mt-lg-4 mb-lg-2">
                     <div className="row align-items-start gx-lg-4">
                         {/* Left Column: Map */}
                         <div className="col-lg-6 mb-4 mb-lg-0 order-2 order-lg-1">
-                            <div className="sticky-map-wrapper" style={{ position: 'sticky', top: '120px' }}>
+                            <div className="sticky-map-wrapper map-shift-left mt-lg-3" style={{ position: 'sticky', top: '120px' }}>
                                 <iframe 
                                     key={activeLoc.id}
                                     src={activeLoc.mapUrl}

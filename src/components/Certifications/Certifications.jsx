@@ -5,23 +5,28 @@ const Certifications = ({ bg }) => {
     const certs = [
         {
             icon: './images/certificates/IATF-2016.png',
-            title: 'IATF16949 Certified'
-        },
-        {
-            icon: './images/certificates/ISO-14001.png',
-            title: 'ISO 45001 Certification'
+            title: 'IATF16949',
+            subtitle: 'Certified'
         },
         {
             icon: './images/certificates/ISO-45001.png',
-            title: 'ISO 14001 Certification'
+            title: 'ISO 45001',
+            subtitle: 'Certification'
+        },
+        {
+            icon: './images/certificates/ISO-14001.png',
+            title: 'ISO 14001',
+            subtitle: 'Certification'
         },
         {
             icon: './images/certificates/reach&rohs.png',
-            title: 'REACH/RoHS Compliance'
+            title: 'REACH/RoHS',
+            subtitle: 'Compliance'
         },
         {
             icon: './images/certificates/trophy.png',
-            title: 'Commitment to SDGs'
+            title: 'Commitment',
+            subtitle: 'to SDGs'
         }
     ];
 
@@ -32,36 +37,45 @@ const Certifications = ({ bg }) => {
         >
             <div className="container">
                 <div className="section-title text-center">
-                    <h2 className="text-anime-style-3" data-cursor="-opaque">
-                        Certifications & Compliance
+                      <div className="wow fadeInUp mb-3 mx-auto" style={{ border: '1px solid #e0e0e0', color: '#111', padding: '8px 24px', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', fontSize: '1rem', fontWeight: '600', backgroundColor: '#fff' }}>
+                          <span style={{ width: '8px', height: '8px', backgroundColor: '#E81C3D', borderRadius: '50%', marginRight: '10px' }}></span> 
+                          Trust &amp; Transparency
+                      </div>
+                    <h2 className="text-anime-style-3 mb-3 text-uppercase" data-cursor="-opaque">
+                        CERTIFICATIONS &amp; <span className="text-danger">COMPLIANCE</span>
                     </h2>
-                    <p className="wow fadeInUp text-dark" data-wow-delay="0.2s">
+                    <p className="wow fadeInUp text-dark mx-auto mb-0" style={{ maxWidth: '800px' }} data-wow-delay="0.2s">
                         We maintain the highest standards of integrity, compliance, and transparency through our comprehensive sustainability certifications and accreditations.
                     </p>
                 </div>
             </div>
 
-            <div className="container mt-5">
-                <div className="certs-grid">
-                    {certs.map((cert, index) => (
-                        <div
-                            key={index}
-                            className="cert-card d-flex gap-2"
-                            style={bg ? { backgroundColor: "#FFF" } : { backgroundColor: "#F6F5ED" }}
-                        >
-                            <div className='d-flex align-items-center justify-content-center px-3'>
-                                <div className="cert-card-icon" style={bg ? { backgroundColor: "rgba(249, 166, 18, 0.1)" } : { backgroundColor: "#fff" }}>
-                                    <img src={cert.icon} alt={cert.title} className={`cert-card-img ${index < 4 ? "cert-large" : "cert-trophy"}`} />
+            <div className="container mt-4">
+                <div className="certs-row-wrapper pb-2">
+                    <div className="certs-row position-relative">
+                        {/* Continuous red line behind circles */}
+                        <div className="certs-continuous-line"></div>
+                        {certs.map((cert, index) => (
+                            <React.Fragment key={index}>
+                                <div className="cert-item text-center">
+                                    <div className="cert-icon-wrapper mx-auto mb-3">
+                                        <img src={cert.icon} alt={cert.title} className={`cert-icon-img ${index === 4 ? 'cert-trophy' : ''}`} />
+                                    </div>
+                                    <div className="cert-text">
+                                        <h3 className="cert-title">{cert.title}</h3>
+                                        <p className="cert-subtitle mb-0">{cert.subtitle}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='d-flex align-items-center'>
-                                <div className="cert-card-title">
-                                    <h3>{cert.title}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                                {index < certs.length - 1 && (
+                                    <div className="cert-connector">
+                                        <div className="cert-connector-dot"></div>
+                                    </div>
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </div>
                 </div>
+
             </div>
         </section>
     );

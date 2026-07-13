@@ -32,34 +32,14 @@ const AeroAbout = () => {
                             
                         </div>
                         <div className="col-lg-6">
-                            {/* Industries Image Box Start */}
-                            <div
-                                className="industries-image-box wow fadeInUp"
-                                data-wow-delay="0.2s"
-                            >
-                                {/* Industries Image Box 1 Start */}
-                                <div className="industries-image-box-1">
-                                    {/* Industries Image Start */}
-                                    <div className="industries-image">
-                                        <figure className="image-anime">
-                                            <img src="images/automotive-about-2.jpeg" alt="" />
-                                        </figure>
-                                    </div>
-                                    {/* Industries Image End */}
-                                </div>
-                                {/* Industries Image Box 1 End */}
-                                {/* Industries Image Box 2 Start */}
-                                <div className="industries-image-box-2">
-                                    {/* Industries Image Start */}
-                                    <div className="industries-image">
-                                        <figure className="image-anime">
-                                            <img src="images/automotive-about-1.jpeg" alt="" />
-                                        </figure>
-                                    </div>
-                                </div>
-                                {/* Industries Image Box 2 End */}
+                            <div className="wow fadeInUp" data-wow-delay="0.2s" style={{ paddingLeft: '20px' }}>
+                                <img 
+                                    src="images/aerospace-right.png" 
+                                    alt="Aerospace Capabilities" 
+                                    className="img-fluid rounded" 
+                                    style={{ width: '100%', objectFit: 'cover' }}
+                                />
                             </div>
-                            {/* Industries Image Box End */}
                         </div>
                     </div>
                 </div>

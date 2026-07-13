@@ -231,7 +231,6 @@ a:focus {
 	align-items: center;
 	font-size: 14px;
 	font-weight: 500;
-	text-transform: capitalize;
 	line-height: 1.2em;
 	letter-spacing: 0.02em;
 	white-space: nowrap;
@@ -274,7 +273,7 @@ a:focus {
 	cursor: none;
 	font-family: var(--primary-font);
 	font-weight: 600;
-	text-transform: capitalize;
+	text-transform: uppercase;
 }
 
 .section-title h2 {
@@ -283,7 +282,7 @@ a:focus {
 	cursor: none;
 	font-family: var(--primary-font);
 	font-weight: 600;
-	text-transform: capitalize;
+	text-transform: uppercase;
 }
 
 .section-title p {

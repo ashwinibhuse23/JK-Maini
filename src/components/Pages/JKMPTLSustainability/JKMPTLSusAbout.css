@@ -1,201 +1,181 @@
+/* JKMPTLSusAbout CSS - Restyled to match the new image layout */
+
 .sustain-about-section {
-    padding-top: 30px;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    background-color: transparent;
+    position: relative;
+    padding: 100px 0 60px 0;
+    min-height: 500px;
+    background-image: url('/images/sustainability1.jpeg');
+    background-size: cover;
+    background-position: 92% 75%;
+    background-repeat: no-repeat;
+    z-index: 1;
     overflow-x: hidden;
 }
 
-.sustain-chevron-container {
-    display: flex;
-    background: transparent;
-    position: relative;
-    min-height: 420px;
-    align-items: center;
-}
-
-.sustain-bg-number {
+/* White gradient overlay that fades to transparent on the right */
+.sustain-about-section::before {
+    content: '';
     position: absolute;
-    top: 15px;
-    left: 20px;
-    font-size: 140px;
-    font-weight: 800;
-    color: #E81C3D;
-    opacity: 0.1; /* very subtle */
-    line-height: 1;
-    z-index: 1;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(253,253,253,1) 0%, rgba(253,253,253,0.92) 35%, rgba(253,253,253,0) 80%),
+                linear-gradient(0deg, rgba(253,253,253,1) 0%, rgba(253,253,253,0) 30%);
+    z-index: -1;
 }
 
-.sustain-left-content {
-    flex: 0 0 50%;
-    padding: 20px 60px 20px 30px; 
+.sustain-content-container {
     position: relative;
     z-index: 2;
-    background: transparent;
+    width: 100%;
 }
 
-.sustain-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 18px;
-    background-color: transparent;
-    border: 1px solid rgba(232, 28, 61, 0.5);
-    color: #212529;
-    border-radius: 40px;
-    font-weight: 500;
-    font-size: 16px;
+.sustain-badge-square {
+    display: inline-block;
+    background-color: #c41e30;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 8px 14px;
+    border-radius: 4px;
     margin-bottom: 25px;
-    margin-left: -5px; /* shift slightly to the left */
-    position: relative;
-    z-index: 2;
+    box-shadow: 0 4px 15px rgba(196, 30, 48, 0.3);
+}
+
+.sustain-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sustain-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #c41e30;
+    border-radius: 50%;
 }
 
 .sustain-title {
-    font-size: 48px;
-    font-family: var(--secondary-font);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #212529;
+    font-size: 44px;
+    font-weight: 900;
+    color: #222;
     line-height: 1.1;
-    letter-spacing: -0.01em;
-    margin-bottom: 25px;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .sustain-title span {
-    color: #E81C3D;
+    color: #c41e30;
 }
 
 .sustain-divider {
-    width: 60px;
-    height: 4px;
-    background-color: #E81C3D;
-    margin-bottom: 30px;
+    width: 65px;
+    height: 3px;
+    background-color: #c41e30;
+    margin-bottom: 20px;
 }
 
 .sustain-desc {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #555;
-    margin-bottom: 25px;
+    font-size: 17px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    max-width: 95%;
 }
 
-.sustain-goals-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-top: 40px;
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 12px;
-    padding: 20px;
-    background-color: #fcfcfc;
+.sustain-learn-btn {
+    background-color: #c41e30;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+}
+
+.sustain-learn-btn:hover {
+    background-color: #a01525;
+    transform: translateY(-2px);
+}
+
+/* Goals Grid / Row */
+.sustain-goals-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 0px;
 }
 
 .sustain-goal-item {
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    text-align: center;
+    flex: 1;
+    position: relative;
 }
 
-.sustain-goal-item:not(:last-child) {
-    border-right: 1px solid rgba(0,0,0,0.05);
-}
-
-.sustain-goal-icon {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(232, 28, 61, 0.05);
+.sustain-goal-icon-circle {
+    width: 65px;
+    height: 65px;
+    background-color: #fff;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
-}
-
-.sustain-goal-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #212529;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     margin-bottom: 10px;
-    line-height: 1.3;
+    font-size: 28px;
+    color: #c41e30;
+    border: 1px solid rgba(196, 30, 48, 0.1);
 }
 
-.sustain-goal-desc {
-    font-size: 12px;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
+.sustain-goal-text {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.4;
 }
 
-/* The Chevron Magic */
-.sustain-right-image-wrapper {
-    position: absolute;
-    left: 50%;
-    right: auto;
-    top: 15px;
-    width: 47vw;
-    height: calc(100% - 15px);
-    background-color: rgba(232, 28, 61, 0.4); /* Reduced red border color opacity */
-    clip-path: polygon(80px 0, 100% 0, 100% 100%, 80px 100%, 0 50%);
-    z-index: 1;
+.sustain-goal-text strong {
+    font-weight: 800;
+    color: #111;
+    display: block;
+    margin-bottom: 4px;
 }
 
-.sustain-right-image-inner {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    /* Thinner border and adjusted chevron */
-    clip-path: polygon(86px 0, 100% 0, 100% 100%, 86px 100%, 6px 50%);
-}
-
-.sustain-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-    .sustain-left-content {
-        padding: 60px 80px 60px 40px;
-    }
-    .sustain-goals-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .sustain-goal-item:nth-child(2) {
-        border-right: none;
-    }
-    .sustain-goal-item:nth-child(1), .sustain-goal-item:nth-child(2) {
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        padding-bottom: 20px;
-        margin-bottom: 10px;
-    }
-}
-
+/* Responsive adjustments */
 @media (max-width: 991px) {
-    .sustain-chevron-container {
-        flex-direction: column;
+    .sustain-about-section::before {
+        background: linear-gradient(180deg, rgba(253,253,253,1) 0%, rgba(253,253,253,0.95) 60%, rgba(253,253,253,0) 100%);
     }
-    .sustain-left-content {
-        flex: none;
-        width: 100%;
-        padding: 40px;
+    
+    .sustain-title {
+        font-size: 32px;
     }
-    .sustain-right-image-wrapper {
-        position: relative;
-        left: auto;
-        width: 100%;
-        height: 380px;
-        clip-path: none;
-        background-color: transparent;
+    
+    .sustain-goals-row {
+        flex-wrap: wrap;
+        gap: 20px 0;
+        padding-top: 40px;
     }
-    .sustain-right-image-inner {
-        clip-path: none;
+    
+    .sustain-goal-item {
+        flex: 0 0 50%;
+    }
+}
+
+@media (max-width: 575px) {
+    .sustain-goal-item {
+        flex: 0 0 100%;
     }
 }

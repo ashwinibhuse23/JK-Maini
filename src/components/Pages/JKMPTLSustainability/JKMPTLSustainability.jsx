@@ -27,7 +27,7 @@ const JKMPTLSustainability = () => {
                 />
 
                 <PageHeader
-                    title="Environmental, Social & Governance(ESG)"
+                    title="Environmental, Social & Governance (ESG)"
                     desc="Precision with purpose. Engineering a sustainable future."
                     bgImg={banner}
                 />
@@ -52,6 +52,7 @@ const JKMPTLSustainability = () => {
                     bg={false}
                     impactIcons={{ impIcon1: "./images/trustworthiness.svg", impIcon2: "./images/compliance.svg", impIcon3: "./images/accountability.svg" }}
                     impactTitles={{ impTitle1: "Trusted partnerships", impTitle2: "Consistent Quality", impTitle3: "Culture Of Accountability" }}
+                    centerImage="./images/csrback.jpg"
                 />
 
                 <Certifications bg={true} />

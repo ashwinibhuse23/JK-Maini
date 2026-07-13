@@ -55,8 +55,8 @@ const OurCompanies = () => {
                                     </h2>
                                 </div>
                                 <p className="company-intro-desc">
-                                    Engineering What's Next. Advanced Solutions for Mobility & Aerospace Industry.
-                                    Built on Innovation. Proven in Performance. Trusted by Global Leaders.
+                                    Engineering what's next. Advanced solutions for mobility & aerospace industry.
+                                    Built on innovation. Proven in performance. Trusted by global leaders.
                                 </p>
                             </div>
                         </div>
@@ -72,7 +72,7 @@ const OurCompanies = () => {
                                         <div className="mb-3 company-logo">
                                             <img src="./images/JKMPTL.png" alt="JKMPTL" />
                                         </div>
-                                        <h2 className="text-anime-style-3 company-name mb-3" data-cursor="-opaque">
+                                        <h2 className="text-anime-style-3 company-name mb-3 text-white" data-cursor="-opaque">
                                             JK Maini Precision Technology Ltd.
                                         </h2>
                                         <ExpandableDesc text={jkmptlDesc} />
@@ -95,7 +95,7 @@ const OurCompanies = () => {
                                         <div className="mb-3 company-logo">
                                             <img src="./images/JKMGAL.png" alt="JKMGAL" />
                                         </div>
-                                        <h2 className="text-anime-style-3 company-name mb-3" data-cursor="-opaque">
+                                        <h2 className="text-anime-style-3 company-name mb-3 text-white" data-cursor="-opaque">
                                             JK Maini Global Aerospace Ltd.
                                         </h2>
                                         <ExpandableDesc text={jkmgalDesc} />
