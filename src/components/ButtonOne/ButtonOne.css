@@ -37,6 +37,15 @@
   white-space: nowrap;
 }
 
+.custom-button.w-100 .button-content {
+  width: 100%;
+  justify-content: center;
+}
+.custom-button.w-100 .button-icon-container {
+  position: absolute;
+  left: 4px;
+}
+
 /* Gradient background fill */
 .button-background {
   position: absolute;
@@ -51,9 +60,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px; /* reduced width */
-  height: 38px; /* reduced height */
-  background-color: rgba(255, 255, 255, 0.25);
+  width: 34px; 
+  height: 34px;
+  background-color: #ffffff;
   border-radius: 50%;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -63,8 +72,8 @@
 .button-icon {
   display: inline-flex;
   align-items: center;
-  font-size: 18px; /* reduced icon size */
-  color: #fff;
+  font-size: 16px;
+  color: #e31e24;
 }
 .button-icon.no-bg {
   font-size: 26px; /* larger for standalone icons without the circle bg */
