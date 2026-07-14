@@ -97,23 +97,52 @@
 .sus-card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: transparent !important;
-    padding: 10px 0;
+    gap: 15px;
+    padding: 15px;
     transition: transform 0.3s ease;
     border: none;
     position: relative;
+    border-radius: 12px;
+}
+
+@media (max-width: 991px) {
+    .sus-diagram {
+        gap: 1.5rem;
+    }
+    .sus-center {
+        order: -1;
+        margin-bottom: 0.5rem;
+    }
+    .sus-center-circle {
+        width: 180px;
+        height: 180px;
+    }
+    .sus-col {
+        gap: 0.75rem;
+    }
 }
 
 .sus-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+}
+
+@media (min-width: 992px) {
+    .sus-card {
+        background: transparent !important;
+        padding: 10px 0;
+        gap: 12px;
+        border-radius: 0;
+    }
+    .sus-card:hover {
+        transform: translateY(-5px);
+    }
 }
 
 .sus-card-icon {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: #fff;
+    background: transparent;
     box-shadow: 0 4px 15px rgba(232, 28, 61, 0.15);
     display: flex;
     align-items: center;
@@ -122,6 +151,19 @@
     position: relative;
     z-index: 2;
 }
+
+.sus-card-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(to right, #a8112d 0%, #ff4c6c 100%);
+    z-index: 1;
+}
+
 @media (min-width: 1200px) {
     .sus-card-icon {
         width: 50px;
@@ -131,6 +173,8 @@
 
 .sus-card-icon img {
     width: 50%;
+    position: relative;
+    z-index: 2;
 }
 
 .sus-card-title {
@@ -202,69 +246,95 @@
     /* Target nth-child to angle the lines */
     /* Angles for Left */
     .sus-col.left .sus-card:nth-child(1) .connector {
-        transform: rotate(25deg);
-        width: 65px;
+        transform: rotate(30deg);
+        width: 77px;
     }
     .sus-col.left .sus-card:nth-child(2) .connector {
         transform: rotate(0deg);
         width: 53px;
     }
     .sus-col.left .sus-card:nth-child(3) .connector {
-        transform: rotate(-25deg);
-        width: 65px;
+        transform: rotate(-30deg);
+        width: 77px;
     }
     /* Fallback for only 2 items */
     .sus-col.left .sus-card:nth-last-child(2):first-child .connector {
-        transform: rotate(15deg);
-        width: 58px;
+        transform: rotate(16deg);
+        width: 59px;
     }
     .sus-col.left .sus-card:nth-last-child(1):nth-child(2) .connector {
-        transform: rotate(-15deg);
-        width: 58px;
+        transform: rotate(-16deg);
+        width: 59px;
     }
 
     /* Angles for Right */
     .sus-col.right .sus-card:nth-child(1) .connector {
-        transform: rotate(-25deg);
-        width: 65px;
+        transform: rotate(-30deg);
+        width: 77px;
     }
     .sus-col.right .sus-card:nth-child(2) .connector {
         transform: rotate(0deg);
         width: 53px;
     }
     .sus-col.right .sus-card:nth-child(3) .connector {
-        transform: rotate(25deg);
-        width: 65px;
+        transform: rotate(30deg);
+        width: 77px;
     }
 
     /* Fallback for only 2 items on Right */
     .sus-col.right .sus-card:nth-last-child(2):first-child .connector {
-        transform: rotate(-15deg);
-        width: 58px;
+        transform: rotate(-16deg);
+        width: 59px;
     }
     .sus-col.right .sus-card:nth-last-child(1):nth-child(2) .connector {
-        transform: rotate(15deg);
-        width: 58px;
+        transform: rotate(16deg);
+        width: 59px;
     }
 }
+
 @media (min-width: 1200px) {
-    .sus-col.left .sus-card:nth-child(1) .connector,
-    .sus-col.left .sus-card:nth-child(3) .connector,
-    .sus-col.right .sus-card:nth-child(1) .connector,
-    .sus-col.right .sus-card:nth-child(3) .connector {
-        width: 80px;
+    .sus-col.left .sus-card:nth-child(1) .connector {
+        transform: rotate(28deg);
+        width: 79px;
     }
-    .sus-col.left .sus-card:nth-child(2) .connector,
-    .sus-col.right .sus-card:nth-child(2) .connector {
+    .sus-col.left .sus-card:nth-child(2) .connector {
+        transform: rotate(0deg);
         width: 55px;
+    }
+    .sus-col.left .sus-card:nth-child(3) .connector {
+        transform: rotate(-28deg);
+        width: 79px;
+    }
+    
+    .sus-col.right .sus-card:nth-child(1) .connector {
+        transform: rotate(-28deg);
+        width: 79px;
+    }
+    .sus-col.right .sus-card:nth-child(2) .connector {
+        transform: rotate(0deg);
+        width: 55px;
+    }
+    .sus-col.right .sus-card:nth-child(3) .connector {
+        transform: rotate(28deg);
+        width: 79px;
     }
 
     /* Fallback for 2 items */
-    .sus-col.left .sus-card:nth-last-child(2):first-child .connector,
-    .sus-col.left .sus-card:nth-last-child(1):nth-child(2) .connector,
-    .sus-col.right .sus-card:nth-last-child(2):first-child .connector,
+    .sus-col.left .sus-card:nth-last-child(2):first-child .connector {
+        transform: rotate(15deg);
+        width: 61px;
+    }
+    .sus-col.left .sus-card:nth-last-child(1):nth-child(2) .connector {
+        transform: rotate(-15deg);
+        width: 61px;
+    }
+    .sus-col.right .sus-card:nth-last-child(2):first-child .connector {
+        transform: rotate(-15deg);
+        width: 61px;
+    }
     .sus-col.right .sus-card:nth-last-child(1):nth-child(2) .connector {
-        width: 60px;
+        transform: rotate(15deg);
+        width: 61px;
     }
 }
 

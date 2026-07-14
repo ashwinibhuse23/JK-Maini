@@ -53,7 +53,7 @@
     display: inline-block;
     background: var(--dark-divider-color);
     backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
     border-radius: 50%;
 }
 
@@ -112,7 +112,7 @@
     border: 1px solid var(--dark-divider-color);
     background: var(--divider-color);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2.5rem;
     z-index: 1;

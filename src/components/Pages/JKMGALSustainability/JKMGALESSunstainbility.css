@@ -707,14 +707,14 @@
 .jkmgal-gov-cards {
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     padding: 14px;
     background: transparent;
     align-items: stretch;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 576px) {
     .jkmgal-gov-cards {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -881,11 +881,7 @@
 }
 
 /* ── Extra small: stack cards full width ── */
-@media (max-width: 400px) {
-    .jkmgal-gov-cards {
-        grid-template-columns: 1fr;
-    }
-
+@media (max-width: 575px) {
     .jkmgal-gov-card {
         padding: 16px 14px 12px;
     }

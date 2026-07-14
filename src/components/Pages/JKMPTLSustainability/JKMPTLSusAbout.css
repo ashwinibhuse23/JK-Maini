@@ -4,7 +4,7 @@
     position: relative;
     padding: 100px 0 60px 0;
     min-height: 500px;
-    background-image: url('/images/sustainability1.jpeg');
+    background-image: url('/images/sustainability1.png');
     background-size: cover;
     background-position: 92% 75%;
     background-repeat: no-repeat;
@@ -59,16 +59,16 @@
     border-radius: 50%;
 }
 
-.sustain-title {
+.section-title .sustain-title {
     font-size: 44px;
-    font-weight: 900;
+    font-weight: 700;
     color: #222;
     line-height: 1.1;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
-.sustain-title span {
+.section-title .sustain-title span {
     color: #c41e30;
 }
 
@@ -79,9 +79,9 @@
     margin-bottom: 20px;
 }
 
-.sustain-desc {
+.section-title p.sustain-desc {
     font-size: 17px;
-    color: #444;
+    color: #000;
     line-height: 1.6;
     margin-bottom: 15px;
     max-width: 95%;
@@ -155,12 +155,17 @@
 
 /* Responsive adjustments */
 @media (max-width: 991px) {
-    .sustain-about-section::before {
-        background: linear-gradient(180deg, rgba(253,253,253,1) 0%, rgba(253,253,253,0.95) 60%, rgba(253,253,253,0) 100%);
+    .sustain-about-section {
+        padding: 80px 0 50px 0;
+        background-position: 80% 50%;
     }
     
-    .sustain-title {
-        font-size: 32px;
+    .sustain-about-section::before {
+        background: linear-gradient(180deg, rgba(253,253,253,1) 0%, rgba(253,253,253,0.95) 60%, rgba(253,253,253,0.7) 100%);
+    }
+    
+    .section-title .sustain-title {
+        font-size: 36px;
     }
     
     .sustain-goals-row {
@@ -174,7 +179,35 @@
     }
 }
 
+@media (max-width: 767px) {
+    .sustain-about-section {
+        padding: 60px 0 40px 0;
+        background-position: center;
+    }
+
+    .section-title .sustain-title {
+        font-size: 28px;
+    }
+
+    .section-title p.sustain-desc {
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 575px) {
+    .sustain-about-section {
+        padding: 50px 0 40px 0;
+    }
+
+    .section-title .sustain-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .section-title p.sustain-desc {
+        font-size: 14px;
+    }
+
     .sustain-goal-item {
         flex: 0 0 100%;
     }

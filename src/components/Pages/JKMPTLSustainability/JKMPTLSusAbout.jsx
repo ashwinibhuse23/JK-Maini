@@ -17,16 +17,16 @@ const JKMPTLSusAbout = () => {
                                 Sustainability Goals
                             </span> <br />
                             
-                            <h2 className="text-anime-style-3" data-cursor="-opaque">
+                            <h2 className="sustain-title text-anime-style-3" data-cursor="-opaque">
                                 OUR COMMITMENT <br/>
                                 TO SUSTAINABILITY
                             </h2>
                             
-                            <p className="wow fadeInUp about-raymond mt-3" data-wow-delay="0.2s">
+                            <p className="sustain-desc wow fadeInUp mt-3" data-wow-delay="0.2s">
                                We are dedicated to building a future where business growth goes hand in hand with environmental stewardship and social responsibility. Our sustainability goals focus on reducing our carbon footprint, conserving water and energy, minimizing waste, and fostering a safe and inclusive workplace.
                             </p>
                             
-                            <p className="wow fadeInUp about-raymond mt-3" data-wow-delay="0.3s">
+                            <p className="sustain-desc wow fadeInUp mt-3" data-wow-delay="0.3s">
                                 By embracing innovative technologies and responsible sourcing, we strive to create lasting value for our communities and the planet. Our journey is guided by transparency, accountability, and a passion for making a positive impact, today and for generations to come.
                             </p>
                         </div>

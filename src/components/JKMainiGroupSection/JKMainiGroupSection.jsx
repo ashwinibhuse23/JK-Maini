@@ -63,7 +63,7 @@ export default function JKMainiAboutSection() {
                                     </div>
                                 </div>
 
-                                <div className="diagram-plus position-absolute" style={{ top: '35%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '20px', color: '#fff' }}>+</div>
+                                <div className="diagram-plus">+</div>
 
                                 {/* Top Right Node */}
                                 <div className="dark-card-node">

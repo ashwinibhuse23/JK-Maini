@@ -59,7 +59,7 @@ const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg,
                         <div className="sus-col left">
                             {leftColItems.map((item, index) => (
                                 <div key={`left-${index}`} className="sus-card" style={bg ? { backgroundColor: "#FFF" } : { backgroundColor: "#F6F5ED" }}>
-                                    <div className="sus-card-icon" style={{ background: "linear-gradient(to right, #a8112d 0%, #ff4c6c 100%)" }}>
+                                    <div className="sus-card-icon">
                                         <img src={item.icon} alt="" style={{ filter: 'brightness(0) invert(1)' }} />
                                         <div className="connector"></div>
                                     </div>
@@ -79,7 +79,7 @@ const SustainabilityCards = ({ sectionTitle, sectionDesc, icons, iconTitles, bg,
                         <div className="sus-col right">
                             {rightColItems.map((item, index) => (
                                 <div key={`right-${index}`} className="sus-card" style={bg ? { backgroundColor: "#FFF" } : { backgroundColor: "#F6F5ED" }}>
-                                    <div className="sus-card-icon" style={{ background: "linear-gradient(to right, #a8112d 0%, #ff4c6c 100%)" }}>
+                                    <div className="sus-card-icon">
                                         <img src={item.icon} alt="" style={{ filter: 'brightness(0) invert(1)' }} />
                                         <div className="connector"></div>
                                     </div>

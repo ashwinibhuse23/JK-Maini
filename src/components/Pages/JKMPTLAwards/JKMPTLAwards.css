@@ -305,9 +305,8 @@
 
 /* Card shell */
 .fa-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: stretch;
+    display: flex;
+    flex-direction: column;
     background: #ffffff;
     border-radius: 16px;
     overflow: hidden;
@@ -316,9 +315,21 @@
     transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.38s ease;
 }
 
+@media (max-width: 767px) {
+    .fa-card-text {
+        order: 2;
+    }
+    .fa-card-img-side {
+        order: 1;
+        border-bottom: 1px solid rgba(24, 25, 26, 0.06);
+    }
+}
+
 @media (min-width: 768px) {
     .fa-card {
+        display: grid;
         grid-template-columns: 1fr 1fr;
+        align-items: stretch;
         border-radius: 20px;
     }
 }

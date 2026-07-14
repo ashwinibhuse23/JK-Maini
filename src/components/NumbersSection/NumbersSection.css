@@ -198,24 +198,44 @@
     .numbers-section .our-industries-content, .parent {
         padding: 0 15px;
     }
+    .parent {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .number-box {
+        padding: 20px 10px;
+        justify-content: center;
+    }
     .number-box-content {
-        gap: 15px !important;
+        gap: 20px !important;
         padding-left: 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     .box-icon {
         transform: scale(0.8);
-        transform-origin: left center;
+        transform-origin: center;
+        margin: 0 auto 10px auto;
     }
     .count {
         font-size: 28px;
-        padding-left: 10px;
+        padding-left: 0;
+        display: block;
+        padding-bottom: 10px;
+        margin-bottom: 8px;
     }
     .count::after {
-        left: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+    }
+    .number-box:hover .count::after {
+        width: 60px;
     }
     .count-desc {
-        padding-left: 10px;
-        font-size: 12px;
+        padding-left: 0;
+        font-size: 11px;
     }
 }
 
@@ -275,5 +295,31 @@
     .aero-numbers-section .parent {
         grid-template-columns: repeat(4, 1fr);
         gap: 25px;
+    }
+}
+
+/* Fix for Tools and Aero variants on mobile to ensure they center correctly */
+@media (max-width: 767px) {
+    .tools-numbers-section .box-icon,
+    .aero-numbers-section .box-icon {
+        margin: 0 auto 10px auto !important;
+        transform: scale(0.8) !important;
+    }
+    
+    .tools-numbers-section .count,
+    .aero-numbers-section .count {
+        padding-left: 0 !important;
+        font-size: 28px !important;
+    }
+    
+    .tools-numbers-section .count-desc,
+    .aero-numbers-section .count-desc {
+        padding-left: 0 !important;
+    }
+    
+    .tools-numbers-section .count::after,
+    .aero-numbers-section .count::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }

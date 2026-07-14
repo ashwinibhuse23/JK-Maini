@@ -132,12 +132,60 @@
 @media (max-width: 1200px) {
     .aero-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 20px;
+    }
+    .aero-image-wrapper {
+        height: 300px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+    .aero-grid {
+        gap: 15px;
+    }
+    .aero-image-wrapper {
+        height: 250px;
+    }
+}
+
+@media (max-width: 767px) {
+    .aero-portfolio-section {
+        padding: 50px 0;
+    }
     .aero-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .aero-image-wrapper {
+        height: 320px;
+    }
+    .aero-card-title-new {
+        font-size: 14px;
+    }
+    .aero-card-content-new {
+        padding: 15px 10px;
+    }
+    .aero-card-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    .aero-header-container .tp-main-title,
+    .aero-header-container h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 575px) {
+    .aero-grid {
+        grid-template-columns: 1fr;
+    }
+    .aero-image-wrapper {
+        height: 300px;
+    }
+    .aero-card-title-new {
+        font-size: 14px;
+    }
+    .aero-card-content-new {
+        padding: 12px 10px;
     }
 }

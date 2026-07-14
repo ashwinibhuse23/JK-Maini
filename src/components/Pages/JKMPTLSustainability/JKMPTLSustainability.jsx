@@ -47,12 +47,13 @@ const JKMPTLSustainability = () => {
                 <SustainabilityCards
                     sectionTitle="Governance & Ethics"
                     sectionDesc="Integrity, compliance, and transparency are central to our operations."
-                    icons={{ icon1: "./images/vendor.svg", icon2: "./images/compliance.svg", icon3: "./images/employeetraning.svg", icon4: "./images/workplacesaftey.svg", icon5: "./images/data.svg" }}
-                    iconTitles={{ title1: "Ethical procurement and vendor management", title2: "Strong compliance with Industry standards", title3: "Employee training and development programs", title4: "Workplace safety and quality focus", title5: "Data integrity and responsible business practices" }}
+                    icons={{ icon1: "./images/vendor.svg", icon2: "./images/compliance.svg", icon3: "./images/employeetraning.svg", icon4: "./images/workplacesaftey.svg", icon5: "./images/data.svg", icon6: "./images/development.png" }}
+                    iconTitles={{ title1: "Ethical procurement and vendor management", title2: "Strong compliance with Industry standards", title3: "Employee training and development programs", title4: "Workplace safety and quality focus", title5: "Data integrity and responsible business practices", title6: "Transparent corporate governance and accountability" }}
                     bg={false}
                     impactIcons={{ impIcon1: "./images/trustworthiness.svg", impIcon2: "./images/compliance.svg", impIcon3: "./images/accountability.svg" }}
                     impactTitles={{ impTitle1: "Trusted partnerships", impTitle2: "Consistent Quality", impTitle3: "Culture Of Accountability" }}
-                    centerImage="./images/csrback.jpg"
+                    centerImage="./images/governanace.jpeg
+                    "
                 />
 
                 <Certifications bg={true} />

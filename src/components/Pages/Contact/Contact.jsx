@@ -245,68 +245,76 @@ const Contact = () => {
                                         <span style={{ width: '8px', height: '8px', backgroundColor: '#e31e24', borderRadius: '50%', marginRight: '10px' }}></span>
                                         <span style={{ color: '#333', fontWeight: '600', fontSize: '0.9rem' }}>Our Locations</span>
                                     </div>
-                                    <h2 className="text-uppercase text-anime-style-3" data-cursor="-opaque" style={{ fontWeight: '600', color: '#1a1a1a', letterSpacing: '0.5px' }}>
+                                    <h2 className="text-uppercase text-anime-style-3" data-cursor="-opaque" style={{ fontWeight: '600', color: '#1a1a1a', letterSpacing: '0.5px', fontSize: '1.15rem', whiteSpace: 'nowrap' }}>
                                         JK MAINI PRECISION TECHNOLOGY
                                     </h2>
                                 </div>
 
                                 <div className="locations-list">
                                     {locationsData.map((loc) => (
-                                        <div 
-                                            key={loc.id}
-                                            className={`location-list-card ${expandedCardId === loc.id ? 'active' : ''}`}
-                                            onClick={() => {
-                                                setActiveLoc(loc);
-                                                setExpandedCardId(expandedCardId === loc.id ? null : loc.id);
-                                            }}
-                                        >
-                                            <div className="d-flex align-items-center">
-                                                <div className="location-list-icon">
-                                                    <FaMapMarkerAlt />
-                                                </div>
-                                                <div className="location-list-info pe-2">
-                                                    <p className="mb-0" style={{ fontSize: '0.95rem', fontWeight: '500', color: expandedCardId === loc.id ? '#e31e24' : '#333', lineHeight: '1.5', transition: 'color 0.3s ease' }}>
-                                                        {loc.address}
-                                                    </p>
-                                                </div>
-                                                <div className="location-list-arrow">
-                                                    {expandedCardId === loc.id ? <FaChevronDown /> : <FaChevronRight />}
-                                                </div>
-                                            </div>
-
-                                            {expandedCardId === loc.id && (
-                                                <div className="location-expanded-info mt-4">
-                                                    <div className="loc-info-card">
-                                                        <div className="loc-info-icon"><FaEnvelope /></div>
-                                                        <div className="loc-info-text">
-                                                            <div className="loc-info-label">Email Address</div>
-                                                            <div className="loc-info-value">{loc.email}</div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="loc-info-card">
-                                                        <div className="loc-info-icon"><FaPhoneAlt /></div>
-                                                        <div className="loc-info-text">
-                                                            <div className="loc-info-label">Phone Number</div>
-                                                            <div className="loc-info-value">{loc.phone}</div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="loc-info-card">
-                                                        <div className="loc-info-icon"><FaMapMarkerAlt /></div>
-                                                        <div className="loc-info-text">
-                                                            <div className="loc-info-label">Our Location</div>
-                                                            <div className="loc-info-value">{loc.address}</div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="loc-info-card mb-0">
-                                                        <div className="loc-info-icon"><FaIdCard /></div>
-                                                        <div className="loc-info-text">
-                                                            <div className="loc-info-label">CIN Number</div>
-                                                            <div className="loc-info-value">{loc.cin}</div>
-                                                        </div>
-                                                    </div>
+                                        <React.Fragment key={loc.id}>
+                                            {loc.id === 'jkfiles' && (
+                                                <div className="section-title mb-3 mt-4">
+                                                    <h2 className="text-uppercase text-anime-style-3" data-cursor="-opaque" style={{ fontWeight: '600', color: '#1a1a1a', letterSpacing: '0.5px', fontSize: '1.15rem', whiteSpace: 'nowrap' }}>
+                                                        JK MAINI GLOBAL AEROSPACE
+                                                    </h2>
                                                 </div>
                                             )}
-                                        </div>
+                                            <div 
+                                                className={`location-list-card ${expandedCardId === loc.id ? 'active' : ''}`}
+                                                onClick={() => {
+                                                    setActiveLoc(loc);
+                                                    setExpandedCardId(expandedCardId === loc.id ? null : loc.id);
+                                                }}
+                                            >
+                                                <div className="d-flex align-items-center">
+                                                    <div className="location-list-icon">
+                                                        <FaMapMarkerAlt />
+                                                    </div>
+                                                    <div className="location-list-info pe-2">
+                                                        <p className="mb-0" style={{ fontSize: '0.95rem', fontWeight: '500', color: expandedCardId === loc.id ? '#e31e24' : '#333', lineHeight: '1.5', transition: 'color 0.3s ease' }}>
+                                                            {loc.address}
+                                                        </p>
+                                                    </div>
+                                                    <div className="location-list-arrow">
+                                                        {expandedCardId === loc.id ? <FaChevronDown /> : <FaChevronRight />}
+                                                    </div>
+                                                </div>
+
+                                                {expandedCardId === loc.id && (
+                                                    <div className="location-expanded-info mt-4">
+                                                        <div className="loc-info-card">
+                                                            <div className="loc-info-icon"><FaEnvelope /></div>
+                                                            <div className="loc-info-text">
+                                                                <div className="loc-info-label">Email Address</div>
+                                                                <div className="loc-info-value">{loc.email}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="loc-info-card">
+                                                            <div className="loc-info-icon"><FaPhoneAlt /></div>
+                                                            <div className="loc-info-text">
+                                                                <div className="loc-info-label">Phone Number</div>
+                                                                <div className="loc-info-value">{loc.phone}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="loc-info-card">
+                                                            <div className="loc-info-icon"><FaMapMarkerAlt /></div>
+                                                            <div className="loc-info-text">
+                                                                <div className="loc-info-label">Our Location</div>
+                                                                <div className="loc-info-value">{loc.address}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="loc-info-card mb-0">
+                                                            <div className="loc-info-icon"><FaIdCard /></div>
+                                                            <div className="loc-info-text">
+                                                                <div className="loc-info-label">CIN Number</div>
+                                                                <div className="loc-info-value">{loc.cin}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </React.Fragment>
                                     ))}
                                 </div>
                             </div>

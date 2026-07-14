@@ -141,7 +141,7 @@
 }
 
 .why-choose-body-image{
-	width: calc(54% - 25px);
+	width: 100%;
 }
 
 .why-choose-body-image figure{
@@ -159,8 +159,17 @@
 }
 
 .why-choose-body-list{
-	width: calc(46% - 25px);
+	width: 100%;
 	align-content: center;
+}
+
+@media (min-width: 992px) {
+	.why-choose-body-image{
+		width: calc(54% - 25px);
+	}
+	.why-choose-body-list{
+		width: calc(46% - 25px);
+	}
 }
 
 .why-choose-body-list ul{

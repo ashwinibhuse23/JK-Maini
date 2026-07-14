@@ -42,6 +42,15 @@
 	z-index: 1;
 }
 
+@media (max-width: 575px) {
+    .page-header:before {
+        background: linear-gradient(270deg, rgba(24, 25, 26, 0.2) 0%, rgba(24, 25, 26, 0.85) 50%, rgba(24, 25, 26, 0.95) 100%);
+    }
+    .page-header {
+        background-position: 70% center;
+    }
+}
+
 .page-header-box {
 	position: relative;
 	z-index: 2;
@@ -55,11 +64,13 @@
 	margin-bottom: 15px;
 	cursor: none;
 	word-break: break-word;
+    max-width: 90%;
 }
 
 @media (min-width: 576px) {
 	.page-header-box h1 {
 		font-size: 40px;
+        max-width: 100%;
 	}
 }
 
@@ -72,13 +83,14 @@
 .page-header-box p {
 	font-size: 14px;
 	line-height: 1.6;
-	max-width: 100%;
+	max-width: 85%;
 	word-break: break-word;
 }
 
 @media (min-width: 576px) {
 	.page-header-box p {
 		font-size: 15px;
+        max-width: 90%;
 	}
 }
 

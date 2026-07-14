@@ -41,12 +41,12 @@ const AeroNumbers = () => {
                             Numbers.map((number, index) => {
                                 return (
                                     <>
-                                        <div key={index} className={`number-box d-flex align-items-center div-${index}`}>
-                                            <div className="number-box-content d-flex gap-2">
+                                        <div key={index} className={`number-box div-${index}`}>
+                                            <div className="number-box-content">
                                                 <div className="box-icon">
                                                     {number.icon}
                                                 </div>
-                                                <div>
+                                                <div className="box-text">
 
                                                     <h2 className='count'>{number.count}</h2>
                                                     <p className='count-desc'>{number.countDesc}</p>
