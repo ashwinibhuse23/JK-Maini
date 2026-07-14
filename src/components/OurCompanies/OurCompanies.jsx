@@ -72,9 +72,7 @@ const OurCompanies = () => {
                                         <div className="mb-3 company-logo">
                                             <img src="./images/JKMPTL.png" alt="JKMPTL" />
                                         </div>
-                                        <h2 className="text-anime-style-3 company-name mb-3 text-white" data-cursor="-opaque">
-                                            JK Maini Precision Technology Ltd.
-                                        </h2>
+                                       
                                         <ExpandableDesc text={jkmptlDesc} />
                                     </div>
                                 </div>
@@ -95,9 +93,7 @@ const OurCompanies = () => {
                                         <div className="mb-3 company-logo">
                                             <img src="./images/JKMGAL.png" alt="JKMGAL" />
                                         </div>
-                                        <h2 className="text-anime-style-3 company-name mb-3 text-white" data-cursor="-opaque">
-                                            JK Maini Global Aerospace Ltd.
-                                        </h2>
+                                       
                                         <ExpandableDesc text={jkmgalDesc} />
                                     </div>
                                 </div>
